@@ -1,5 +1,12 @@
 import React from "react";
+import Nav from "./components/Nav";
 
-export default function App() {
-  return <div className="container-lg d-flex justify-content-center align-items-center min-vh-100">Template - React-Bootstrap</div>;
+export default class App extends React.Component {
+  render() {
+    return (
+      <div className="d-flex flex-column justify-content-center min-vh-100">
+        <Nav />
+      </div>
+    );
+  }
 }
