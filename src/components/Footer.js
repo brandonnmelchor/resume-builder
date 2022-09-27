@@ -7,7 +7,7 @@ export default class Footer extends React.Component {
 
     return (
       <footer className="bg-dark text-white mt-auto">
-        <div className="container-lg py-3">
+        <div className="container-lg py-2">
           <div className="row justify-content-center align-items-center">
             <div className="col text-end">
               <span>&copy; 2022 Brandonn Melchor </span>
