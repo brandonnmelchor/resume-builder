@@ -4,8 +4,8 @@ const demo = {
     lastName: "Melchor",
     phone: "+19567396168",
     email: "brandonnmelchor@gmail.com",
-    linkedIn: "linkedin.com/in/brandonnmelchor",
-    gitHub: "github.com/brandonnmelchor",
+    linkedin: "linkedin.com/in/brandonnmelchor",
+    github: "github.com/brandonnmelchor",
   },
   education: [
     {
