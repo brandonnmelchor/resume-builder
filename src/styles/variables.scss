@@ -1,3 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+$primary: #30475e;
+$black: $primary;
+$dark: $primary;
+
 $font-family-sans-serif: "Roboto";
+
+$card-border-color: rgba($primary, 0.125);
+$body-color: $primary;
+
+$form-check-input-bg: $primary;
+$form-check-input-border: 1px solid rgba($black, 0.25);
