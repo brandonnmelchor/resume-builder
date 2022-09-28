@@ -3,6 +3,7 @@ import Nav from "./components/Nav";
 import Form from "./components/Form";
 import Resume from "./components/Resume";
 import Footer from "./components/Footer";
+import demo from "./components/demo";
 
 export default class App extends React.Component {
   render() {
@@ -12,7 +13,7 @@ export default class App extends React.Component {
         <div className="container-lg px-4 py-5">
           <div className="row justify-content-center align-items-center gap-4">
             <Form />
-            <Resume />
+            <Resume resume={demo} />
           </div>
         </div>
         <Footer />
