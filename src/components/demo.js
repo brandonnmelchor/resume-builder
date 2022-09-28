@@ -80,7 +80,7 @@ const demo = {
   projects: [
     {
       projectName: "Forecast",
-      link: "https://brandonnmelchor.github.io/forecast/",
+      url: "https://brandonnmelchor.github.io/forecast/",
       description: [
         "Developed a responsive weather app using data from OpenWeather API to provide users a live forecast",
         "Leveraged geolocation and location search data from Google Places/Maps API to ensure forecast accuracy",
@@ -89,7 +89,7 @@ const demo = {
     },
     {
       projectName: "Read Me",
-      link: "https://brandonnmelchor.github.io/read-me/",
+      url: "https://brandonnmelchor.github.io/read-me/",
       description: [
         "Designed a responsive library app that enables users to track their reading list and update their progress",
         "Leveraged Web Storage API to store user data and create a seamless experience between each visit",
@@ -98,7 +98,7 @@ const demo = {
     },
     {
       projectName: "Pixel Sketch",
-      link: "https://brandonnmelchor.github.io/pixel-sketch/",
+      url: "https://brandonnmelchor.github.io/pixel-sketch/",
       description: [
         "Created an interactive sketchpad app where users can select color modes and erase the canvas itself",
         "Utilized functions to dynamically create the canvas, adding event listeners to each “pixel” for functionality",
@@ -106,7 +106,7 @@ const demo = {
     },
     {
       projectName: "Book Landing Page",
-      link: "https://brandonnmelchor.github.io/landing-page-book/",
+      url: "https://brandonnmelchor.github.io/landing-page-book/",
       description: ["Leveraged Bootstrap to create an interactive product landing page using dynamic modal components"],
     },
   ],
