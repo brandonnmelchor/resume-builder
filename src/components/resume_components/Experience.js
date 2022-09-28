@@ -1,5 +1,4 @@
 import React from "react";
-import uniqid from "uniqid";
 
 export default class Experience extends React.Component {
   render() {
@@ -11,7 +10,7 @@ export default class Experience extends React.Component {
         <hr />
         <div className="section-content">
           {experience.map((entry) => (
-            <ExperienceEntry key={uniqid()} experienceDetails={entry} />
+            <ExperienceEntry key={entry.id} experienceDetails={entry} />
           ))}
         </div>
       </div>
@@ -36,7 +35,7 @@ class ExperienceEntry extends React.Component {
         </div>
         <ul style={{ margin: "0" }}>
           {description.map((entry) => (
-            <DescriptionEntry key={uniqid()} descriptionDetails={entry} />
+            <DescriptionEntry key={entry.id} descriptionDetails={entry.text} />
           ))}
         </ul>
       </div>

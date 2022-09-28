@@ -1,5 +1,4 @@
 import React from "react";
-import uniqid from "uniqid";
 
 export default class Education extends React.Component {
   render() {
@@ -11,7 +10,7 @@ export default class Education extends React.Component {
         <hr />
         <div className="section-content">
           {education.map((entry) => (
-            <EducationEntry key={uniqid()} educationDetails={entry} />
+            <EducationEntry key={entry.id} educationDetails={entry} />
           ))}
         </div>
       </div>
