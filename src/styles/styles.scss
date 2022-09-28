@@ -1,10 +1,10 @@
-* {
-  border: 1px solid gray;
-}
+// * {
+//   border: 1px solid gray;
+// }
 
 #resume {
-  width: 770px;
-  height: 1000px;
+  aspect-ratio: 1 / 1.3;
+  background-color: $primary;
 }
 
 hr {
