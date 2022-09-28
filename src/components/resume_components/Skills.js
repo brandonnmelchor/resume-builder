@@ -10,12 +10,12 @@ export default class Skills extends React.Component {
         <hr />
         <div className="section-content">
           <div>
-            <span className="fw-bold">Languages:</span>
-            <span className="ms-4">{languages}</span>
+            <span className="fw-bold">Languages:&emsp;&emsp;</span>
+            <span>{languages}</span>
           </div>
           <div>
-            <span className="fw-bold">Technologies:</span>
-            <span className="ms-4">{technologies}</span>
+            <span className="fw-bold">Technologies:&emsp;</span>
+            <span>{technologies}</span>
           </div>
         </div>
       </div>
