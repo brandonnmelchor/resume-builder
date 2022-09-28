@@ -11,6 +11,10 @@ hr {
   color: $secondary;
 }
 
+.gray-border {
+  border-color: rgba($primary, 0.5);
+}
+
 #resume {
   @media (min-width: 992px) {
     padding: 21.66px;
