@@ -1,14 +1,14 @@
-.test-border {
-  border: 1px solid gray;
-}
+// * {
+//   border: 1px solid gray;
+// }
 
 hr {
-  padding: 0 0 2px 0;
-  margin: 0;
+  padding: 0;
+  margin: 0 0 2px 0;
 }
 
 .gray {
-  color: $c-gray;
+  color: $secondary;
 }
 
 #resume {
