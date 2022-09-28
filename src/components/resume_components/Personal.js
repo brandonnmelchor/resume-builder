@@ -5,7 +5,7 @@ export default class Personal extends React.Component {
     const { firstName, lastName, phone, email, linkedin, github } = this.props.personal;
 
     return (
-      <div className="w-100 pb-2">
+      <div className="w-100 mb-2">
         <div className="section-header fw-bold gray">
           {firstName} {lastName}
         </div>

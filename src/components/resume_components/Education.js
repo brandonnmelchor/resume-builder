@@ -6,7 +6,7 @@ export default class Education extends React.Component {
     const education = this.props.education;
 
     return (
-      <div className="w-100 pb-2">
+      <div className="w-100 mb-2">
         <div className="section-header fw-bold gray">Education</div>
         <hr />
         <div className="section-content">
