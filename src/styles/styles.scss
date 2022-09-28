@@ -11,9 +11,23 @@ hr {
   color: $c-gray;
 }
 
+#resume {
+  @media (min-width: 992px) {
+    padding: 21.66px;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 25.83px;
+  }
+
+  @media (min-width: 1400px) {
+    padding: 30px;
+  }
+}
+
 .section-header {
   @media (min-width: 992px) {
-    font-size: 7.94px;
+    font-size: 8.66px;
   }
 
   @media (min-width: 1200px) {
@@ -27,7 +41,7 @@ hr {
 
 .section-content {
   @media (min-width: 992px) {
-    font-size: 8.66px;
+    font-size: 7.94px;
   }
 
   @media (min-width: 1200px) {
