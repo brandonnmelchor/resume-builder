@@ -10,7 +10,7 @@ export default class Resume extends React.Component {
     const { personal, education, skills, experience, projects } = this.props.resume;
 
     return (
-      <div className="card col-6" style={{ aspectRatio: "1 / 1.3" }} id="resume">
+      <div className="card col-6 user-select-none" style={{ aspectRatio: "1 / 1.3" }} id="resume">
         <Personal personal={personal} />
         <Education education={education} />
         <Skills skills={skills} />
