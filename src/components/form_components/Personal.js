@@ -3,30 +3,30 @@ import React from "react";
 export default class Personal extends React.Component {
   render() {
     const { firstName, lastName, phone, email, linkedin, github } = this.props.personal;
-    const updatePersonal = this.props.updatePersonal;
+    const update = this.props.update;
 
     return (
       <div className="w-100">
         <form>
           <div className="row justify-content-center align-items-center mb-4">
             <div className="col">
-              <InputGroup label="First Name" type="text" id="firstName" value={firstName} update={updatePersonal} length="25" />
+              <InputGroup label="First Name" type="text" id="firstName" value={firstName} update={update} length="25" />
             </div>
             <div className="col">
-              <InputGroup label="Last Name" type="text" id="lastName" value={lastName} update={updatePersonal} length="25" />
+              <InputGroup label="Last Name" type="text" id="lastName" value={lastName} update={update} length="25" />
             </div>
           </div>
           <div className="mb-4">
-            <InputGroup label="Phone" type="tel" id="phone" value={phone} update={updatePersonal} length="25" />
+            <InputGroup label="Phone" type="tel" id="phone" value={phone} update={update} length="25" />
           </div>
           <div className="mb-4">
-            <InputGroup label="Email" type="email" id="email" value={email} update={updatePersonal} length="50" />
+            <InputGroup label="Email" type="email" id="email" value={email} update={update} length="50" />
           </div>
           <div className="mb-4">
-            <InputGroup label="LinkedIn" type="url" id="linkedin" value={linkedin} update={updatePersonal} length="50" />
+            <InputGroup label="LinkedIn" type="url" id="linkedin" value={linkedin} update={update} length="50" />
           </div>
           <div>
-            <InputGroup label="GitHub" type="url" id="github" value={github} update={updatePersonal} length="50" />
+            <InputGroup label="GitHub" type="url" id="github" value={github} update={update} length="50" />
           </div>
         </form>
       </div>
