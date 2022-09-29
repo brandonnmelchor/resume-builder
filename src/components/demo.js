@@ -187,6 +187,23 @@ const demo = {
       ],
     },
   ],
+  // resume: {
+  //   personal: {
+  //     firstName: "",
+  //     lastName: "",
+  //     phone: "",
+  //     email: "",
+  //     linkedin: "",
+  //     github: "",
+  //   },
+  //   education: [],
+  //   skills: {
+  //     languages: "",
+  //     technologies: "",
+  //   },
+  //   experience: [],
+  //   projects: [],
+  // },
 };
 
 export default demo;
