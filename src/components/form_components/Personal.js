@@ -8,7 +8,7 @@ export default class Personal extends React.Component {
     return (
       <div className="w-100">
         <form>
-          <div className="row justify-content-center align-items-center mb-3">
+          <div className="row justify-content-center align-items-center mb-4">
             <div className="col">
               <InputGroup label="First Name" type="text" id="firstName" value={firstName} update={updatePersonal} length="25" />
             </div>
@@ -16,13 +16,13 @@ export default class Personal extends React.Component {
               <InputGroup label="Last Name" type="text" id="lastName" value={lastName} update={updatePersonal} length="25" />
             </div>
           </div>
-          <div className="mb-3">
+          <div className="mb-4">
             <InputGroup label="Phone" type="tel" id="phone" value={phone} update={updatePersonal} length="25" />
           </div>
-          <div className="mb-3">
+          <div className="mb-4">
             <InputGroup label="Email" type="email" id="email" value={email} update={updatePersonal} length="50" />
           </div>
-          <div className="mb-3">
+          <div className="mb-4">
             <InputGroup label="LinkedIn" type="url" id="linkedin" value={linkedin} update={updatePersonal} length="50" />
           </div>
           <div>
@@ -40,7 +40,7 @@ class InputGroup extends React.Component {
 
     return (
       <div>
-        <label htmlFor={id} className="form-label">
+        <label htmlFor={id} className="form-label fw-bold">
           {label}
         </label>
         <input type={type} className="form-control" id={id} value={value} onChange={update} maxLength={length} />
