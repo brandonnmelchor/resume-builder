@@ -9,13 +9,13 @@ export default class Skills extends React.Component {
         <div className="section-header fw-bold gray">Skills</div>
         <hr />
         <div className="section-content">
-          <div className="d-flex">
-            <div className="fw-bold skills-tab">Languages:</div>
-            <div>{languages}</div>
+          <div>
+            <span className="fw-bold">Languages:&emsp;&emsp;</span>
+            <span>{languages}</span>
           </div>
-          <div className="d-flex">
-            <div className="fw-bold skills-tab">Technologies:</div>
-            <div>{technologies}</div>
+          <div>
+            <span className="fw-bold">Technologies:&emsp;</span>
+            <span>{technologies}</span>
           </div>
         </div>
       </div>
