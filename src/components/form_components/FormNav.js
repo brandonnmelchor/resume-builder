@@ -2,23 +2,27 @@ import React from "react";
 
 export default class FormNav extends React.Component {
   render() {
+    const { sectionNumber, prevSection, nextSection } = this.props;
+
     return (
       <div className="w-100 d-flex flex-column mt-auto">
         <hr className="mb-3" />
         <div className="w-100 d-flex ">
+          {sectionNumber > 1 && (
+            <button
+              type="button"
+              className="btn btn-outline-secondary gray-border"
+              onClick={() => {
+                prevSection();
+              }}>
+              Back
+            </button>
+          )}
           <button
             type="button"
-            className="btn btn-outline-secondary gray-border me-auto"
+            className="btn btn-secondary gray-border ms-auto"
             onClick={() => {
-              console.log("click!");
-            }}>
-            Back
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary gray-border"
-            onClick={() => {
-              console.log("click!");
+              nextSection();
             }}>
             Continue
           </button>
