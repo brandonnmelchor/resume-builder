@@ -10,43 +10,40 @@ export default class Personal extends React.Component {
         <form>
           <div className="row justify-content-center align-items-center mb-3">
             <div className="col">
-              <label htmlFor="firstName" className="form-label">
-                First Name
-              </label>
-              <input type="text" className="form-control" id="firstName" value={firstName} onChange={updatePersonal} maxLength="25" />
+              <InputGroup label="First Name" type="text" id="firstName" value={firstName} update={updatePersonal} length="25" />
             </div>
             <div className="col">
-              <label htmlFor="lastName" className="form-label">
-                Last Name
-              </label>
-              <input type="text" className="form-control" id="lastName" value={lastName} onChange={updatePersonal} maxLength="25" />
+              <InputGroup label="Last Name" type="text" id="lastName" value={lastName} update={updatePersonal} length="25" />
             </div>
           </div>
           <div className="mb-3">
-            <label htmlFor="phone" className="form-label">
-              Phone
-            </label>
-            <input type="tel" className="form-control" id="phone" value={phone} onChange={updatePersonal} maxLength="25" />
+            <InputGroup label="Phone" type="tel" id="phone" value={phone} update={updatePersonal} length="25" />
           </div>
           <div className="mb-3">
-            <label htmlFor="email" className="form-label">
-              Email
-            </label>
-            <input type="email" className="form-control" id="email" value={email} onChange={updatePersonal} maxLength="50" />
+            <InputGroup label="Email" type="email" id="email" value={email} update={updatePersonal} length="50" />
           </div>
           <div className="mb-3">
-            <label htmlFor="linkedin" className="form-label">
-              LinkedIn
-            </label>
-            <input type="url" className="form-control" id="linkedin" value={linkedin} onChange={updatePersonal} maxLength="50" />
+            <InputGroup label="LinkedIn" type="url" id="linkedin" value={linkedin} update={updatePersonal} length="50" />
           </div>
           <div>
-            <label htmlFor="github" className="form-label">
-              GitHub
-            </label>
-            <input type="url" className="form-control" id="github" value={github} onChange={updatePersonal} maxLength="50" />
+            <InputGroup label="GitHub" type="url" id="github" value={github} update={updatePersonal} length="50" />
           </div>
         </form>
+      </div>
+    );
+  }
+}
+
+class InputGroup extends React.Component {
+  render() {
+    const { label, type, id, value, update, length } = this.props;
+
+    return (
+      <div>
+        <label htmlFor={id} className="form-label">
+          {label}
+        </label>
+        <input type={type} className="form-control" id={id} value={value} onChange={update} maxLength={length} />
       </div>
     );
   }
