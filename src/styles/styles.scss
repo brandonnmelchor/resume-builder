@@ -56,3 +56,17 @@ hr {
     font-size: 11px;
   }
 }
+
+.skills-tab {
+  @media (min-width: 992px) {
+    width: 108.33px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 129.16px;
+  }
+
+  @media (min-width: 1400px) {
+    width: 150px;
+  }
+}
