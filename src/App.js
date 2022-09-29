@@ -9,23 +9,24 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      resume: {
-        personal: {
-          firstName: "",
-          lastName: "",
-          phone: "",
-          email: "",
-          linkedin: "",
-          github: "",
-        },
-        education: [],
-        skills: {
-          languages: "",
-          technologies: "",
-        },
-        experience: [],
-        projects: [],
-      },
+      resume: demo,
+      // resume: {
+      //   personal: {
+      //     firstName: "",
+      //     lastName: "",
+      //     phone: "",
+      //     email: "",
+      //     linkedin: "",
+      //     github: "",
+      //   },
+      //   education: [],
+      //   skills: {
+      //     languages: "",
+      //     technologies: "",
+      //   },
+      //   experience: [],
+      //   projects: [],
+      // },
       educationEntry: {
         id: "",
         schoolName: "",
@@ -60,13 +61,15 @@ export default class App extends React.Component {
   }
 
   render() {
+    const resume = this.state.resume;
+
     return (
       <div className="d-flex flex-column justify-content-center min-vh-100">
         <Nav />
         <div className="container-lg px-4 py-5">
           <div className="row justify-content-center align-items-center gap-4">
-            <Form />
-            <Resume resume={demo} />
+            <Form resume={resume} />
+            <Resume resume={resume} />
           </div>
         </div>
         <Footer />
