@@ -9,6 +9,7 @@ import FormNav from "./form_components/FormNav";
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = { sectionNumber: 1 };
 
     this.prevSection = this.prevSection.bind(this);
@@ -31,16 +32,18 @@ export default class Form extends React.Component {
 
   render() {
     const { sectionNumber } = this.state;
+    const { personal, education, skills, experience, projects } = this.props.resume;
+    const updatePersonal = this.props.formChanges;
     let currentSection;
 
-    if (sectionNumber === 1) currentSection = <Personal />;
-    else if (sectionNumber === 2) currentSection = <Education />;
-    else if (sectionNumber === 3) currentSection = <Skills />;
-    else if (sectionNumber === 4) currentSection = <Experience />;
-    else if (sectionNumber === 5) currentSection = <Projects />;
+    if (sectionNumber === 1) currentSection = <Personal personal={personal} updatePersonal={updatePersonal} />;
+    else if (sectionNumber === 2) currentSection = <Education education={education} />;
+    else if (sectionNumber === 3) currentSection = <Skills skills={skills} />;
+    else if (sectionNumber === 4) currentSection = <Experience experience={experience} />;
+    else if (sectionNumber === 5) currentSection = <Projects projects={projects} />;
 
     return (
-      <div className="col-5 d-flex flex-column justify-content-center p-4" style={{ aspectRatio: "1 / 1" }}>
+      <div className="card col-5 d-flex flex-column justify-content-center p-4" style={{ aspectRatio: "1 / 1" }}>
         {currentSection}
         <FormNav sectionNumber={sectionNumber} prevSection={this.prevSection} nextSection={this.nextSection} />
       </div>

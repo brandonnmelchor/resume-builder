@@ -8,25 +8,9 @@ import demo from "./components/demo";
 export default class App extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       resume: demo,
-      // resume: {
-      //   personal: {
-      //     firstName: "",
-      //     lastName: "",
-      //     phone: "",
-      //     email: "",
-      //     linkedin: "",
-      //     github: "",
-      //   },
-      //   education: [],
-      //   skills: {
-      //     languages: "",
-      //     technologies: "",
-      //   },
-      //   experience: [],
-      //   projects: [],
-      // },
       educationEntry: {
         id: "",
         schoolName: "",
@@ -58,6 +42,21 @@ export default class App extends React.Component {
         text: "",
       },
     };
+
+    this.updatePersonal = this.updatePersonal.bind(this);
+  }
+
+  updatePersonal(event) {
+    const target = event.target;
+    const name = target.id;
+    const value = target.value;
+
+    const resume = this.state.resume;
+    resume.personal[name] = value;
+
+    this.setState({
+      resume: resume,
+    });
   }
 
   render() {
@@ -68,7 +67,7 @@ export default class App extends React.Component {
         <Nav />
         <div className="container-lg px-4 py-5">
           <div className="row justify-content-center align-items-center gap-4">
-            <Form resume={resume} />
+            <Form resume={resume} formChanges={this.updatePersonal} />
             <Resume resume={resume} />
           </div>
         </div>
