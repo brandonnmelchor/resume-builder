@@ -7,7 +7,7 @@ export default class Personal extends React.Component {
     return (
       <div className="w-100 mb-2">
         <div className="section-header fw-bold gray">
-          {firstName.length ? firstName : "First"} {lastName.length ? lastName : "Last"}
+          {firstName} {lastName}
         </div>
         <hr />
         <div className="section-content">
