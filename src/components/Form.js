@@ -43,7 +43,7 @@ export default class Form extends React.Component {
     else if (sectionNumber === 5) currentSection = <Projects projects={projects} />;
 
     return (
-      <div className="card col-5 d-flex flex-column justify-content-center p-4" style={{ aspectRatio: "1 / 1" }}>
+      <div className="card col-5 d-flex flex-column justify-content-center p-4">
         {currentSection}
         <FormNav sectionNumber={sectionNumber} prevSection={this.prevSection} nextSection={this.nextSection} />
       </div>

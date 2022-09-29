@@ -66,7 +66,7 @@ export default class App extends React.Component {
       <div className="d-flex flex-column justify-content-center min-vh-100">
         <Nav />
         <div className="container-lg px-4 py-5">
-          <div className="row justify-content-center align-items-center gap-4">
+          <div className="row justify-content-center align-items-start gap-4">
             <Form resume={resume} formChanges={this.updatePersonal} />
             <Resume resume={resume} />
           </div>

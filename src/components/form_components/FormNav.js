@@ -5,7 +5,7 @@ export default class FormNav extends React.Component {
     const { sectionNumber, prevSection, nextSection } = this.props;
 
     return (
-      <div className="w-100 d-flex flex-column mt-auto">
+      <div className="w-100 d-flex flex-column mt-5">
         <hr className="mb-3" />
         <div className="w-100 d-flex ">
           {sectionNumber > 1 && (
