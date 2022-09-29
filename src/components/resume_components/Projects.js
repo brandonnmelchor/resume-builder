@@ -10,7 +10,7 @@ export default class Projects extends React.Component {
         <hr />
         <div className="section-content">
           {projects.map((entry) => (
-            <ProjectEntry key={entry.id} projectDetails={entry} />
+            <ProjectEntry key={entry.id} projectEntry={entry} />
           ))}
         </div>
       </div>
@@ -20,7 +20,7 @@ export default class Projects extends React.Component {
 
 class ProjectEntry extends React.Component {
   render() {
-    const { projectName, url, description } = this.props.projectDetails;
+    const { projectName, url, details } = this.props.projectEntry;
 
     return (
       <div>
@@ -31,8 +31,8 @@ class ProjectEntry extends React.Component {
           </a>
         </div>
         <ul style={{ margin: "0" }}>
-          {description.map((entry) => (
-            <DescriptionEntry key={entry.id} descriptionDetails={entry.text} />
+          {details.map((entry) => (
+            <DetailsEntry key={entry.id} detailsEntry={entry.text} />
           ))}
         </ul>
       </div>
@@ -40,9 +40,9 @@ class ProjectEntry extends React.Component {
   }
 }
 
-class DescriptionEntry extends React.Component {
+class DetailsEntry extends React.Component {
   render() {
-    const descriptionDetails = this.props.descriptionDetails;
-    return <li>{descriptionDetails}</li>;
+    const detailsEntry = this.props.detailsEntry;
+    return <li>{detailsEntry}</li>;
   }
 }

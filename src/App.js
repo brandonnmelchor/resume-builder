@@ -6,6 +6,59 @@ import Footer from "./components/Footer";
 import demo from "./components/demo";
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      resume: {
+        personal: {
+          firstName: "",
+          lastName: "",
+          phone: "",
+          email: "",
+          linkedin: "",
+          github: "",
+        },
+        education: [],
+        skills: {
+          languages: "",
+          technologies: "",
+        },
+        experience: [],
+        projects: [],
+      },
+      educationEntry: {
+        id: "",
+        schoolName: "",
+        degree: "",
+        major: "",
+        startDate: "",
+        endDate: "",
+      },
+      experienceEntry: {
+        id: "",
+        company: "",
+        title: "",
+        startDate: "",
+        endDate: "",
+        details: [],
+      },
+      experienceDetails: {
+        id: "",
+        text: "",
+      },
+      projectEntry: {
+        id: "",
+        projectName: "",
+        url: "",
+        details: [],
+      },
+      projectDetails: {
+        id: "",
+        text: "",
+      },
+    };
+  }
+
   render() {
     return (
       <div className="d-flex flex-column justify-content-center min-vh-100">

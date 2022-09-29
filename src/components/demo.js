@@ -46,7 +46,7 @@ const demo = {
       title: "Clinical Solutions Architect",
       startDate: "Apr 2022",
       endDate: "Present",
-      description: [
+      details: [
         {
           id: uniqid(),
           text: "Coordinated current state reviews of clinical workflows in collaboration with CIO and key stakeholders",
@@ -71,7 +71,7 @@ const demo = {
       title: "Clinical Solutions Team Lead",
       startDate: "May 2021",
       endDate: "Apr 2022",
-      description: [
+      details: [
         {
           id: uniqid(),
           text: "Provided technical and operational guidance to a cross-functional team of clinicians and engineers",
@@ -96,7 +96,7 @@ const demo = {
       title: "Clinical Solutions Specialist",
       startDate: "Sep 2018",
       endDate: "May 2021",
-      description: [
+      details: [
         {
           id: uniqid(),
           text: "Automated clinical processes for 90% of all inpatient and ambulatory clinic locations using Cerner native tools",
@@ -113,7 +113,7 @@ const demo = {
       title: "RN Clinical Informaticist",
       startDate: "May 2016",
       endDate: "Sep 2018",
-      description: [
+      details: [
         {
           id: uniqid(),
           text: "Provided operational support to Cerner solutions, defining user stories and routing feature requests",
@@ -126,7 +126,7 @@ const demo = {
       id: uniqid(),
       projectName: "Forecast",
       url: "https://brandonnmelchor.github.io/forecast/",
-      description: [
+      details: [
         {
           id: uniqid(),
           text: "Developed a responsive weather app using data from OpenWeather API to provide users a live forecast",
@@ -145,7 +145,7 @@ const demo = {
       id: uniqid(),
       projectName: "Read Me",
       url: "https://brandonnmelchor.github.io/read-me/",
-      description: [
+      details: [
         {
           id: uniqid(),
           text: "Designed a responsive library app that enables users to track their reading list and update their progress",
@@ -164,7 +164,7 @@ const demo = {
       id: uniqid(),
       projectName: "Pixel Sketch",
       url: "https://brandonnmelchor.github.io/pixel-sketch/",
-      description: [
+      details: [
         {
           id: uniqid(),
           text: "Created an interactive sketchpad app where users can select color modes and erase the canvas itself",
@@ -179,7 +179,7 @@ const demo = {
       id: uniqid(),
       projectName: "Book Landing Page",
       url: "https://brandonnmelchor.github.io/landing-page-book/",
-      description: [
+      details: [
         {
           id: uniqid(),
           text: "Leveraged Bootstrap to create an interactive product landing page using dynamic modal components",

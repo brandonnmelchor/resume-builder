@@ -10,7 +10,7 @@ export default class Education extends React.Component {
         <hr />
         <div className="section-content">
           {education.map((entry) => (
-            <EducationEntry key={entry.id} educationDetails={entry} />
+            <EducationEntry key={entry.id} educationEntry={entry} />
           ))}
         </div>
       </div>
@@ -20,7 +20,7 @@ export default class Education extends React.Component {
 
 class EducationEntry extends React.Component {
   render() {
-    const { schoolName, degree, major, startDate, endDate } = this.props.educationDetails;
+    const { schoolName, degree, major, startDate, endDate } = this.props.educationEntry;
 
     return (
       <div className="d-flex justify-content-between">

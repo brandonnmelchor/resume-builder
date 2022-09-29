@@ -10,7 +10,7 @@ export default class Experience extends React.Component {
         <hr />
         <div className="section-content">
           {experience.map((entry) => (
-            <ExperienceEntry key={entry.id} experienceDetails={entry} />
+            <ExperienceEntry key={entry.id} experienceEntry={entry} />
           ))}
         </div>
       </div>
@@ -20,7 +20,7 @@ export default class Experience extends React.Component {
 
 class ExperienceEntry extends React.Component {
   render() {
-    const { company, title, startDate, endDate, description } = this.props.experienceDetails;
+    const { company, title, startDate, endDate, details } = this.props.experienceEntry;
 
     return (
       <div>
@@ -34,8 +34,8 @@ class ExperienceEntry extends React.Component {
           </div>
         </div>
         <ul style={{ margin: "0" }}>
-          {description.map((entry) => (
-            <DescriptionEntry key={entry.id} descriptionDetails={entry.text} />
+          {details.map((entry) => (
+            <DetailsEntry key={entry.id} detailsEntry={entry.text} />
           ))}
         </ul>
       </div>
@@ -43,9 +43,9 @@ class ExperienceEntry extends React.Component {
   }
 }
 
-class DescriptionEntry extends React.Component {
+class DetailsEntry extends React.Component {
   render() {
-    const descriptionDetails = this.props.descriptionDetails;
-    return <li>{descriptionDetails}</li>;
+    const detailsEntry = this.props.detailsEntry;
+    return <li>{detailsEntry}</li>;
   }
 }
