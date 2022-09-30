@@ -20,16 +20,17 @@ export default class Projects extends React.Component {
 
 class ProjectEntry extends React.Component {
   render() {
-    const { projectName, url, details } = this.props.projectEntry;
+    const { projectName, url, tech, details } = this.props.projectEntry;
 
     return (
       <div>
         <div>
-          <span className="fw-bold">{projectName} </span>
-          <a className="text-decoration-none gray" href={url} target="_blank" rel="noreferrer">
-            | Link
+          <span className="fw-bold">{projectName} | </span>
+          <a className="text-decoration-none" href={url} target="_blank" rel="noreferrer">
+            Demo
           </a>
         </div>
+        <div className="fst-italic gray">{tech}</div>
         <ul style={{ margin: "0" }}>
           {details.map((entry) => (
             <DetailsEntry key={entry.id} detailsEntry={entry.text} />

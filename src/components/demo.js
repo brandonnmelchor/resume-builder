@@ -17,8 +17,8 @@ const demo = {
       major: "Computer Science",
       startMonth: "Jan",
       startYear: "2023",
-      endMonth: "Present",
-      endYear: "",
+      endMonth: "May",
+      endYear: "2024",
     },
     {
       id: uniqid(),
@@ -119,27 +119,33 @@ const demo = {
         },
       ],
     },
-    {
-      id: uniqid(),
-      company: "Universal Health Services",
-      title: "RN Clinical Informaticist",
-      startMonth: "May",
-      startYear: "2016",
-      endMonth: "Sep",
-      endYear: "2018",
-      details: [
-        {
-          id: uniqid(),
-          text: "Provided operational support to Cerner solutions, defining user stories and routing feature requests",
-        },
-      ],
-    },
   ],
   projects: [
     {
       id: uniqid(),
+      projectName: "Resume Builder",
+      url: "https://brandonnmelchor.github.io/forecast/",
+      tech: "JavaScript, CSS/SASS, HTML, React.js, Bootstrap",
+      details: [
+        {
+          id: uniqid(),
+          text: "Developed a resume builder app that enables users to create their own resumes and download them as a PDF",
+        },
+        {
+          id: uniqid(),
+          text: "Leveraged React.js to conditionally render components based on user input and current resume section",
+        },
+        {
+          id: uniqid(),
+          text: "Lifted state and implemented inverse data flow to synchronize resume components that share the same data",
+        },
+      ],
+    },
+    {
+      id: uniqid(),
       projectName: "Forecast",
       url: "https://brandonnmelchor.github.io/forecast/",
+      tech: "JavaScript, CSS/SASS, HTML, React.js, Bootstrap",
       details: [
         {
           id: uniqid(),
@@ -159,6 +165,7 @@ const demo = {
       id: uniqid(),
       projectName: "Read Me",
       url: "https://brandonnmelchor.github.io/read-me/",
+      tech: "JavaScript, CSS/SASS, HTML, Bootstrap",
       details: [
         {
           id: uniqid(),
@@ -174,50 +181,7 @@ const demo = {
         },
       ],
     },
-    {
-      id: uniqid(),
-      projectName: "Pixel Sketch",
-      url: "https://brandonnmelchor.github.io/pixel-sketch/",
-      details: [
-        {
-          id: uniqid(),
-          text: "Created an interactive sketchpad app where users can select color modes and erase the canvas itself",
-        },
-        {
-          id: uniqid(),
-          text: "Utilized functions to dynamically create the canvas, adding event listeners to each “pixel” for functionality",
-        },
-      ],
-    },
-    {
-      id: uniqid(),
-      projectName: "Book Landing Page",
-      url: "https://brandonnmelchor.github.io/landing-page-book/",
-      details: [
-        {
-          id: uniqid(),
-          text: "Leveraged Bootstrap to create an interactive product landing page using dynamic modal components",
-        },
-      ],
-    },
   ],
-  // resume: {
-  //   personal: {
-  //     firstName: "",
-  //     lastName: "",
-  //     phone: "",
-  //     email: "",
-  //     linkedin: "",
-  //     github: "",
-  //   },
-  //   education: [],
-  //   skills: {
-  //     languages: "",
-  //     technologies: "",
-  //   },
-  //   experience: [],
-  //   projects: [],
-  // },
 };
 
 export default demo;

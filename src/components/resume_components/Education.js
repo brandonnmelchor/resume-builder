@@ -27,7 +27,7 @@ class EducationEntry extends React.Component {
         <div className="fw-bold">
           {schoolName} -- {degree} in {major}
         </div>
-        <div className="fw-bold gray" style={{ width: "120px" }}>
+        <div className="gray" style={{ width: "120px" }}>
           {startMonth} {startYear} - {endMonth} {endYear}
         </div>
       </div>

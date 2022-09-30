@@ -25,14 +25,12 @@ class ExperienceEntry extends React.Component {
     return (
       <div>
         <div className="d-flex justify-content-between">
-          <div>
-            <span className="fw-bold">{company}</span>
-            <span> | {title}</span>
-          </div>
-          <div className="fw-bold gray" style={{ width: "120px" }}>
+          <div className="fw-bold">{company}</div>
+          <div className="gray" style={{ width: "120px" }}>
             {startMonth} {startYear} - {endMonth} {endYear}
           </div>
         </div>
+        <div className="gray">{title}</div>
         <ul style={{ margin: "0" }}>
           {details.map((entry) => (
             <DetailsEntry key={entry.id} detailsEntry={entry.text} />
