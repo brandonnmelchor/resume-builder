@@ -17,14 +17,14 @@ export class TextInput extends React.Component {
 
 export class NumberInput extends React.Component {
   render() {
-    const { label, id, value, updateInput, min, max } = this.props;
+    const { label, id, value, updateInput } = this.props;
 
     return (
       <div>
         <label htmlFor={id} className="form-label fw-bold">
           {label}
         </label>
-        <input type="number" className="form-control" id={id} value={value} onChange={updateInput} min={min} max={max} />
+        <input type="number" className="form-control" id={id} value={value} onChange={updateInput} />
       </div>
     );
   }
