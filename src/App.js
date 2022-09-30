@@ -48,6 +48,7 @@ export default class App extends React.Component {
     };
 
     this.updatePersonal = this.updatePersonal.bind(this);
+    this.updateEducation = this.updateEducation.bind(this);
     this.updateSkills = this.updateSkills.bind(this);
   }
 
@@ -58,6 +59,22 @@ export default class App extends React.Component {
 
     const resume = this.state.resume;
     resume.personal[name] = value;
+
+    this.setState({
+      resume: resume,
+    });
+  }
+
+  updateEducation(event) {
+    const target = event.target;
+    const entryID = target.form.id;
+    const name = target.id;
+    const value = target.value;
+
+    const resume = this.state.resume;
+    const education = resume.education;
+    const entry = education.filter((entry) => entry.id === entryID)[0];
+    entry[name] = value;
 
     this.setState({
       resume: resume,
@@ -81,6 +98,7 @@ export default class App extends React.Component {
     const resume = this.state.resume;
     const formChanges = {
       updatePersonal: this.updatePersonal,
+      updateEducation: this.updateEducation,
       updateSkills: this.updateSkills,
     };
 

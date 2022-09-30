@@ -31,11 +31,12 @@ export default class Education extends React.Component {
   render() {
     const { editMode, currentEntry } = this.state;
     const education = this.props.education;
+    const updateInput = this.props.updateInput;
     let display;
 
     if (editMode) {
       const entry = education.filter((entry) => entry.id === currentEntry)[0];
-      display = <EntryForm key={entry.id} educationEntry={entry} saveEntry={this.saveEntry} />;
+      display = <EntryForm key={entry.id} educationEntry={entry} updateInput={updateInput} saveEntry={this.saveEntry} />;
     } else display = education.map((entry) => <EntryCard key={entry.id} educationEntry={entry} editEntry={this.editEntry} />);
 
     return <div className="w-100 d-flex flex-column gap-3">{display}</div>;
@@ -74,37 +75,37 @@ class EntryCard extends React.Component {
 class EntryForm extends React.Component {
   render() {
     const { id, schoolName, degree, major, startMonth, startYear, endMonth, endYear } = this.props.educationEntry;
+    const updateInput = this.props.updateInput;
     const saveEntry = this.props.saveEntry;
-    const currentYear = new Date().getFullYear();
 
     return (
       <div className="w-100">
-        <form>
+        <form id={id}>
           <div className="mb-4">
-            <TextInput label="School Name" type="text" id="schoolName" value={schoolName} updateInput={DOMRectReadOnly} length="25" />
+            <TextInput label="School Name" type="text" id="schoolName" value={schoolName} updateInput={updateInput} length="40" />
           </div>
           <div className="row justify-content-center align-items-center mb-4">
             <div className="col">
-              <TextInput label="Degree" type="text" id="degree" value={degree} updateInput={DOMRectReadOnly} length="25" />
+              <TextInput label="Degree" type="text" id="degree" value={degree} updateInput={updateInput} length="25" />
             </div>
             <div className="col">
-              <TextInput label="Major" type="text" id="major" value={major} updateInput={DOMRectReadOnly} length="25" />
-            </div>
-          </div>
-          <div className="row justify-content-center align-items-center mb-4">
-            <div className="col">
-              <SelectInput label="Start Month" id="startMonth" value={startMonth} updateInput={DOMRectReadOnly} />
-            </div>
-            <div className="col">
-              <NumberInput label="Start Year" id="startYear" value={startYear} updateInput={DOMRectReadOnly} min="1900" max={currentYear} />
+              <TextInput label="Major" type="text" id="major" value={major} updateInput={updateInput} length="25" />
             </div>
           </div>
           <div className="row justify-content-center align-items-center mb-4">
             <div className="col">
-              <SelectInput label="End Month" id="endMonth" value={endMonth} updateInput={DOMRectReadOnly} />
+              <SelectInput label="Start Month" id="startMonth" value={startMonth} updateInput={updateInput} />
             </div>
             <div className="col">
-              <NumberInput label="End Year" id="endYear" value={endYear} updateInput={DOMRectReadOnly} min="1900" max={currentYear} />
+              <NumberInput label="Start Year" id="startYear" value={startYear} updateInput={updateInput} />
+            </div>
+          </div>
+          <div className="row justify-content-center align-items-center mb-4">
+            <div className="col">
+              <SelectInput label="End Month" id="endMonth" value={endMonth} updateInput={updateInput} />
+            </div>
+            <div className="col">
+              <NumberInput label="End Year" id="endYear" value={endYear} updateInput={updateInput} />
             </div>
           </div>
           <div className="d-flex justify-content-between">
