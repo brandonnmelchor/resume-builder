@@ -73,7 +73,24 @@ class EntryCard extends React.Component {
 }
 
 class EntryForm extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      attending: this.props.educationEntry.endMonth === "Present" ? true : false,
+    };
+
+    this.isAttending = this.isAttending.bind(this);
+  }
+
+  isAttending() {
+    this.setState((state) => {
+      return { attending: !state.attending };
+    });
+  }
+
   render() {
+    const attending = this.state.attending;
     const { id, schoolName, degree, major, startMonth, startYear, endMonth, endYear } = this.props.educationEntry;
     const updateInput = this.props.updateInput;
     const saveEntry = this.props.saveEntry;
@@ -94,23 +111,23 @@ class EntryForm extends React.Component {
           </div>
           <div className="row justify-content-center align-items-center mb-4">
             <div className="col">
-              <SelectInput label="Start Month" id="startMonth" value={startMonth} updateInput={updateInput} />
+              <SelectInput label="Start Month" id="startMonth" value={startMonth} updateInput={updateInput} disabled={false} />
             </div>
             <div className="col">
-              <NumberInput label="Start Year" id="startYear" value={startYear} updateInput={updateInput} />
+              <NumberInput label="Start Year" id="startYear" value={startYear} updateInput={updateInput} disabled={false} />
             </div>
           </div>
           <div className="row justify-content-center align-items-center mb-4">
             <div className="col">
-              <SelectInput label="End Month" id="endMonth" value={endMonth} updateInput={updateInput} />
+              <SelectInput label="End Month" id="endMonth" value={endMonth} updateInput={updateInput} disabled={attending} />
             </div>
             <div className="col">
-              <NumberInput label="End Year" id="endYear" value={endYear} updateInput={updateInput} />
+              <NumberInput label="End Year" id="endYear" value={endYear} updateInput={updateInput} disabled={attending} />
             </div>
           </div>
           <div className="d-flex justify-content-between">
             <div>
-              <CheckboxInput label="I currently study here" id="noEndDate" updateInput={(event) => console.log(event.target.checked)} />
+              <CheckboxInput label="I currently study here" id="attending" updateInput={this.isAttending} checked={attending} />
             </div>
             <div>
               <button type="button" className="btn btn-outline-secondary nav-button gray-border" onClick={saveEntry}>
