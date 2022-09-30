@@ -11,7 +11,7 @@ export default class FormNav extends React.Component {
           {sectionNumber > 1 && (
             <button
               type="button"
-              className="btn btn-outline-secondary gray-border"
+              className="btn btn-outline-secondary nav-button gray-border"
               onClick={() => {
                 prevSection();
               }}>
@@ -20,7 +20,7 @@ export default class FormNav extends React.Component {
           )}
           <button
             type="button"
-            className="btn btn-secondary gray-border ms-auto"
+            className="btn btn-secondary nav-button gray-border ms-auto"
             onClick={() => {
               nextSection();
             }}>
