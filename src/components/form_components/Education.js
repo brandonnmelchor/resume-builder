@@ -62,13 +62,7 @@ class EntryCard extends React.Component {
           <button type="button" className="btn gray px-1" entry={id} onClick={editEntry}>
             <i className="bi bi-pencil-square"></i>
           </button>
-          <button
-            type="button"
-            className="btn gray px-1"
-            entry={id}
-            onClick={(event) => {
-              console.log("test");
-            }}>
+          <button type="button" className="btn gray px-1" entry={id} onClick={editEntry}>
             <i className="bi bi-trash"></i>
           </button>
         </div>
@@ -87,35 +81,35 @@ class EntryForm extends React.Component {
       <div className="w-100">
         <form>
           <div className="mb-4">
-            <TextInput label="School Name" type="text" id="schoolName" value={schoolName} update={DOMRectReadOnly} length="25" />
+            <TextInput label="School Name" type="text" id="schoolName" value={schoolName} updateInput={DOMRectReadOnly} length="25" />
           </div>
           <div className="row justify-content-center align-items-center mb-4">
             <div className="col">
-              <TextInput label="Degree" type="text" id="degree" value={degree} update={DOMRectReadOnly} length="25" />
+              <TextInput label="Degree" type="text" id="degree" value={degree} updateInput={DOMRectReadOnly} length="25" />
             </div>
             <div className="col">
-              <TextInput label="Major" type="text" id="major" value={major} update={DOMRectReadOnly} length="25" />
-            </div>
-          </div>
-          <div className="row justify-content-center align-items-center mb-4">
-            <div className="col">
-              <SelectInput label="Start Month" id="startMonth" value={startMonth} update={DOMRectReadOnly} />
-            </div>
-            <div className="col">
-              <NumberInput label="Start Year" id="startYear" value={startYear} update={DOMRectReadOnly} min="1900" max={currentYear} />
+              <TextInput label="Major" type="text" id="major" value={major} updateInput={DOMRectReadOnly} length="25" />
             </div>
           </div>
           <div className="row justify-content-center align-items-center mb-4">
             <div className="col">
-              <SelectInput label="End Month" id="endMonth" value={endMonth} update={DOMRectReadOnly} />
+              <SelectInput label="Start Month" id="startMonth" value={startMonth} updateInput={DOMRectReadOnly} />
             </div>
             <div className="col">
-              <NumberInput label="End Year" id="endYear" value={endYear} update={DOMRectReadOnly} min="1900" max={currentYear} />
+              <NumberInput label="Start Year" id="startYear" value={startYear} updateInput={DOMRectReadOnly} min="1900" max={currentYear} />
+            </div>
+          </div>
+          <div className="row justify-content-center align-items-center mb-4">
+            <div className="col">
+              <SelectInput label="End Month" id="endMonth" value={endMonth} updateInput={DOMRectReadOnly} />
+            </div>
+            <div className="col">
+              <NumberInput label="End Year" id="endYear" value={endYear} updateInput={DOMRectReadOnly} min="1900" max={currentYear} />
             </div>
           </div>
           <div className="d-flex justify-content-between">
             <div>
-              <CheckboxInput label="I currently study here" id="noEndDate" update={(event) => console.log(event.target.checked)} />
+              <CheckboxInput label="I currently study here" id="noEndDate" updateInput={(event) => console.log(event.target.checked)} />
             </div>
             <div>
               <button type="button" className="btn btn-outline-secondary nav-button gray-border" onClick={saveEntry}>
