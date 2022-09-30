@@ -5,20 +5,38 @@ export default class Education extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { editMode: true };
-    // this.prevSection = this.prevSection.bind(this);
+    this.state = {
+      editMode: false,
+      currentEntry: "",
+    };
+
+    this.editEntry = this.editEntry.bind(this);
+    this.saveEntry = this.saveEntry.bind(this);
+  }
+
+  editEntry(event) {
+    const target = event.target;
+    const entry = target.parentElement.attributes.entry.value;
+
+    this.setState({
+      editMode: true,
+      currentEntry: entry,
+    });
+  }
+
+  saveEntry() {
+    this.setState({ editMode: false });
   }
 
   render() {
-    const editMode = this.state.editMode;
+    const { editMode, currentEntry } = this.state;
     const education = this.props.education;
-    const secondEntry = education[1].id;
     let display;
 
     if (editMode) {
-      const entry = education.filter((entry) => entry.id === secondEntry)[0];
-      display = <EntryForm key={entry.id} educationEntry={entry} />;
-    } else display = education.map((entry) => <EntryCard key={entry.id} educationEntry={entry} />);
+      const entry = education.filter((entry) => entry.id === currentEntry)[0];
+      display = <EntryForm key={entry.id} educationEntry={entry} saveEntry={this.saveEntry} />;
+    } else display = education.map((entry) => <EntryCard key={entry.id} educationEntry={entry} editEntry={this.editEntry} />);
 
     return <div className="w-100 d-flex flex-column gap-3">{display}</div>;
   }
@@ -27,6 +45,7 @@ export default class Education extends React.Component {
 class EntryCard extends React.Component {
   render() {
     const { id, schoolName, degree, major, startMonth, startYear, endMonth, endYear } = this.props.educationEntry;
+    const editEntry = this.props.editEntry;
 
     return (
       <div className="card d-flex flex-row justify-content-between p-3">
@@ -40,13 +59,7 @@ class EntryCard extends React.Component {
           </div>
         </div>
         <div>
-          <button
-            type="button"
-            className="btn gray px-1"
-            entry={id}
-            onClick={(event) => {
-              console.log(event.target.attributes.entry.value);
-            }}>
+          <button type="button" className="btn gray px-1" entry={id} onClick={editEntry}>
             <i className="bi bi-pencil-square"></i>
           </button>
           <button
@@ -67,6 +80,7 @@ class EntryCard extends React.Component {
 class EntryForm extends React.Component {
   render() {
     const { id, schoolName, degree, major, startMonth, startYear, endMonth, endYear } = this.props.educationEntry;
+    const saveEntry = this.props.saveEntry;
     const currentYear = new Date().getFullYear();
 
     return (
@@ -104,12 +118,7 @@ class EntryForm extends React.Component {
               <CheckboxInput label="I currently study here" id="noEndDate" update={(event) => console.log(event.target.checked)} />
             </div>
             <div>
-              <button
-                type="button"
-                className="btn btn-outline-secondary gray-border"
-                onClick={(event) => {
-                  console.log(event.target);
-                }}>
+              <button type="button" className="btn btn-outline-secondary nav-button gray-border" onClick={saveEntry}>
                 Submit
               </button>
             </div>
