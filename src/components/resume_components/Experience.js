@@ -20,7 +20,7 @@ export default class Experience extends React.Component {
 
 class ExperienceEntry extends React.Component {
   render() {
-    const { company, title, startDate, endDate, details } = this.props.experienceEntry;
+    const { company, title, startMonth, startYear, endMonth, endYear, details } = this.props.experienceEntry;
 
     return (
       <div>
@@ -30,7 +30,7 @@ class ExperienceEntry extends React.Component {
             <span> | {title}</span>
           </div>
           <div className="fw-bold gray" style={{ width: "120px" }}>
-            {startDate} - {endDate}
+            {startMonth} {startYear} - {endMonth} {endYear}
           </div>
         </div>
         <ul style={{ margin: "0" }}>

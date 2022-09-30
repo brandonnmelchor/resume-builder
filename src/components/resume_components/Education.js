@@ -20,7 +20,7 @@ export default class Education extends React.Component {
 
 class EducationEntry extends React.Component {
   render() {
-    const { schoolName, degree, major, startDate, endDate } = this.props.educationEntry;
+    const { schoolName, degree, major, startMonth, startYear, endMonth, endYear } = this.props.educationEntry;
 
     return (
       <div className="d-flex justify-content-between">
@@ -28,7 +28,7 @@ class EducationEntry extends React.Component {
           {schoolName} -- {degree} in {major}
         </div>
         <div className="fw-bold gray" style={{ width: "120px" }}>
-          {startDate} - {endDate}
+          {startMonth} {startYear} - {endMonth} {endYear}
         </div>
       </div>
     );
