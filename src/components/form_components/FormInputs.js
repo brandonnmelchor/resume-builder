@@ -76,12 +76,12 @@ export class SelectInput extends React.Component {
 
 export class CheckboxInput extends React.Component {
   render() {
-    const { label, id, updateInput } = this.props;
+    const { label, id, updateInput, checked } = this.props;
 
     return (
       <div>
         <div className="form-check">
-          <input className="form-check-input" type="checkbox" id={id} onChange={updateInput} />
+          <input className="form-check-input" type="checkbox" id={id} onChange={updateInput} checked={checked} />
           <label className="form-check-label" htmlFor={id}>
             {label}
           </label>
