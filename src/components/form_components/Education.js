@@ -86,7 +86,7 @@ class EntryForm extends React.Component {
 
   isAttending(event) {
     const presentDate = this.props.presentDate;
-    presentDate(event, "education");
+    if (this.state.attending === false) presentDate(event, "education");
 
     this.setState((state) => {
       return { attending: !state.attending };
