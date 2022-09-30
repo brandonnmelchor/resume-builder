@@ -32,11 +32,12 @@ export default class Education extends React.Component {
     const { editMode, currentEntry } = this.state;
     const education = this.props.education;
     const updateInput = this.props.updateInput;
+    const presentDate = this.props.presentDate;
     let display;
 
     if (editMode) {
       const entry = education.filter((entry) => entry.id === currentEntry)[0];
-      display = <EntryForm key={entry.id} educationEntry={entry} updateInput={updateInput} saveEntry={this.saveEntry} />;
+      display = <EntryForm key={entry.id} educationEntry={entry} updateInput={updateInput} presentDate={presentDate} saveEntry={this.saveEntry} />;
     } else display = education.map((entry) => <EntryCard key={entry.id} educationEntry={entry} editEntry={this.editEntry} />);
 
     return <div className="w-100 d-flex flex-column gap-3">{display}</div>;
@@ -83,7 +84,10 @@ class EntryForm extends React.Component {
     this.isAttending = this.isAttending.bind(this);
   }
 
-  isAttending() {
+  isAttending(event) {
+    const presentDate = this.props.presentDate;
+    presentDate(event, "education");
+
     this.setState((state) => {
       return { attending: !state.attending };
     });

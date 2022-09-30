@@ -32,15 +32,15 @@ export default class Form extends React.Component {
 
   render() {
     const sectionNumber = this.state.sectionNumber;
-    const resume = this.props.resume;
-    const formChanges = this.props.formChanges;
+    const { personal, education, skills, experience, projects } = this.props.resume;
+    const { updatePersonal, updateEducation, updateSkills, presentDate } = this.props.formChanges;
     let currentSection;
 
-    if (sectionNumber === 1) currentSection = <Personal personal={resume.personal} updateInput={formChanges.updatePersonal} />;
-    else if (sectionNumber === 2) currentSection = <Education education={resume.education} updateInput={formChanges.updateEducation} />;
-    else if (sectionNumber === 3) currentSection = <Skills skills={resume.skills} updateInput={formChanges.updateSkills} />;
-    else if (sectionNumber === 4) currentSection = <Experience experience={resume.experience} />;
-    else if (sectionNumber === 5) currentSection = <Projects projects={resume.projects} />;
+    if (sectionNumber === 1) currentSection = <Personal personal={personal} updateInput={updatePersonal} />;
+    else if (sectionNumber === 2) currentSection = <Education education={education} updateInput={updateEducation} presentDate={presentDate} />;
+    else if (sectionNumber === 3) currentSection = <Skills skills={skills} updateInput={updateSkills} />;
+    else if (sectionNumber === 4) currentSection = <Experience experience={experience} />;
+    else if (sectionNumber === 5) currentSection = <Projects projects={projects} />;
 
     return (
       <div className="card col-5 d-flex flex-column justify-content-center p-4">

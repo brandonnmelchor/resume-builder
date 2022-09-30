@@ -50,6 +50,7 @@ export default class App extends React.Component {
     this.updatePersonal = this.updatePersonal.bind(this);
     this.updateEducation = this.updateEducation.bind(this);
     this.updateSkills = this.updateSkills.bind(this);
+    this.presentDate = this.presentDate.bind(this);
   }
 
   updatePersonal(event) {
@@ -94,12 +95,28 @@ export default class App extends React.Component {
     });
   }
 
+  presentDate(event, sectionName) {
+    const target = event.target;
+    const entryID = target.form.id;
+
+    const resume = this.state.resume;
+    const section = resume[sectionName];
+    const entry = section.filter((entry) => entry.id === entryID)[0];
+    entry.endMonth = "Present";
+    entry.endYear = "";
+
+    this.setState({
+      resume: resume,
+    });
+  }
+
   render() {
     const resume = this.state.resume;
     const formChanges = {
       updatePersonal: this.updatePersonal,
       updateEducation: this.updateEducation,
       updateSkills: this.updateSkills,
+      presentDate: this.presentDate,
     };
 
     return (
