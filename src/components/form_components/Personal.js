@@ -10,23 +10,23 @@ export default class Personal extends React.Component {
         <form>
           <div className="row justify-content-center align-items-center mb-4">
             <div className="col">
-              <InputGroup label="First Name" type="text" id="firstName" value={firstName} update={update} length="25" />
+              <TextInput label="First Name" type="text" id="firstName" value={firstName} update={update} length="25" />
             </div>
             <div className="col">
-              <InputGroup label="Last Name" type="text" id="lastName" value={lastName} update={update} length="25" />
+              <TextInput label="Last Name" type="text" id="lastName" value={lastName} update={update} length="25" />
             </div>
           </div>
           <div className="mb-4">
-            <InputGroup label="Phone" type="tel" id="phone" value={phone} update={update} length="25" />
+            <TextInput label="Phone" type="tel" id="phone" value={phone} update={update} length="25" />
           </div>
           <div className="mb-4">
-            <InputGroup label="Email" type="email" id="email" value={email} update={update} length="50" />
+            <TextInput label="Email" type="email" id="email" value={email} update={update} length="50" />
           </div>
           <div className="mb-4">
-            <InputGroup label="LinkedIn" type="url" id="linkedin" value={linkedin} update={update} length="50" />
+            <TextInput label="LinkedIn" type="url" id="linkedin" value={linkedin} update={update} length="50" />
           </div>
           <div>
-            <InputGroup label="GitHub" type="url" id="github" value={github} update={update} length="50" />
+            <TextInput label="GitHub" type="url" id="github" value={github} update={update} length="50" />
           </div>
         </form>
       </div>
@@ -34,7 +34,7 @@ export default class Personal extends React.Component {
   }
 }
 
-class InputGroup extends React.Component {
+class TextInput extends React.Component {
   render() {
     const { label, type, id, value, update, length } = this.props;
 

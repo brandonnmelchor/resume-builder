@@ -9,10 +9,10 @@ export default class Skills extends React.Component {
       <div className="w-100">
         <form>
           <div className="mb-4">
-            <InputGroup label="Languages" id="languages" value={languages} update={update} length="100" />
+            <TextAreaInput label="Languages" id="languages" value={languages} update={update} length="100" />
           </div>
           <div>
-            <InputGroup label="Technologies" id="technologies" value={technologies} update={update} length="100" />
+            <TextAreaInput label="Technologies" id="technologies" value={technologies} update={update} length="100" />
           </div>
         </form>
       </div>
@@ -20,7 +20,7 @@ export default class Skills extends React.Component {
   }
 }
 
-class InputGroup extends React.Component {
+class TextAreaInput extends React.Component {
   render() {
     const { label, id, value, update, length } = this.props;
 
