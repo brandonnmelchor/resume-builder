@@ -1,4 +1,5 @@
 import React from "react";
+import { TextInput } from "./FormInputs";
 
 export default class Personal extends React.Component {
   render() {
@@ -29,21 +30,6 @@ export default class Personal extends React.Component {
             <TextInput label="GitHub" type="url" id="github" value={github} update={update} length="50" />
           </div>
         </form>
-      </div>
-    );
-  }
-}
-
-class TextInput extends React.Component {
-  render() {
-    const { label, type, id, value, update, length } = this.props;
-
-    return (
-      <div>
-        <label htmlFor={id} className="form-label fw-bold">
-          {label}
-        </label>
-        <input type={type} className="form-control" id={id} value={value} onChange={update} maxLength={length} />
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React from "react";
+import { TextAreaInput } from "./FormInputs";
 
 export default class Skills extends React.Component {
   render() {
@@ -15,21 +16,6 @@ export default class Skills extends React.Component {
             <TextAreaInput label="Technologies" id="technologies" value={technologies} update={update} length="100" />
           </div>
         </form>
-      </div>
-    );
-  }
-}
-
-class TextAreaInput extends React.Component {
-  render() {
-    const { label, id, value, update, length } = this.props;
-
-    return (
-      <div>
-        <label htmlFor={id} className="form-label fw-bold">
-          {label}
-        </label>
-        <textarea className="form-control" id={id} value={value} onChange={update} maxLength={length} rows="3" />
       </div>
     );
   }
