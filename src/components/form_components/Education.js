@@ -6,9 +6,9 @@ export default class Education extends React.Component {
     super(props);
 
     this.state = {
-      addMode: false,
-      editMode: false,
-      currentEntry: "",
+      addEntryMode: false,
+      editEntryMode: false,
+      targetEntry: "",
     };
 
     this.addEntry = this.addEntry.bind(this);
@@ -17,7 +17,7 @@ export default class Education extends React.Component {
   }
 
   addEntry(event) {
-    this.setState({ addMode: true });
+    this.setState({ addEntryMode: true });
   }
 
   editEntry(event) {
@@ -25,26 +25,26 @@ export default class Education extends React.Component {
     const entry = target.parentElement.attributes.entry.value;
 
     this.setState({
-      editMode: true,
-      currentEntry: entry,
+      editEntryMode: true,
+      targetEntry: entry,
     });
   }
 
   saveEntry() {
-    this.setState({ addMode: false, editMode: false });
+    this.setState({ addEntryMode: false, editEntryMode: false });
   }
 
   render() {
-    const { addMode, editMode, currentEntry } = this.state;
+    const { addEntryMode, editEntryMode, targetEntry } = this.state;
     const education = this.props.education;
     const handleChange = this.props.handleChange;
     let display;
 
-    if (addMode) {
+    if (addEntryMode) {
       display = <div>ADD MODE</div>;
       // display = <EntryForm key={entryID} educationEntry={entry} handleChange={handleChange} saveEntry={this.saveEntry} />;
-    } else if (editMode) {
-      const entry = education.filter((entry) => entry.id === currentEntry)[0];
+    } else if (editEntryMode) {
+      const entry = education.filter((entry) => entry.id === targetEntry)[0];
       display = <EntryForm key={entry.id} educationEntry={entry} handleChange={handleChange} saveEntry={this.saveEntry} />;
     } else {
       display = (
