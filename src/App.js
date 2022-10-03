@@ -63,12 +63,12 @@ export default class App extends React.Component {
 
   render() {
     const resume = this.state.resume;
-    const newDetails = this.state.entryDetails;
 
     const newEntry = {
       educationEntry: this.state.educationEntry,
       experienceEntry: this.state.experienceEntry,
       projectEntry: this.state.projectEntry,
+      entryDetails: this.state.entryDetails,
     };
 
     const handleChange = {
@@ -82,7 +82,7 @@ export default class App extends React.Component {
         <Nav />
         <div className="container-lg px-4 py-5">
           <div className="row justify-content-center align-items-start gap-4">
-            <Form resume={resume} newEntry={newEntry} newDetails={newDetails} handleChange={handleChange} />
+            <Form resume={resume} newEntry={newEntry} handleChange={handleChange} />
             <Resume resume={resume} />
           </div>
         </div>
