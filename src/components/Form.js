@@ -33,7 +33,7 @@ export default class Form extends React.Component {
   render() {
     const sectionNumber = this.state.sectionNumber;
     const { personal, education, skills, experience, projects } = this.props.resume;
-    const { updateInput, updateEducation, presentDate } = this.props.formChanges;
+    const { updateInput, updateEducation, presentDate } = this.props.handleChange;
     let currentSection;
 
     if (sectionNumber === 1) currentSection = <Personal personal={personal} handleChange={{ updateInput }} />;

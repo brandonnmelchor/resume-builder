@@ -64,7 +64,7 @@ export default class App extends React.Component {
 
   render() {
     const resume = this.state.resume;
-    const formChanges = {
+    const handleChange = {
       updateInput: this.updateInput,
       updateEducation: this.updateEducation,
       presentDate: this.presentDate,
@@ -75,7 +75,7 @@ export default class App extends React.Component {
         <Nav />
         <div className="container-lg px-4 py-5">
           <div className="row justify-content-center align-items-start gap-4">
-            <Form resume={resume} formChanges={formChanges} />
+            <Form resume={resume} handleChange={handleChange} />
             <Resume resume={resume} />
           </div>
         </div>
