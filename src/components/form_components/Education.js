@@ -75,10 +75,7 @@ class EntryCard extends React.Component {
 class EntryForm extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      currentSchool: this.props.educationEntry.endMonth === "Present" ? true : false,
-    };
+    this.state = { currentSchool: this.props.educationEntry.endMonth === "Present" ? true : false };
 
     this.handleChange = this.handleChange.bind(this);
     this.setCurrentSchool = this.setCurrentSchool.bind(this);

@@ -8,10 +8,7 @@ import demo from "./components/demo";
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      resume: demo,
-    };
+    this.state = { resume: demo };
 
     this.updateInput = this.updateInput.bind(this);
     this.updateEntry = this.updateEntry.bind(this);
