@@ -17,49 +17,10 @@ export const newState = () => {
     },
     experience: [],
     projects: [],
-  };
-};
-
-export const educationEntry = () => {
-  return {
-    uniqid: uniqid(),
-    schoolName: "",
-    degree: "",
-    major: "",
-    startMonth: "",
-    startYear: "",
-    endMonth: "",
-    endYear: "",
-  };
-};
-
-export const experienceEntry = () => {
-  return {
-    uniqid: uniqid(),
-    company: "",
-    title: "",
-    startMonth: "",
-    startYear: "",
-    endMonth: "",
-    endYear: "",
-    details: [],
-  };
-};
-
-export const projectEntry = () => {
-  return {
-    uniqid: uniqid(),
-    projectName: "",
-    url: "",
-    tech: "",
-    details: [],
-  };
-};
-
-export const entryDetails = () => {
-  return {
-    uniqid: uniqid(),
-    text: "",
+    educationEntry: educationEntry(),
+    experienceEntry: experienceEntry(),
+    projectEntry: projectEntry(),
+    entryDetails: entryDetails(),
   };
 };
 
@@ -246,5 +207,52 @@ export const demoState = () => {
         ],
       },
     ],
+    educationEntry: educationEntry(),
+    experienceEntry: experienceEntry(),
+    projectEntry: projectEntry(),
+    entryDetails: entryDetails(),
+  };
+};
+
+export const educationEntry = () => {
+  return {
+    uniqid: uniqid(),
+    schoolName: "",
+    degree: "",
+    major: "",
+    startMonth: "",
+    startYear: "",
+    endMonth: "",
+    endYear: "",
+  };
+};
+
+export const experienceEntry = () => {
+  return {
+    uniqid: uniqid(),
+    company: "",
+    title: "",
+    startMonth: "",
+    startYear: "",
+    endMonth: "",
+    endYear: "",
+    details: [],
+  };
+};
+
+export const projectEntry = () => {
+  return {
+    uniqid: uniqid(),
+    projectName: "",
+    url: "",
+    tech: "",
+    details: [],
+  };
+};
+
+export const entryDetails = () => {
+  return {
+    uniqid: uniqid(),
+    text: "",
   };
 };
