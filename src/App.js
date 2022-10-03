@@ -8,7 +8,7 @@ import { demoState } from "./components/state";
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { resume: demoState };
+    this.state = { resume: demoState() };
 
     this.updateInput = this.updateInput.bind(this);
     this.updateEntry = this.updateEntry.bind(this);
