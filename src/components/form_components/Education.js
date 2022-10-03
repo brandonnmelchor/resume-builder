@@ -31,13 +31,12 @@ export default class Education extends React.Component {
   render() {
     const { editMode, currentEntry } = this.state;
     const education = this.props.education;
-    const updateInput = this.props.updateInput;
-    const presentDate = this.props.presentDate;
+    const handleChange = this.props.handleChange;
     let display;
 
     if (editMode) {
       const entry = education.filter((entry) => entry.id === currentEntry)[0];
-      display = <EntryForm key={entry.id} educationEntry={entry} updateInput={updateInput} presentDate={presentDate} saveEntry={this.saveEntry} />;
+      display = <EntryForm key={entry.id} educationEntry={entry} handleChange={handleChange} saveEntry={this.saveEntry} />;
     } else display = education.map((entry) => <EntryCard key={entry.id} educationEntry={entry} editEntry={this.editEntry} />);
 
     return <div className="w-100 d-flex flex-column gap-3">{display}</div>;
@@ -78,60 +77,67 @@ class EntryForm extends React.Component {
     super(props);
 
     this.state = {
-      attending: this.props.educationEntry.endMonth === "Present" ? true : false,
+      currentSchool: this.props.educationEntry.endMonth === "Present" ? true : false,
     };
 
-    this.isAttending = this.isAttending.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.setCurrentSchool = this.setCurrentSchool.bind(this);
   }
 
-  isAttending(event) {
-    const presentDate = this.props.presentDate;
-    if (this.state.attending === false) presentDate(event, "education");
+  handleChange(event) {
+    const updateEntry = this.props.handleChange.updateEntry;
+    const entryID = event.target.form.id;
+    updateEntry(event, "education", entryID);
+  }
+
+  setCurrentSchool(event) {
+    const setPresentDate = this.props.handleChange.setPresentDate;
+    const entryID = event.target.form.id;
+    if (this.state.currentSchool === false) setPresentDate("education", entryID);
 
     this.setState((state) => {
-      return { attending: !state.attending };
+      return { currentSchool: !state.currentSchool };
     });
   }
 
   render() {
-    const attending = this.state.attending;
+    const currentSchool = this.state.currentSchool;
     const { id, schoolName, degree, major, startMonth, startYear, endMonth, endYear } = this.props.educationEntry;
-    const updateInput = this.props.updateInput;
     const saveEntry = this.props.saveEntry;
 
     return (
       <div className="w-100">
         <form id={id}>
           <div className="mb-4">
-            <TextInput label="School Name" type="text" id="schoolName" value={schoolName} updateInput={updateInput} length="40" />
+            <TextInput label="School Name" type="text" id="schoolName" value={schoolName} handleChange={this.handleChange} length="40" />
           </div>
           <div className="row justify-content-center align-items-center mb-4">
             <div className="col">
-              <TextInput label="Degree" type="text" id="degree" value={degree} updateInput={updateInput} length="25" />
+              <TextInput label="Degree" type="text" id="degree" value={degree} handleChange={this.handleChange} length="25" />
             </div>
             <div className="col">
-              <TextInput label="Major" type="text" id="major" value={major} updateInput={updateInput} length="25" />
-            </div>
-          </div>
-          <div className="row justify-content-center align-items-center mb-4">
-            <div className="col">
-              <SelectInput label="Start Month" id="startMonth" value={startMonth} updateInput={updateInput} disabled={false} />
-            </div>
-            <div className="col">
-              <NumberInput label="Start Year" id="startYear" value={startYear} updateInput={updateInput} disabled={false} />
+              <TextInput label="Major" type="text" id="major" value={major} handleChange={this.handleChange} length="25" />
             </div>
           </div>
           <div className="row justify-content-center align-items-center mb-4">
             <div className="col">
-              <SelectInput label="End Month" id="endMonth" value={endMonth} updateInput={updateInput} disabled={attending} />
+              <SelectInput label="Start Month" id="startMonth" value={startMonth} handleChange={this.handleChange} disabled={false} />
             </div>
             <div className="col">
-              <NumberInput label="End Year" id="endYear" value={endYear} updateInput={updateInput} disabled={attending} />
+              <NumberInput label="Start Year" id="startYear" value={startYear} handleChange={this.handleChange} disabled={false} />
+            </div>
+          </div>
+          <div className="row justify-content-center align-items-center mb-4">
+            <div className="col">
+              <SelectInput label="End Month" id="endMonth" value={endMonth} handleChange={this.handleChange} disabled={currentSchool} />
+            </div>
+            <div className="col">
+              <NumberInput label="End Year" id="endYear" value={endYear} handleChange={this.handleChange} disabled={currentSchool} />
             </div>
           </div>
           <div className="d-flex justify-content-between">
             <div>
-              <CheckboxInput label="I currently study here" id="attending" updateInput={this.isAttending} checked={attending} />
+              <CheckboxInput label="I currently study here" id="currentSchool" handleChange={this.setCurrentSchool} checked={currentSchool} />
             </div>
             <div>
               <button type="button" className="btn btn-outline-secondary nav-button gray-border" onClick={saveEntry}>

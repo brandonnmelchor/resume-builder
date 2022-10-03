@@ -14,8 +14,8 @@ export default class App extends React.Component {
     };
 
     this.updateInput = this.updateInput.bind(this);
-    this.updateEducation = this.updateEducation.bind(this);
-    this.presentDate = this.presentDate.bind(this);
+    this.updateEntry = this.updateEntry.bind(this);
+    this.setPresentDate = this.setPresentDate.bind(this);
   }
 
   updateInput(event, sectionName) {
@@ -31,15 +31,14 @@ export default class App extends React.Component {
     });
   }
 
-  updateEducation(event) {
+  updateEntry(event, sectionName, entryID) {
     const target = event.target;
-    const entryID = target.form.id;
     const name = target.id;
     const value = target.value;
 
     const resume = this.state.resume;
-    const education = resume.education;
-    const entry = education.filter((entry) => entry.id === entryID)[0];
+    const section = resume[sectionName];
+    const entry = section.filter((entry) => entry.id === entryID)[0];
     entry[name] = value;
 
     this.setState({
@@ -47,10 +46,7 @@ export default class App extends React.Component {
     });
   }
 
-  presentDate(event, sectionName) {
-    const target = event.target;
-    const entryID = target.form.id;
-
+  setPresentDate(sectionName, entryID) {
     const resume = this.state.resume;
     const section = resume[sectionName];
     const entry = section.filter((entry) => entry.id === entryID)[0];
@@ -66,8 +62,8 @@ export default class App extends React.Component {
     const resume = this.state.resume;
     const handleChange = {
       updateInput: this.updateInput,
-      updateEducation: this.updateEducation,
-      presentDate: this.presentDate,
+      updateEntry: this.updateEntry,
+      setPresentDate: this.setPresentDate,
     };
 
     return (
