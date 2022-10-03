@@ -22,7 +22,7 @@ export const newState = () => {
 
 export const educationEntry = () => {
   return {
-    id: "",
+    uniqid: uniqid(),
     schoolName: "",
     degree: "",
     major: "",
@@ -35,7 +35,7 @@ export const educationEntry = () => {
 
 export const experienceEntry = () => {
   return {
-    id: "",
+    uniqid: uniqid(),
     company: "",
     title: "",
     startMonth: "",
@@ -46,16 +46,9 @@ export const experienceEntry = () => {
   };
 };
 
-export const experienceDetails = () => {
-  return {
-    id: "",
-    text: "",
-  };
-};
-
 export const projectEntry = () => {
   return {
-    id: "",
+    uniqid: uniqid(),
     projectName: "",
     url: "",
     tech: "",
@@ -63,9 +56,9 @@ export const projectEntry = () => {
   };
 };
 
-export const projectDetails = () => {
+export const entryDetails = () => {
   return {
-    id: "",
+    uniqid: uniqid(),
     text: "",
   };
 };

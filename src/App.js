@@ -3,12 +3,18 @@ import Nav from "./components/Nav";
 import Form from "./components/Form";
 import Resume from "./components/Resume";
 import Footer from "./components/Footer";
-import { demoState } from "./components/state";
+import { demoState, educationEntry, experienceEntry, projectEntry, entryDetails } from "./components/state";
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { resume: demoState() };
+    this.state = {
+      resume: demoState(),
+      educationEntry: educationEntry(),
+      experienceEntry: experienceEntry(),
+      projectEntry: projectEntry(),
+      entryDetails: entryDetails(),
+    };
 
     this.updateInput = this.updateInput.bind(this);
     this.updateEntry = this.updateEntry.bind(this);
@@ -57,6 +63,14 @@ export default class App extends React.Component {
 
   render() {
     const resume = this.state.resume;
+    const newDetails = this.state.entryDetails;
+
+    const newEntry = {
+      educationEntry: this.state.educationEntry,
+      experienceEntry: this.state.experienceEntry,
+      projectEntry: this.state.projectEntry,
+    };
+
     const handleChange = {
       updateInput: this.updateInput,
       updateEntry: this.updateEntry,
@@ -68,7 +82,7 @@ export default class App extends React.Component {
         <Nav />
         <div className="container-lg px-4 py-5">
           <div className="row justify-content-center align-items-start gap-4">
-            <Form resume={resume} handleChange={handleChange} />
+            <Form resume={resume} newEntry={newEntry} newDetails={newDetails} handleChange={handleChange} />
             <Resume resume={resume} />
           </div>
         </div>
