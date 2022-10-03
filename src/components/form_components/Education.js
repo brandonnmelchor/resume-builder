@@ -1,6 +1,4 @@
 import React from "react";
-import uniqid from "uniqid";
-import { educationEntry } from "../state";
 import { TextInput, NumberInput, SelectInput, CheckboxInput } from "./FormInputs";
 
 export default class Education extends React.Component {
@@ -43,9 +41,8 @@ export default class Education extends React.Component {
     let display;
 
     if (addMode) {
-      const entryID = uniqid();
-      const entry = educationEntry;
-      display = <EntryForm key={entryID} educationEntry={entry} handleChange={handleChange} saveEntry={this.saveEntry} />;
+      display = <div>ADD MODE</div>;
+      // display = <EntryForm key={entryID} educationEntry={entry} handleChange={handleChange} saveEntry={this.saveEntry} />;
     } else if (editMode) {
       const entry = education.filter((entry) => entry.id === currentEntry)[0];
       display = <EntryForm key={entry.id} educationEntry={entry} handleChange={handleChange} saveEntry={this.saveEntry} />;
