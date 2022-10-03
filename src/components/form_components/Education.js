@@ -37,9 +37,18 @@ export default class Education extends React.Component {
     if (editMode) {
       const entry = education.filter((entry) => entry.id === currentEntry)[0];
       display = <EntryForm key={entry.id} educationEntry={entry} handleChange={handleChange} saveEntry={this.saveEntry} />;
-    } else display = education.map((entry) => <EntryCard key={entry.id} educationEntry={entry} editEntry={this.editEntry} />);
+    } else {
+      display = (
+        <div className="d-flex flex-column gap-3">
+          {education.map((entry) => (
+            <EntryCard key={entry.id} educationEntry={entry} editEntry={this.editEntry} />
+          ))}
+          <AddEntry />
+        </div>
+      );
+    }
 
-    return <div className="w-100 d-flex flex-column gap-3">{display}</div>;
+    return <div className="w-100 d-flex flex-column">{display}</div>;
   }
 }
 
@@ -67,6 +76,18 @@ class EntryCard extends React.Component {
             <i className="bi bi-trash"></i>
           </button>
         </div>
+      </div>
+    );
+  }
+}
+
+class AddEntry extends React.Component {
+  render() {
+    return (
+      <div className="card user-select-none p-3" onClick={() => console.log("test")} style={{ cursor: "pointer" }}>
+        <span className="d-flex align-items-center fw-bold gray">
+          <i class="bi bi-plus fs-3"></i> Add more education
+        </span>
       </div>
     );
   }
@@ -103,7 +124,7 @@ class EntryForm extends React.Component {
     const saveEntry = this.props.saveEntry;
 
     return (
-      <div className="w-100">
+      <div>
         <form id={id}>
           <div className="mb-4">
             <TextInput label="School Name" type="text" id="schoolName" value={schoolName} handleChange={this.handleChange} length="40" />
