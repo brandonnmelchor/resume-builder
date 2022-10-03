@@ -1,4 +1,6 @@
 import React from "react";
+import uniqid from "uniqid";
+import { educationEntry } from "../state";
 import { TextInput, NumberInput, SelectInput, CheckboxInput } from "./FormInputs";
 
 export default class Education extends React.Component {
@@ -6,12 +8,18 @@ export default class Education extends React.Component {
     super(props);
 
     this.state = {
+      addMode: false,
       editMode: false,
       currentEntry: "",
     };
 
+    this.addEntry = this.addEntry.bind(this);
     this.editEntry = this.editEntry.bind(this);
     this.saveEntry = this.saveEntry.bind(this);
+  }
+
+  addEntry(event) {
+    this.setState({ addMode: true });
   }
 
   editEntry(event) {
@@ -29,12 +37,16 @@ export default class Education extends React.Component {
   }
 
   render() {
-    const { editMode, currentEntry } = this.state;
+    const { addMode, editMode, currentEntry } = this.state;
     const education = this.props.education;
     const handleChange = this.props.handleChange;
     let display;
 
-    if (editMode) {
+    if (addMode) {
+      const entryID = uniqid();
+      const entry = educationEntry;
+      display = <EntryForm key={entryID} educationEntry={entry} handleChange={handleChange} saveEntry={this.saveEntry} />;
+    } else if (editMode) {
       const entry = education.filter((entry) => entry.id === currentEntry)[0];
       display = <EntryForm key={entry.id} educationEntry={entry} handleChange={handleChange} saveEntry={this.saveEntry} />;
     } else {
@@ -43,7 +55,7 @@ export default class Education extends React.Component {
           {education.map((entry) => (
             <EntryCard key={entry.id} educationEntry={entry} editEntry={this.editEntry} />
           ))}
-          <AddEntry />
+          <AddEntry addEntry={this.addEntry} />
         </div>
       );
     }
@@ -83,10 +95,12 @@ class EntryCard extends React.Component {
 
 class AddEntry extends React.Component {
   render() {
+    const addEntry = this.props.addEntry;
+
     return (
-      <div className="card user-select-none p-3" onClick={() => console.log("test")} style={{ cursor: "pointer" }}>
+      <div className="card user-select-none p-3" onClick={addEntry} style={{ cursor: "pointer" }}>
         <span className="d-flex align-items-center fw-bold gray">
-          <i class="bi bi-plus fs-3"></i> Add more education
+          <i className="bi bi-plus fs-3"></i> Add more education
         </span>
       </div>
     );
