@@ -2,14 +2,14 @@ import React from "react";
 
 export class TextInput extends React.Component {
   render() {
-    const { label, type, id, value, updateInput, length } = this.props;
+    const { label, type, id, value, handleChange, length } = this.props;
 
     return (
       <div>
         <label htmlFor={id} className="form-label fw-bold">
           {label}
         </label>
-        <input type={type} className="form-control" id={id} value={value} onChange={updateInput} maxLength={length} />
+        <input type={type} className="form-control" id={id} value={value} onChange={handleChange} maxLength={length} />
       </div>
     );
   }
@@ -17,14 +17,14 @@ export class TextInput extends React.Component {
 
 export class NumberInput extends React.Component {
   render() {
-    const { label, id, value, updateInput, disabled } = this.props;
+    const { label, id, value, handleChange, disabled } = this.props;
 
     return (
       <div>
         <label htmlFor={id} className="form-label fw-bold">
           {label}
         </label>
-        <input type="number" className="form-control" id={id} value={value} onChange={updateInput} disabled={disabled} />
+        <input type="number" className="form-control" id={id} value={value} onChange={handleChange} disabled={disabled} />
       </div>
     );
   }
@@ -32,14 +32,14 @@ export class NumberInput extends React.Component {
 
 export class TextAreaInput extends React.Component {
   render() {
-    const { label, id, value, updateInput, length } = this.props;
+    const { label, id, value, handleChange, length } = this.props;
 
     return (
       <div>
         <label htmlFor={id} className="form-label fw-bold">
           {label}
         </label>
-        <textarea className="form-control" id={id} value={value} onChange={updateInput} maxLength={length} rows="3" />
+        <textarea className="form-control" id={id} value={value} onChange={handleChange} maxLength={length} rows="3" />
       </div>
     );
   }
@@ -47,14 +47,14 @@ export class TextAreaInput extends React.Component {
 
 export class SelectInput extends React.Component {
   render() {
-    const { label, id, value, updateInput, disabled } = this.props;
+    const { label, id, value, handleChange, disabled } = this.props;
 
     return (
       <div>
         <label htmlFor={id} className="form-label fw-bold">
           {label}
         </label>
-        <select className="form-select" id={id} value={value} onChange={updateInput} disabled={disabled}>
+        <select className="form-select" id={id} value={value} onChange={handleChange} disabled={disabled}>
           <option value=""></option>
           <option value="Jan">January</option>
           <option value="Feb">February</option>
@@ -76,12 +76,12 @@ export class SelectInput extends React.Component {
 
 export class CheckboxInput extends React.Component {
   render() {
-    const { label, id, updateInput, checked } = this.props;
+    const { label, id, handleChange, checked } = this.props;
 
     return (
       <div>
         <div className="form-check">
-          <input className="form-check-input" type="checkbox" id={id} onChange={updateInput} checked={checked} />
+          <input className="form-check-input" type="checkbox" id={id} onChange={handleChange} checked={checked} />
           <label className="form-check-label" htmlFor={id}>
             {label}
           </label>

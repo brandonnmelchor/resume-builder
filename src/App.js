@@ -11,55 +11,20 @@ export default class App extends React.Component {
 
     this.state = {
       resume: demo,
-      educationEntry: {
-        id: "",
-        schoolName: "",
-        degree: "",
-        major: "",
-        startMonth: "",
-        startYear: "",
-        endMonth: "",
-        endYear: "",
-      },
-      experienceEntry: {
-        id: "",
-        company: "",
-        title: "",
-        startMonth: "",
-        startYear: "",
-        endMonth: "",
-        endYear: "",
-        details: [],
-      },
-      experienceDetails: {
-        id: "",
-        text: "",
-      },
-      projectEntry: {
-        id: "",
-        projectName: "",
-        url: "",
-        details: [],
-      },
-      projectDetails: {
-        id: "",
-        text: "",
-      },
     };
 
-    this.updatePersonal = this.updatePersonal.bind(this);
+    this.updateInput = this.updateInput.bind(this);
     this.updateEducation = this.updateEducation.bind(this);
-    this.updateSkills = this.updateSkills.bind(this);
     this.presentDate = this.presentDate.bind(this);
   }
 
-  updatePersonal(event) {
+  updateInput(event, sectionName) {
     const target = event.target;
     const name = target.id;
     const value = target.value;
 
     const resume = this.state.resume;
-    resume.personal[name] = value;
+    resume[sectionName][name] = value;
 
     this.setState({
       resume: resume,
@@ -76,19 +41,6 @@ export default class App extends React.Component {
     const education = resume.education;
     const entry = education.filter((entry) => entry.id === entryID)[0];
     entry[name] = value;
-
-    this.setState({
-      resume: resume,
-    });
-  }
-
-  updateSkills(event) {
-    const target = event.target;
-    const name = target.id;
-    const value = target.value;
-
-    const resume = this.state.resume;
-    resume.skills[name] = value;
 
     this.setState({
       resume: resume,
@@ -113,9 +65,8 @@ export default class App extends React.Component {
   render() {
     const resume = this.state.resume;
     const formChanges = {
-      updatePersonal: this.updatePersonal,
+      updateInput: this.updateInput,
       updateEducation: this.updateEducation,
-      updateSkills: this.updateSkills,
       presentDate: this.presentDate,
     };
 
