@@ -4,7 +4,6 @@ import Education from "./form_components/Education";
 import Skills from "./form_components/Skills";
 import Experience from "./form_components/Experience";
 import Projects from "./form_components/Projects";
-import FormNav from "./form_components/FormNav";
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -43,6 +42,40 @@ export default class Form extends React.Component {
       <div className="card col-5 d-flex flex-column justify-content-center p-4">
         {currentSection}
         <FormNav sectionNumber={sectionNumber} prevSection={this.prevSection} nextSection={this.nextSection} />
+      </div>
+    );
+  }
+}
+
+class FormNav extends React.Component {
+  render() {
+    const { sectionNumber, prevSection, nextSection } = this.props;
+
+    return (
+      <div className="w-100 d-flex flex-column mt-5">
+        <hr className="mb-3" />
+        <div className="w-100 d-flex ">
+          {sectionNumber > 1 && (
+            <button
+              type="button"
+              className="btn btn-outline-secondary nav-button gray-border"
+              onClick={() => {
+                prevSection();
+              }}>
+              Back
+            </button>
+          )}
+          {sectionNumber < 5 && (
+            <button
+              type="button"
+              className="btn btn-secondary nav-button gray-border ms-auto"
+              onClick={() => {
+                nextSection();
+              }}>
+              Continue
+            </button>
+          )}
+        </div>
       </div>
     );
   }
