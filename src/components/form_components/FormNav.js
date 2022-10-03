@@ -18,14 +18,16 @@ export default class FormNav extends React.Component {
               Back
             </button>
           )}
-          <button
-            type="button"
-            className="btn btn-secondary nav-button gray-border ms-auto"
-            onClick={() => {
-              nextSection();
-            }}>
-            Continue
-          </button>
+          {sectionNumber < 5 && (
+            <button
+              type="button"
+              className="btn btn-secondary nav-button gray-border ms-auto"
+              onClick={() => {
+                nextSection();
+              }}>
+              Continue
+            </button>
+          )}
         </div>
       </div>
     );

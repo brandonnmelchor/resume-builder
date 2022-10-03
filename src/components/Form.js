@@ -22,11 +22,9 @@ export default class Form extends React.Component {
   }
 
   nextSection() {
-    if (this.state.sectionNumber < 5) {
-      this.setState((state) => {
-        return { sectionNumber: state.sectionNumber + 1 };
-      });
-    }
+    this.setState((state) => {
+      return { sectionNumber: state.sectionNumber + 1 };
+    });
   }
 
   render() {
