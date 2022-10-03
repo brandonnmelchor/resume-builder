@@ -1,6 +1,24 @@
 import uniqid from "uniqid";
 
-const demo = {
+export const newState = {
+  personal: {
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    linkedin: "",
+    github: "",
+  },
+  education: [],
+  skills: {
+    languages: "",
+    technologies: "",
+  },
+  experience: [],
+  projects: [],
+};
+
+export const demoState = {
   personal: {
     firstName: "Brandonn",
     lastName: "Melchor",
@@ -184,4 +202,42 @@ const demo = {
   ],
 };
 
-export default demo;
+export const educationEntry = {
+  id: "",
+  schoolName: "",
+  degree: "",
+  major: "",
+  startMonth: "",
+  startYear: "",
+  endMonth: "",
+  endYear: "",
+};
+
+export const experienceEntry = {
+  id: "",
+  company: "",
+  title: "",
+  startMonth: "",
+  startYear: "",
+  endMonth: "",
+  endYear: "",
+  details: [],
+};
+
+export const experienceDetails = {
+  id: "",
+  text: "",
+};
+
+export const projectEntry = {
+  id: "",
+  projectName: "",
+  url: "",
+  tech: "",
+  details: [],
+};
+
+export const projectDetails = {
+  id: "",
+  text: "",
+};

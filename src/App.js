@@ -3,12 +3,12 @@ import Nav from "./components/Nav";
 import Form from "./components/Form";
 import Resume from "./components/Resume";
 import Footer from "./components/Footer";
-import demo from "./components/demo";
+import { demoState } from "./components/state";
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { resume: demo };
+    this.state = { resume: demoState };
 
     this.updateInput = this.updateInput.bind(this);
     this.updateEntry = this.updateEntry.bind(this);
