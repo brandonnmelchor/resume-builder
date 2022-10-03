@@ -124,7 +124,7 @@ const demo = {
     {
       id: uniqid(),
       projectName: "Resume Builder",
-      url: "https://brandonnmelchor.github.io/forecast/",
+      url: "https://brandonnmelchor.github.io/resume-builder/",
       tech: "JavaScript, CSS/SASS, HTML, React.js, Bootstrap",
       details: [
         {
