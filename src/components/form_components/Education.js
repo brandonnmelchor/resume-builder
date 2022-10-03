@@ -31,7 +31,7 @@ export default class Education extends React.Component {
   }
 
   saveEntry() {
-    this.setState({ editMode: false });
+    this.setState({ addMode: false, editMode: false });
   }
 
   render() {
