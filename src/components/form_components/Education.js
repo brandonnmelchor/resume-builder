@@ -36,7 +36,7 @@ export default class Education extends React.Component {
 
   render() {
     const { addEntryMode, editEntryMode, targetEntry } = this.state;
-    const education = this.props.education;
+    const education = this.props.resume.education;
     const handleChange = this.props.handleChange;
     let display;
 

@@ -13,7 +13,7 @@ export default class Personal extends React.Component {
   }
 
   render() {
-    const { firstName, lastName, phone, email, linkedin, github } = this.props.personal;
+    const { firstName, lastName, phone, email, linkedin, github } = this.props.resume.personal;
 
     return (
       <div className="w-100">

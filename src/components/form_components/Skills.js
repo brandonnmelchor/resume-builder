@@ -13,7 +13,7 @@ export default class Skills extends React.Component {
   }
 
   render() {
-    const { languages, technologies } = this.props.skills;
+    const { languages, technologies } = this.props.resume.skills;
 
     return (
       <div className="w-100">
