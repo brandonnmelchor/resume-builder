@@ -9,13 +9,13 @@ export default class Experience extends React.Component {
     let display;
 
     if (entryMode) {
-      // const entry = experience.filter((entry) => entry.id === targetEntry)[0];
-      // display = <EntryForm key={entry.id} educationEntry={entry} handleChange={handleChange} />;
+      const entry = experience.filter((entry) => entry.id === targetEntry)[0];
+      display = <EntryForm key={entry.id} experienceEntry={entry} handleChange={handleChange} />;
     } else {
       display = (
         <div className="d-flex flex-column gap-3">
           {experience.map((entry) => (
-            <EntryCard key={entry.id} educationEntry={entry} handleChange={handleChange} />
+            <EntryCard key={entry.id} experienceEntry={entry} handleChange={handleChange} />
           ))}
           {/* <AddEntry handleChange={handleChange} /> */}
         </div>
@@ -46,7 +46,7 @@ class EntryCard extends React.Component {
   }
 
   render() {
-    const { id, company, title, startMonth, startYear, endMonth, endYear } = this.props.educationEntry;
+    const { id, company, title, startMonth, startYear, endMonth, endYear } = this.props.experienceEntry;
 
     return (
       <div className="card d-flex flex-row justify-content-between p-3">
@@ -65,6 +65,71 @@ class EntryCard extends React.Component {
             <i className="bi bi-trash"></i>
           </button>
         </div>
+      </div>
+    );
+  }
+}
+
+class EntryForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { currentWork: this.props.experienceEntry.endMonth === "Present" ? true : false };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.setCurrentWork = this.setCurrentWork.bind(this);
+  }
+
+  handleChange(event) {
+    const handleEntry = this.props.handleChange.handleEntry;
+    const entryID = event.target.form.id;
+    handleEntry(event, "experience", entryID);
+  }
+
+  setCurrentWork(event) {
+    const setPresentDate = this.props.handleChange.setPresentDate;
+    const entryID = event.target.form.id;
+    if (this.state.currentWork === false) setPresentDate("experience", entryID);
+
+    this.setState((state) => {
+      return { currentWork: !state.currentWork };
+    });
+  }
+
+  render() {
+    const currentWork = this.state.currentWork;
+    const { id, company, title, startMonth, startYear, endMonth, endYear, details } = this.props.experienceEntry;
+
+    return (
+      <div>
+        <form id={id}>
+          <div className="mb-4">
+            <TextInput label="Company Name" type="text" id="company" value={company} handleChange={this.handleChange} length="40" />
+          </div>
+          <div className="mb-4">
+            <TextInput label="Title" type="text" id="title" value={title} handleChange={this.handleChange} length="40" />
+          </div>
+          <div className="row justify-content-center align-items-center mb-4">
+            <div className="col">
+              <MonthSelectInput label="Start Month" id="startMonth" value={startMonth} handleChange={this.handleChange} disabled={false} />
+            </div>
+            <div className="col">
+              <YearInput label="Start Year" id="startYear" value={startYear} handleChange={this.handleChange} disabled={false} />
+            </div>
+          </div>
+          <div className="row justify-content-center align-items-center mb-4">
+            <div className="col">
+              <MonthSelectInput label="End Month" id="endMonth" value={endMonth} handleChange={this.handleChange} disabled={currentWork} />
+            </div>
+            <div className="col">
+              <YearInput label="End Year" id="endYear" value={endYear} handleChange={this.handleChange} disabled={currentWork} />
+            </div>
+          </div>
+          <div className="d-flex justify-content-between">
+            <div>
+              <CheckboxInput label="I currently study here" id="currentWork" handleChange={this.setCurrentWork} checked={currentWork} />
+            </div>
+          </div>
+        </form>
       </div>
     );
   }
