@@ -21,9 +21,11 @@ export class TextAreaInput extends React.Component {
 
     return (
       <div>
-        <label htmlFor={id} className="form-label fw-bold">
-          {label}
-        </label>
+        {label.length > 0 && (
+          <label htmlFor={id} className="form-label fw-bold">
+            {label}
+          </label>
+        )}
         <textarea className="form-control" id={id} value={value} onChange={handleChange} maxLength={length} rows="3" />
       </div>
     );
