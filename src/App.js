@@ -11,8 +11,7 @@ export default class App extends React.Component {
     this.state = {
       resume: demoState(),
       entryMode: {
-        addEntryMode: false,
-        editEntryMode: false,
+        entryMode: false,
         targetEntry: "",
       },
     };
@@ -32,7 +31,7 @@ export default class App extends React.Component {
 
     const entryMode = this.state.entryMode;
     const entry = section[section.length - 1].id;
-    entryMode.addEntryMode = true;
+    entryMode.entryMode = true;
     entryMode.targetEntry = entry;
 
     this.setState({ resume: resume, entryMode: entryMode });
@@ -43,7 +42,7 @@ export default class App extends React.Component {
     const entry = target.parentElement.attributes.entry.value;
 
     const entryMode = this.state.entryMode;
-    entryMode.editEntryMode = true;
+    entryMode.entryMode = true;
     entryMode.targetEntry = entry;
 
     this.setState({ entryMode: entryMode });
@@ -51,8 +50,7 @@ export default class App extends React.Component {
 
   saveEntry() {
     const entryMode = this.state.entryMode;
-    entryMode.addEntryMode = false;
-    entryMode.editEntryMode = false;
+    entryMode.entryMode = false;
 
     this.setState({ entryMode: entryMode });
   }

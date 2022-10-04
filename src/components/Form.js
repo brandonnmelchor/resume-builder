@@ -40,8 +40,7 @@ export default class Form extends React.Component {
     else if (sectionNumber === 5) currentSection = <Projects resume={resume} entryMode={entryMode} handleChange={handleChange} />;
 
     let formNav;
-    const { addEntryMode, editEntryMode } = entryMode;
-    if (addEntryMode || editEntryMode) formNav = <EntryNav handleChange={handleChange} />;
+    if (entryMode.entryMode) formNav = <EntryNav handleChange={handleChange} />;
     else formNav = <FormNav sectionNumber={sectionNumber} prevSection={this.prevSection} nextSection={this.nextSection} />;
 
     return (

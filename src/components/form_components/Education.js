@@ -4,11 +4,11 @@ import { TextInput, NumberInput, SelectInput, CheckboxInput } from "./FormInputs
 export default class Education extends React.Component {
   render() {
     const education = this.props.resume.education;
-    const { addEntryMode, editEntryMode, targetEntry } = this.props.entryMode;
+    const { entryMode, targetEntry } = this.props.entryMode;
     const handleChange = this.props.handleChange;
     let display;
 
-    if (addEntryMode || editEntryMode) {
+    if (entryMode) {
       const entry = education.filter((entry) => entry.id === targetEntry)[0];
       display = <EntryForm key={entry.id} educationEntry={entry} handleChange={handleChange} />;
     } else {
