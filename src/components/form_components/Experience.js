@@ -178,6 +178,18 @@ class DetailsForm extends React.Component {
 
   render() {
     const { id, text } = this.props.detailsEntry;
-    return <TextAreaInput label="" id={id} value={text} handleChange={this.handleChange} length="200" />;
+
+    return (
+      <div className="row flex-row justify-content-between">
+        <div className="col-11">
+          <TextAreaInput label="" id={id} value={text} handleChange={this.handleChange} length="200" />
+        </div>
+        <div className="col-1">
+          <button type="button" className="btn gray px-1" entry={id} onClick={this.handleChange}>
+            <i className="bi bi-trash"></i>
+          </button>
+        </div>
+      </div>
+    );
   }
 }
