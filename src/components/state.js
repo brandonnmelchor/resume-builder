@@ -70,7 +70,7 @@ export const demoResume = () => {
       {
         id: uniqid(),
         company: "Oracle",
-        title: "Clinical Solutions Architect",
+        title: "Clinical Solutions Consultant",
         startMonth: "Apr",
         startYear: "2022",
         endMonth: "Present",
