@@ -2,56 +2,24 @@ import React from "react";
 import { TextInput, NumberInput, SelectInput, CheckboxInput } from "./FormInputs";
 
 export default class Education extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      addEntryMode: false,
-      editEntryMode: false,
-      targetEntry: "",
-    };
-
-    this.addEntry = this.addEntry.bind(this);
-    this.editEntry = this.editEntry.bind(this);
-    this.saveEntry = this.saveEntry.bind(this);
-  }
-
-  addEntry(event) {
-    this.setState({ addEntryMode: true });
-  }
-
-  editEntry(event) {
-    const target = event.target;
-    const entry = target.parentElement.attributes.entry.value;
-
-    this.setState({
-      editEntryMode: true,
-      targetEntry: entry,
-    });
-  }
-
-  saveEntry() {
-    this.setState({ addEntryMode: false, editEntryMode: false });
-  }
-
   render() {
-    const { addEntryMode, editEntryMode, targetEntry } = this.state;
     const education = this.props.resume.education;
     const newEntry = this.props.resume.educationEntry;
+    const { addEntryMode, editEntryMode, targetEntry } = this.props.entryMode;
     const handleChange = this.props.handleChange;
     let display;
 
-    if (addEntryMode) display = <EntryForm key={newEntry.id} educationEntry={newEntry} handleChange={handleChange} saveEntry={this.saveEntry} />;
+    if (addEntryMode) display = <EntryForm key={newEntry.id} educationEntry={newEntry} handleChange={handleChange} />;
     else if (editEntryMode) {
       const entry = education.filter((entry) => entry.id === targetEntry)[0];
-      display = <EntryForm key={entry.id} educationEntry={entry} handleChange={handleChange} saveEntry={this.saveEntry} />;
+      display = <EntryForm key={entry.id} educationEntry={entry} handleChange={handleChange} />;
     } else {
       display = (
         <div className="d-flex flex-column gap-3">
           {education.map((entry) => (
-            <EntryCard key={entry.id} educationEntry={entry} editEntry={this.editEntry} />
+            <EntryCard key={entry.id} educationEntry={entry} handleChange={handleChange} />
           ))}
-          <AddEntry addEntry={this.addEntry} />
+          <AddEntry handleChange={handleChange} />
         </div>
       );
     }
@@ -63,7 +31,7 @@ export default class Education extends React.Component {
 class EntryCard extends React.Component {
   render() {
     const { id, schoolName, degree, major, startMonth, startYear, endMonth, endYear } = this.props.educationEntry;
-    const editEntry = this.props.editEntry;
+    const editEntry = this.props.handleChange.editEntry;
 
     return (
       <div className="card d-flex flex-row justify-content-between p-3">
@@ -91,7 +59,7 @@ class EntryCard extends React.Component {
 
 class AddEntry extends React.Component {
   render() {
-    const addEntry = this.props.addEntry;
+    const addEntry = this.props.handleChange.addEntry;
 
     return (
       <div className="card user-select-none p-3" onClick={addEntry} style={{ cursor: "pointer" }}>
@@ -131,7 +99,7 @@ class EntryForm extends React.Component {
   render() {
     const currentSchool = this.state.currentSchool;
     const { id, schoolName, degree, major, startMonth, startYear, endMonth, endYear } = this.props.educationEntry;
-    const saveEntry = this.props.saveEntry;
+    const saveEntry = this.props.handleChange.saveEntry;
 
     return (
       <div>
