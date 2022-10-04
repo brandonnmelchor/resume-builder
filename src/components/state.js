@@ -17,10 +17,6 @@ export const newState = () => {
     },
     experience: [],
     projects: [],
-    educationEntry: educationEntry(),
-    experienceEntry: experienceEntry(),
-    projectEntry: projectEntry(),
-    entryDetails: entryDetails(),
   };
 };
 
@@ -207,10 +203,6 @@ export const demoState = () => {
         ],
       },
     ],
-    educationEntry: educationEntry(),
-    experienceEntry: experienceEntry(),
-    projectEntry: projectEntry(),
-    entryDetails: entryDetails(),
   };
 };
 
