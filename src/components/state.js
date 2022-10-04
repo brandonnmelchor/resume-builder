@@ -1,6 +1,6 @@
 import uniqid from "uniqid";
 
-export const newState = () => {
+export const newResume = () => {
   return {
     personal: {
       firstName: "",
@@ -20,7 +20,7 @@ export const newState = () => {
   };
 };
 
-export const demoState = () => {
+export const demoResume = () => {
   return {
     personal: {
       firstName: "Brandonn",
@@ -246,5 +246,14 @@ export const entryDetails = () => {
   return {
     id: uniqid(),
     text: "",
+  };
+};
+
+export const newEntryMode = () => {
+  return {
+    newEntryMode: false,
+    targetEntry: "",
+    prevSectionName: "",
+    prevSectionState: {},
   };
 };

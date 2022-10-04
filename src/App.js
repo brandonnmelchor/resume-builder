@@ -3,19 +3,14 @@ import Nav from "./components/Nav";
 import Form from "./components/Form";
 import Resume from "./components/Resume";
 import Footer from "./components/Footer";
-import { demoState, educationEntry } from "./components/state";
+import { demoResume, educationEntry, newEntryMode } from "./components/state";
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      resume: demoState(),
-      entryMode: {
-        entryMode: false,
-        targetEntry: "",
-        prevSectionName: "",
-        prevSectionState: {},
-      },
+      resume: demoResume(),
+      entryMode: newEntryMode(),
     };
 
     this.addEntry = this.addEntry.bind(this);
@@ -56,26 +51,15 @@ export default class App extends React.Component {
   }
 
   saveEntry() {
-    const entryMode = this.state.entryMode;
-    entryMode.entryMode = false;
-    entryMode.targetEntry = "";
-    entryMode.prevSectionName = "";
-    entryMode.prevSectionState = {};
-
-    this.setState({ entryMode: entryMode });
+    this.setState({ entryMode: newEntryMode() });
   }
 
   cancelEntry() {
     const { resume, entryMode } = this.state;
     const { prevSectionName, prevSectionState } = entryMode;
-
     resume[prevSectionName] = prevSectionState;
-    entryMode.entryMode = false;
-    entryMode.targetEntry = "";
-    entryMode.prevSectionName = "";
-    entryMode.prevSectionState = {};
 
-    this.setState({ entryMode: entryMode });
+    this.setState({ resume: resume, entryMode: newEntryMode() });
   }
 
   handleInput(event, sectionName) {
