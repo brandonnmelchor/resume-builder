@@ -145,7 +145,7 @@ class EntryForm extends React.Component {
               <YearInput label="Start Year" id="startYear" value={startYear} handleChange={this.handleChange} disabled={false} />
             </div>
           </div>
-          <div className="row justify-content-center align-items-center mb-4">
+          <div className="row justify-content-center align-items-center mb-2">
             <div className="col">
               <MonthSelectInput label="End Month" id="endMonth" value={endMonth} handleChange={this.handleChange} disabled={currentSchool} />
             </div>
