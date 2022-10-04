@@ -25,13 +25,13 @@ export default class App extends React.Component {
     this.setPresentDate = this.setPresentDate.bind(this);
   }
 
-  addEntry() {
+  addEntry(sectionName) {
     const resume = this.state.resume;
-    const education = resume.education;
-    education.push(educationEntry());
+    const section = resume[sectionName];
+    section.push(educationEntry());
 
     const entryMode = this.state.entryMode;
-    const entry = education[education.length - 1].id;
+    const entry = section[section.length - 1].id;
     entryMode.addEntryMode = true;
     entryMode.targetEntry = entry;
 

@@ -56,11 +56,19 @@ class EntryCard extends React.Component {
 }
 
 class AddEntry extends React.Component {
-  render() {
-    const addEntry = this.props.handleChange.addEntry;
+  constructor(props) {
+    super(props);
+    this.addEntry = this.addEntry.bind(this);
+  }
 
+  addEntry() {
+    const addEntry = this.props.handleChange.addEntry;
+    addEntry("education");
+  }
+
+  render() {
     return (
-      <div className="card user-select-none p-3" onClick={addEntry} style={{ cursor: "pointer" }}>
+      <div className="card user-select-none p-3" onClick={this.addEntry} style={{ cursor: "pointer" }}>
         <span className="d-flex align-items-center fw-bold gray">
           <i className="bi bi-plus fs-3"></i> Add more education
         </span>
