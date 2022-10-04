@@ -186,7 +186,7 @@ class DetailsForm extends React.Component {
         </div>
         <div className="col-1">
           <button type="button" className="btn gray px-1" entry={id} onClick={this.handleChange}>
-            <i className="bi bi-trash"></i>
+            <i className="bi bi-x-lg"></i>
           </button>
         </div>
       </div>

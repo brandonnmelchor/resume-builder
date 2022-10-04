@@ -26,7 +26,7 @@ export class TextAreaInput extends React.Component {
             {label}
           </label>
         )}
-        <textarea className="form-control" id={id} value={value} onChange={handleChange} maxLength={length} rows="3" />
+        <textarea className="form-control resize-none" id={id} value={value} onChange={handleChange} maxLength={length} rows="3" />
       </div>
     );
   }
