@@ -62,7 +62,7 @@ class EntryNav extends React.Component {
         <hr className="mb-3" />
         <div className="w-100 d-flex ">
           <button type="button" className="btn btn-outline-secondary nav-button gray-border" onClick={saveEntry}>
-            Back
+            Cancel
           </button>
           <button type="button" className="btn btn-secondary nav-button gray-border ms-auto" onClick={saveEntry}>
             Submit
