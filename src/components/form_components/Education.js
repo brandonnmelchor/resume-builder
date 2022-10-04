@@ -1,5 +1,5 @@
 import React from "react";
-import { TextInput, NumberInput, SelectInput, CheckboxInput } from "./FormInputs";
+import { TextInput, YearInput, MonthSelectInput, CheckboxInput } from "./FormInputs";
 
 export default class Education extends React.Component {
   render() {
@@ -139,18 +139,18 @@ class EntryForm extends React.Component {
           </div>
           <div className="row justify-content-center align-items-center mb-4">
             <div className="col">
-              <SelectInput label="Start Month" id="startMonth" value={startMonth} handleChange={this.handleChange} disabled={false} />
+              <MonthSelectInput label="Start Month" id="startMonth" value={startMonth} handleChange={this.handleChange} disabled={false} />
             </div>
             <div className="col">
-              <NumberInput label="Start Year" id="startYear" value={startYear} handleChange={this.handleChange} disabled={false} />
+              <YearInput label="Start Year" id="startYear" value={startYear} handleChange={this.handleChange} disabled={false} />
             </div>
           </div>
           <div className="row justify-content-center align-items-center mb-4">
             <div className="col">
-              <SelectInput label="End Month" id="endMonth" value={endMonth} handleChange={this.handleChange} disabled={currentSchool} />
+              <MonthSelectInput label="End Month" id="endMonth" value={endMonth} handleChange={this.handleChange} disabled={currentSchool} />
             </div>
             <div className="col">
-              <NumberInput label="End Year" id="endYear" value={endYear} handleChange={this.handleChange} disabled={currentSchool} />
+              <YearInput label="End Year" id="endYear" value={endYear} handleChange={this.handleChange} disabled={currentSchool} />
             </div>
           </div>
           <div className="d-flex justify-content-between">

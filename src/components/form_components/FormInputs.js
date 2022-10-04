@@ -15,21 +15,6 @@ export class TextInput extends React.Component {
   }
 }
 
-export class NumberInput extends React.Component {
-  render() {
-    const { label, id, value, handleChange, disabled } = this.props;
-
-    return (
-      <div>
-        <label htmlFor={id} className="form-label fw-bold">
-          {label}
-        </label>
-        <input type="number" className="form-control" id={id} value={value} onChange={handleChange} disabled={disabled} />
-      </div>
-    );
-  }
-}
-
 export class TextAreaInput extends React.Component {
   render() {
     const { label, id, value, handleChange, length } = this.props;
@@ -45,7 +30,22 @@ export class TextAreaInput extends React.Component {
   }
 }
 
-export class SelectInput extends React.Component {
+export class YearInput extends React.Component {
+  render() {
+    const { label, id, value, handleChange, disabled } = this.props;
+
+    return (
+      <div>
+        <label htmlFor={id} className="form-label fw-bold">
+          {label}
+        </label>
+        <input type="number" className="form-control" id={id} value={value} onChange={handleChange} disabled={disabled} />
+      </div>
+    );
+  }
+}
+
+export class MonthSelectInput extends React.Component {
   render() {
     const { label, id, value, handleChange, disabled } = this.props;
 
