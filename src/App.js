@@ -13,37 +13,44 @@ export default class App extends React.Component {
       entryMode: {
         entryMode: false,
         targetEntry: "",
+        prevSectionName: "",
+        prevSectionState: {},
       },
     };
 
     this.addEntry = this.addEntry.bind(this);
     this.editEntry = this.editEntry.bind(this);
     this.saveEntry = this.saveEntry.bind(this);
+    this.cancelEntry = this.cancelEntry.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleEntry = this.handleEntry.bind(this);
     this.setPresentDate = this.setPresentDate.bind(this);
   }
 
   addEntry(sectionName) {
-    const resume = this.state.resume;
+    const { resume, entryMode } = this.state;
     const section = resume[sectionName];
-    section.push(educationEntry());
 
-    const entryMode = this.state.entryMode;
+    entryMode.prevSectionName = sectionName;
+    entryMode.prevSectionState = structuredClone(section);
+
+    section.push(educationEntry());
     const entry = section[section.length - 1].id;
+
     entryMode.entryMode = true;
     entryMode.targetEntry = entry;
 
     this.setState({ resume: resume, entryMode: entryMode });
   }
 
-  editEntry(event) {
-    const target = event.target;
-    const entry = target.parentElement.attributes.entry.value;
+  editEntry(sectionName, entryID) {
+    const { resume, entryMode } = this.state;
+    const section = resume[sectionName];
 
-    const entryMode = this.state.entryMode;
+    entryMode.prevSectionName = sectionName;
+    entryMode.prevSectionState = structuredClone(section);
     entryMode.entryMode = true;
-    entryMode.targetEntry = entry;
+    entryMode.targetEntry = entryID;
 
     this.setState({ entryMode: entryMode });
   }
@@ -51,6 +58,22 @@ export default class App extends React.Component {
   saveEntry() {
     const entryMode = this.state.entryMode;
     entryMode.entryMode = false;
+    entryMode.targetEntry = "";
+    entryMode.prevSectionName = "";
+    entryMode.prevSectionState = {};
+
+    this.setState({ entryMode: entryMode });
+  }
+
+  cancelEntry() {
+    const { resume, entryMode } = this.state;
+    const { prevSectionName, prevSectionState } = entryMode;
+
+    resume[prevSectionName] = prevSectionState;
+    entryMode.entryMode = false;
+    entryMode.targetEntry = "";
+    entryMode.prevSectionName = "";
+    entryMode.prevSectionState = {};
 
     this.setState({ entryMode: entryMode });
   }
@@ -97,6 +120,7 @@ export default class App extends React.Component {
       addEntry: this.addEntry,
       editEntry: this.editEntry,
       saveEntry: this.saveEntry,
+      cancelEntry: this.cancelEntry,
       handleInput: this.handleInput,
       handleEntry: this.handleEntry,
       setPresentDate: this.setPresentDate,
