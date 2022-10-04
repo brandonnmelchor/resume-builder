@@ -54,13 +54,13 @@ export default class Form extends React.Component {
 
 class EntryNav extends React.Component {
   render() {
-    const { saveEntry } = this.props.handleChange;
+    const { saveEntry, cancelEntry } = this.props.handleChange;
 
     return (
       <div className="w-100 d-flex flex-column mt-5">
         <hr className="mb-3" />
         <div className="w-100 d-flex ">
-          <button type="button" className="btn btn-outline-secondary nav-button gray-border" onClick={saveEntry}>
+          <button type="button" className="btn btn-outline-secondary nav-button gray-border" onClick={cancelEntry}>
             Cancel
           </button>
           <button type="button" className="btn btn-secondary nav-button gray-border ms-auto" onClick={saveEntry}>
