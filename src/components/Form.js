@@ -64,7 +64,7 @@ class EntryNav extends React.Component {
             Cancel
           </button>
           <button type="button" className="btn btn-secondary nav-button gray-border ms-auto" onClick={saveEntry}>
-            Submit
+            Save
           </button>
         </div>
       </div>
