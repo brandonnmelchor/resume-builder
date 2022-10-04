@@ -208,7 +208,7 @@ export const demoState = () => {
 
 export const educationEntry = () => {
   return {
-    uniqid: uniqid(),
+    id: uniqid(),
     schoolName: "",
     degree: "",
     major: "",
@@ -221,7 +221,7 @@ export const educationEntry = () => {
 
 export const experienceEntry = () => {
   return {
-    uniqid: uniqid(),
+    id: uniqid(),
     company: "",
     title: "",
     startMonth: "",
@@ -234,7 +234,7 @@ export const experienceEntry = () => {
 
 export const projectEntry = () => {
   return {
-    uniqid: uniqid(),
+    id: uniqid(),
     projectName: "",
     url: "",
     tech: "",
@@ -244,7 +244,7 @@ export const projectEntry = () => {
 
 export const entryDetails = () => {
   return {
-    uniqid: uniqid(),
+    id: uniqid(),
     text: "",
   };
 };

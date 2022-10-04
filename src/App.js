@@ -3,7 +3,7 @@ import Nav from "./components/Nav";
 import Form from "./components/Form";
 import Resume from "./components/Resume";
 import Footer from "./components/Footer";
-import { demoState } from "./components/state";
+import { demoState, educationEntry } from "./components/state";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -33,9 +33,7 @@ export default class App extends React.Component {
     const resume = this.state.resume;
     resume[sectionName][name] = value;
 
-    this.setState({
-      resume: resume,
-    });
+    this.setState({ resume: resume });
   }
 
   updateEntry(event, sectionName, entryID) {
@@ -48,9 +46,7 @@ export default class App extends React.Component {
     const entry = section.filter((entry) => entry.id === entryID)[0];
     entry[name] = value;
 
-    this.setState({
-      resume: resume,
-    });
+    this.setState({ resume: resume });
   }
 
   setPresentDate(sectionName, entryID) {
@@ -60,16 +56,20 @@ export default class App extends React.Component {
     entry.endMonth = "Present";
     entry.endYear = "";
 
-    this.setState({
-      resume: resume,
-    });
+    this.setState({ resume: resume });
   }
 
   addEntry() {
-    const entryMode = this.state.entryMode;
-    entryMode.addEntryMode = true;
+    const resume = this.state.resume;
+    const education = resume.education;
+    education.push(educationEntry());
 
-    this.setState({ entryMode: entryMode });
+    const entryMode = this.state.entryMode;
+    const entry = education[education.length - 1].id;
+    entryMode.addEntryMode = true;
+    entryMode.targetEntry = entry;
+
+    this.setState({ resume: resume, entryMode: entryMode });
   }
 
   editEntry(event) {
