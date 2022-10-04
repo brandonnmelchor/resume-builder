@@ -17,7 +17,7 @@ export default class Experience extends React.Component {
           {experience.map((entry) => (
             <EntryCard key={entry.id} experienceEntry={entry} handleChange={handleChange} />
           ))}
-          {/* <AddEntry handleChange={handleChange} /> */}
+          <AddEntry handleChange={handleChange} />
         </div>
       );
     }
@@ -65,6 +65,28 @@ class EntryCard extends React.Component {
             <i className="bi bi-trash"></i>
           </button>
         </div>
+      </div>
+    );
+  }
+}
+
+class AddEntry extends React.Component {
+  constructor(props) {
+    super(props);
+    this.addEntry = this.addEntry.bind(this);
+  }
+
+  addEntry() {
+    const addEntry = this.props.handleChange.addEntry;
+    addEntry("experience");
+  }
+
+  render() {
+    return (
+      <div className="card user-select-none p-3" onClick={this.addEntry} style={{ cursor: "pointer" }}>
+        <span className="d-flex align-items-center fw-bold gray">
+          <i className="bi bi-plus fs-3"></i> Add more work experience
+        </span>
       </div>
     );
   }

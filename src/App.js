@@ -3,7 +3,7 @@ import Nav from "./components/Nav";
 import Form from "./components/Form";
 import Resume from "./components/Resume";
 import Footer from "./components/Footer";
-import { demoResume, educationEntry, newEntryMode } from "./components/state";
+import { demoResume, educationEntry, experienceEntry, projectEntry, newEntryMode } from "./components/state";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -26,13 +26,14 @@ export default class App extends React.Component {
   addEntry(sectionName) {
     const { resume, entryMode } = this.state;
     const section = resume[sectionName];
-
     entryMode.prevSectionName = sectionName;
     entryMode.prevSectionState = structuredClone(section);
 
-    section.push(educationEntry());
-    const entry = section[section.length - 1].id;
+    if (sectionName === "education") section.push(educationEntry());
+    else if (sectionName === "experience") section.push(experienceEntry());
+    else if (sectionName === "projects") section.push(projectEntry());
 
+    const entry = section[section.length - 1].id;
     entryMode.entryMode = true;
     entryMode.targetEntry = entry;
 
