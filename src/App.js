@@ -15,6 +15,7 @@ export default class App extends React.Component {
 
     this.addEntry = this.addEntry.bind(this);
     this.editEntry = this.editEntry.bind(this);
+    this.deleteEntry = this.deleteEntry.bind(this);
     this.saveEntry = this.saveEntry.bind(this);
     this.cancelEntry = this.cancelEntry.bind(this);
     this.handleInput = this.handleInput.bind(this);
@@ -48,6 +49,14 @@ export default class App extends React.Component {
     entryMode.targetEntry = entryID;
 
     this.setState({ entryMode: entryMode });
+  }
+
+  deleteEntry(sectionName, entryID) {
+    const resume = this.state.resume;
+    const section = resume[sectionName].filter((entry) => entry.id !== entryID);
+    resume[sectionName] = section;
+
+    this.setState({ resume: resume });
   }
 
   saveEntry() {
@@ -103,6 +112,7 @@ export default class App extends React.Component {
     const handleChange = {
       addEntry: this.addEntry,
       editEntry: this.editEntry,
+      deleteEntry: this.deleteEntry,
       saveEntry: this.saveEntry,
       cancelEntry: this.cancelEntry,
       handleInput: this.handleInput,

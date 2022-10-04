@@ -30,12 +30,19 @@ class EntryCard extends React.Component {
   constructor(props) {
     super(props);
     this.editEntry = this.editEntry.bind(this);
+    this.deleteEntry = this.deleteEntry.bind(this);
   }
 
   editEntry(event) {
     const editEntry = this.props.handleChange.editEntry;
     const entryID = event.target.parentElement.attributes.entry.value;
     editEntry("education", entryID);
+  }
+
+  deleteEntry(event) {
+    const deleteEntry = this.props.handleChange.deleteEntry;
+    const entryID = event.target.parentElement.attributes.entry.value;
+    deleteEntry("education", entryID);
   }
 
   render() {
@@ -56,7 +63,7 @@ class EntryCard extends React.Component {
           <button type="button" className="btn gray px-1" entry={id} onClick={this.editEntry}>
             <i className="bi bi-pencil-square"></i>
           </button>
-          <button type="button" className="btn gray px-1" entry={id} onClick={this.editEntry}>
+          <button type="button" className="btn gray px-1" entry={id} onClick={this.deleteEntry}>
             <i className="bi bi-trash"></i>
           </button>
         </div>
