@@ -37,13 +37,12 @@ export default class Education extends React.Component {
   render() {
     const { addEntryMode, editEntryMode, targetEntry } = this.state;
     const education = this.props.resume.education;
+    const newEntry = this.props.resume.educationEntry;
     const handleChange = this.props.handleChange;
     let display;
 
-    if (addEntryMode) {
-      display = <div>ADD MODE</div>;
-      // display = <EntryForm key={entryID} educationEntry={entry} handleChange={handleChange} saveEntry={this.saveEntry} />;
-    } else if (editEntryMode) {
+    if (addEntryMode) display = <EntryForm key={newEntry.id} educationEntry={newEntry} handleChange={handleChange} saveEntry={this.saveEntry} />;
+    else if (editEntryMode) {
       const entry = education.filter((entry) => entry.id === targetEntry)[0];
       display = <EntryForm key={entry.id} educationEntry={entry} handleChange={handleChange} saveEntry={this.saveEntry} />;
     } else {
