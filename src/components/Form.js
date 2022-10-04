@@ -31,18 +31,43 @@ export default class Form extends React.Component {
     const resume = this.props.resume;
     const entryMode = this.props.entryMode;
     const handleChange = this.props.handleChange;
-    let currentSection;
 
+    let currentSection;
     if (sectionNumber === 1) currentSection = <Personal resume={resume} handleChange={handleChange} />;
     else if (sectionNumber === 2) currentSection = <Education resume={resume} entryMode={entryMode} handleChange={handleChange} />;
     else if (sectionNumber === 3) currentSection = <Skills resume={resume} handleChange={handleChange} />;
     else if (sectionNumber === 4) currentSection = <Experience resume={resume} entryMode={entryMode} handleChange={handleChange} />;
     else if (sectionNumber === 5) currentSection = <Projects resume={resume} entryMode={entryMode} handleChange={handleChange} />;
 
+    let formNav;
+    const { addEntryMode, editEntryMode } = entryMode;
+    if (addEntryMode || editEntryMode) formNav = <EntryNav handleChange={handleChange} />;
+    else formNav = <FormNav sectionNumber={sectionNumber} prevSection={this.prevSection} nextSection={this.nextSection} />;
+
     return (
       <div className="card col-5 d-flex flex-column justify-content-center p-4">
         {currentSection}
-        <FormNav sectionNumber={sectionNumber} prevSection={this.prevSection} nextSection={this.nextSection} />
+        {formNav}
+      </div>
+    );
+  }
+}
+
+class EntryNav extends React.Component {
+  render() {
+    const { saveEntry } = this.props.handleChange;
+
+    return (
+      <div className="w-100 d-flex flex-column mt-5">
+        <hr className="mb-3" />
+        <div className="w-100 d-flex ">
+          <button type="button" className="btn btn-outline-secondary nav-button gray-border" onClick={saveEntry}>
+            Back
+          </button>
+          <button type="button" className="btn btn-secondary nav-button gray-border ms-auto" onClick={saveEntry}>
+            Submit
+          </button>
+        </div>
       </div>
     );
   }

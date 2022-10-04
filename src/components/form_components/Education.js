@@ -99,7 +99,6 @@ class EntryForm extends React.Component {
   render() {
     const currentSchool = this.state.currentSchool;
     const { id, schoolName, degree, major, startMonth, startYear, endMonth, endYear } = this.props.educationEntry;
-    const saveEntry = this.props.handleChange.saveEntry;
 
     return (
       <div>
@@ -134,11 +133,6 @@ class EntryForm extends React.Component {
           <div className="d-flex justify-content-between">
             <div>
               <CheckboxInput label="I currently study here" id="currentSchool" handleChange={this.setCurrentSchool} checked={currentSchool} />
-            </div>
-            <div>
-              <button type="button" className="btn btn-outline-secondary nav-button gray-border" onClick={saveEntry}>
-                Submit
-              </button>
             </div>
           </div>
         </form>
