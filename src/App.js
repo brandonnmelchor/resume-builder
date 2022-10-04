@@ -17,46 +17,12 @@ export default class App extends React.Component {
       },
     };
 
-    this.updateInput = this.updateInput.bind(this);
-    this.updateEntry = this.updateEntry.bind(this);
-    this.setPresentDate = this.setPresentDate.bind(this);
     this.addEntry = this.addEntry.bind(this);
     this.editEntry = this.editEntry.bind(this);
     this.saveEntry = this.saveEntry.bind(this);
-  }
-
-  updateInput(event, sectionName) {
-    const target = event.target;
-    const name = target.id;
-    const value = target.value;
-
-    const resume = this.state.resume;
-    resume[sectionName][name] = value;
-
-    this.setState({ resume: resume });
-  }
-
-  updateEntry(event, sectionName, entryID) {
-    const target = event.target;
-    const name = target.id;
-    const value = target.value;
-
-    const resume = this.state.resume;
-    const section = resume[sectionName];
-    const entry = section.filter((entry) => entry.id === entryID)[0];
-    entry[name] = value;
-
-    this.setState({ resume: resume });
-  }
-
-  setPresentDate(sectionName, entryID) {
-    const resume = this.state.resume;
-    const section = resume[sectionName];
-    const entry = section.filter((entry) => entry.id === entryID)[0];
-    entry.endMonth = "Present";
-    entry.endYear = "";
-
-    this.setState({ resume: resume });
+    this.handleInput = this.handleInput.bind(this);
+    this.handleEntry = this.handleEntry.bind(this);
+    this.setPresentDate = this.setPresentDate.bind(this);
   }
 
   addEntry() {
@@ -91,17 +57,51 @@ export default class App extends React.Component {
     this.setState({ entryMode: entryMode });
   }
 
+  handleInput(event, sectionName) {
+    const target = event.target;
+    const name = target.id;
+    const value = target.value;
+
+    const resume = this.state.resume;
+    resume[sectionName][name] = value;
+
+    this.setState({ resume: resume });
+  }
+
+  handleEntry(event, sectionName, entryID) {
+    const target = event.target;
+    const name = target.id;
+    const value = target.value;
+
+    const resume = this.state.resume;
+    const section = resume[sectionName];
+    const entry = section.filter((entry) => entry.id === entryID)[0];
+    entry[name] = value;
+
+    this.setState({ resume: resume });
+  }
+
+  setPresentDate(sectionName, entryID) {
+    const resume = this.state.resume;
+    const section = resume[sectionName];
+    const entry = section.filter((entry) => entry.id === entryID)[0];
+    entry.endMonth = "Present";
+    entry.endYear = "";
+
+    this.setState({ resume: resume });
+  }
+
   render() {
     const resume = this.state.resume;
     const entryMode = this.state.entryMode;
 
     const handleChange = {
-      updateInput: this.updateInput,
-      updateEntry: this.updateEntry,
-      setPresentDate: this.setPresentDate,
       addEntry: this.addEntry,
       editEntry: this.editEntry,
       saveEntry: this.saveEntry,
+      handleInput: this.handleInput,
+      handleEntry: this.handleEntry,
+      setPresentDate: this.setPresentDate,
     };
 
     return (

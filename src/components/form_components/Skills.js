@@ -8,8 +8,8 @@ export default class Skills extends React.Component {
   }
 
   handleChange(event) {
-    const updateInput = this.props.handleChange.updateInput;
-    updateInput(event, "skills");
+    const handleInput = this.props.handleChange.handleInput;
+    handleInput(event, "skills");
   }
 
   render() {

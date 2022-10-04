@@ -79,9 +79,9 @@ class EntryForm extends React.Component {
   }
 
   handleChange(event) {
-    const updateEntry = this.props.handleChange.updateEntry;
+    const handleEntry = this.props.handleChange.handleEntry;
     const entryID = event.target.form.id;
-    updateEntry(event, "education", entryID);
+    handleEntry(event, "education", entryID);
   }
 
   setCurrentSchool(event) {
