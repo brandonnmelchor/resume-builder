@@ -120,15 +120,16 @@ class EntryForm extends React.Component {
   render() {
     const currentWork = this.state.currentWork;
     const { id, company, title, startMonth, startYear, endMonth, endYear, details } = this.props.experienceEntry;
+    const handleChange = this.props.handleChange;
 
     return (
       <div>
         <form id={id}>
           <div className="mb-4">
-            <TextInput label="Company Name" type="text" id="company" value={company} handleChange={this.handleChange} length="40" />
+            <TextInput label="Company Name" type="text" id="company" value={company} handleChange={this.handleChange} length="50" />
           </div>
           <div className="mb-4">
-            <TextInput label="Title" type="text" id="title" value={title} handleChange={this.handleChange} length="40" />
+            <TextInput label="Title" type="text" id="title" value={title} handleChange={this.handleChange} length="50" />
           </div>
           <div className="row justify-content-center align-items-center mb-4">
             <div className="col">
@@ -138,7 +139,7 @@ class EntryForm extends React.Component {
               <YearInput label="Start Year" id="startYear" value={startYear} handleChange={this.handleChange} disabled={false} />
             </div>
           </div>
-          <div className="row justify-content-center align-items-center mb-4">
+          <div className="row justify-content-center align-items-center mb-2">
             <div className="col">
               <MonthSelectInput label="End Month" id="endMonth" value={endMonth} handleChange={this.handleChange} disabled={currentWork} />
             </div>
@@ -146,13 +147,37 @@ class EntryForm extends React.Component {
               <YearInput label="End Year" id="endYear" value={endYear} handleChange={this.handleChange} disabled={currentWork} />
             </div>
           </div>
-          <div className="d-flex justify-content-between">
+          <div className="d-flex justify-content-between mb-4">
             <div>
-              <CheckboxInput label="I currently study here" id="currentWork" handleChange={this.setCurrentWork} checked={currentWork} />
+              <CheckboxInput label="I currently work here" id="currentWork" handleChange={this.setCurrentWork} checked={currentWork} />
+            </div>
+          </div>
+          <div>
+            <label className="form-label fw-bold">Details</label>
+            <div className="d-flex flex-column gap-3">
+              {details.map((entry) => (
+                <DetailsForm key={entry.id} detailsEntry={entry} handleChange={handleChange} />
+              ))}
             </div>
           </div>
         </form>
       </div>
     );
+  }
+}
+
+class DetailsForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    console.log("details change");
+  }
+
+  render() {
+    const { id, text } = this.props.detailsEntry;
+    return <TextAreaInput label="" id={id} value={text} handleChange={this.handleChange} length="200" />;
   }
 }
