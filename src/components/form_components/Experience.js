@@ -158,6 +158,7 @@ class EntryForm extends React.Component {
               {details.map((detailsEntry) => (
                 <DetailsForm key={detailsEntry.id} detailsEntry={detailsEntry} handleChange={handleChange} />
               ))}
+              <AddDetailsEntry handleChange={handleChange} />
             </div>
           </div>
         </form>
@@ -192,6 +193,29 @@ class DetailsForm extends React.Component {
             <i className="bi bi-x-lg"></i>
           </button>
         </div>
+      </div>
+    );
+  }
+}
+
+class AddDetailsEntry extends React.Component {
+  constructor(props) {
+    super(props);
+    this.addDetailsEntry = this.addDetailsEntry.bind(this);
+  }
+
+  addDetailsEntry() {
+    // const addDetailsEntry = this.props.handleChange.addDetailsEntry;
+    // addDetailsEntry("experience");
+    console.log("add details entry!");
+  }
+
+  render() {
+    return (
+      <div className="card user-select-none p-3" onClick={this.addDetailsEntry} style={{ cursor: "pointer" }}>
+        <span className="d-flex align-items-center fw-bold gray">
+          <i className="bi bi-plus fs-3"></i> Add experience details
+        </span>
       </div>
     );
   }
