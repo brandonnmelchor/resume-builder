@@ -194,7 +194,7 @@ class DetailsForm extends React.Component {
     return (
       <div className="card flex-row justify-content-between">
         <div className="col-11">
-          <textarea className="form-control details-form" id={id} value={text} onChange={this.handleChange} maxLength="110" rows="2" />
+          <textarea className="form-control details-form" id={id} value={text} onChange={this.handleChange} maxLength="110" rows="3" />
         </div>
         <div className="col-1 d-flex justify-content-center">
           <button type="button" className="btn gray px-1" id={id} onClick={this.deleteDetails}>
