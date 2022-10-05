@@ -3,7 +3,7 @@ import Nav from "./components/Nav";
 import Form from "./components/Form";
 import Resume from "./components/Resume";
 import Footer from "./components/Footer";
-import { demoResume, educationEntry, experienceEntry, projectEntry, newEntryMode } from "./components/state";
+import { demoResume, educationEntry, experienceEntry, projectEntry, entryDetails, newEntryMode } from "./components/state";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -75,8 +75,13 @@ export default class App extends React.Component {
     this.setState({ resume: resume, entryMode: newEntryMode() });
   }
 
-  addDetails() {
-    console.log("add details");
+  addDetails(sectionName, entryID) {
+    const resume = this.state.resume;
+    const section = resume[sectionName];
+    const entry = section.filter((entry) => entry.id === entryID)[0];
+    entry.details.push(entryDetails());
+
+    this.setState({ resume: resume });
   }
 
   deleteDetails() {

@@ -158,7 +158,7 @@ class EntryForm extends React.Component {
               {details.map((detailsEntry) => (
                 <DetailsForm key={detailsEntry.id} detailsEntry={detailsEntry} handleChange={handleChange} />
               ))}
-              <AddDetails handleChange={handleChange} />
+              <AddDetails entryID={id} handleChange={handleChange} />
             </div>
           </div>
         </form>
@@ -206,7 +206,8 @@ class AddDetails extends React.Component {
 
   addDetails() {
     const addDetails = this.props.handleChange.addDetails;
-    addDetails("experience");
+    const entryID = this.props.entryID;
+    addDetails("experience", entryID);
   }
 
   render() {
