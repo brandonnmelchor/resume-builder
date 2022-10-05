@@ -85,7 +85,7 @@ class AddEntry extends React.Component {
 
   render() {
     return (
-      <div className="card user-select-none p-3" onClick={this.addEntry} style={{ cursor: "pointer" }}>
+      <div className="user-select-none" onClick={this.addEntry} style={{ cursor: "pointer" }}>
         <span className="d-flex align-items-center fw-bold gray">
           <i className="bi bi-plus fs-3"></i> Add education
         </span>
