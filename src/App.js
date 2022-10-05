@@ -18,6 +18,8 @@ export default class App extends React.Component {
     this.deleteEntry = this.deleteEntry.bind(this);
     this.saveEntry = this.saveEntry.bind(this);
     this.cancelEntry = this.cancelEntry.bind(this);
+    this.addDetails = this.addDetails.bind(this);
+    this.deleteDetails = this.deleteDetails.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleEntry = this.handleEntry.bind(this);
     this.handleDetails = this.handleDetails.bind(this);
@@ -71,6 +73,14 @@ export default class App extends React.Component {
     resume[prevSectionName] = prevSectionState;
 
     this.setState({ resume: resume, entryMode: newEntryMode() });
+  }
+
+  addDetails() {
+    console.log("add details");
+  }
+
+  deleteDetails() {
+    console.log("delete details");
   }
 
   handleInput(event, sectionName) {
@@ -129,6 +139,8 @@ export default class App extends React.Component {
       deleteEntry: this.deleteEntry,
       saveEntry: this.saveEntry,
       cancelEntry: this.cancelEntry,
+      addDetails: this.addDetails,
+      deleteDetails: this.deleteDetails,
       handleInput: this.handleInput,
       handleEntry: this.handleEntry,
       handleDetails: this.handleDetails,

@@ -158,7 +158,7 @@ class EntryForm extends React.Component {
               {details.map((detailsEntry) => (
                 <DetailsForm key={detailsEntry.id} detailsEntry={detailsEntry} handleChange={handleChange} />
               ))}
-              <AddDetailsEntry handleChange={handleChange} />
+              <AddDetails handleChange={handleChange} />
             </div>
           </div>
         </form>
@@ -198,21 +198,20 @@ class DetailsForm extends React.Component {
   }
 }
 
-class AddDetailsEntry extends React.Component {
+class AddDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.addDetailsEntry = this.addDetailsEntry.bind(this);
+    this.addDetails = this.addDetails.bind(this);
   }
 
-  addDetailsEntry() {
-    // const addDetailsEntry = this.props.handleChange.addDetailsEntry;
-    // addDetailsEntry("experience");
-    console.log("add details entry!");
+  addDetails() {
+    const addDetails = this.props.handleChange.addDetails;
+    addDetails("experience");
   }
 
   render() {
     return (
-      <div className="user-select-none" onClick={this.addDetailsEntry} style={{ cursor: "pointer" }}>
+      <div className="user-select-none" onClick={this.addDetails} style={{ cursor: "pointer" }}>
         <span className="d-flex align-items-center fw-bold gray">
           <i className="bi bi-plus fs-3"></i> Add experience details
         </span>
