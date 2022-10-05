@@ -25,7 +25,7 @@ export const demoResume = () => {
     personal: {
       firstName: "Brandonn",
       lastName: "Melchor",
-      phone: "+19567396168",
+      phone: "+12345678910",
       email: "brandonnmelchor@gmail.com",
       linkedin: "linkedin.com/in/brandonnmelchor",
       github: "github.com/brandonnmelchor",
