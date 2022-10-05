@@ -109,7 +109,6 @@ export default class App extends React.Component {
   render() {
     const resume = this.state.resume;
     const entryMode = this.state.entryMode;
-
     const handleChange = {
       addEntry: this.addEntry,
       editEntry: this.editEntry,
