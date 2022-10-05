@@ -155,8 +155,8 @@ class EntryForm extends React.Component {
           <div>
             <label className="form-label fw-bold">Details</label>
             <div className="d-flex flex-column gap-3">
-              {details.map((entry) => (
-                <DetailsForm key={entry.id} detailsEntry={entry} handleChange={handleChange} />
+              {details.map((detailsEntry) => (
+                <DetailsForm key={detailsEntry.id} detailsEntry={detailsEntry} handleChange={handleChange} />
               ))}
             </div>
           </div>
@@ -173,7 +173,10 @@ class DetailsForm extends React.Component {
   }
 
   handleChange(event) {
-    console.log("details change");
+    const handleDetails = this.props.handleChange.handleDetails;
+    const entryID = event.target.form.id;
+    const detailsID = event.target.id;
+    handleDetails(event, "experience", entryID, detailsID);
   }
 
   render() {
@@ -182,10 +185,10 @@ class DetailsForm extends React.Component {
     return (
       <div className="row flex-row justify-content-between">
         <div className="col-11">
-          <TextAreaInput label="" id={id} value={text} handleChange={this.handleChange} length="200" />
+          <TextAreaInput label="" id={id} value={text} handleChange={this.handleChange} length="110" />
         </div>
         <div className="col-1">
-          <button type="button" className="btn gray px-1" entry={id} onClick={this.handleChange}>
+          <button type="button" className="btn gray px-1" entry={id}>
             <i className="bi bi-x-lg"></i>
           </button>
         </div>

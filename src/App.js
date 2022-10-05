@@ -20,6 +20,7 @@ export default class App extends React.Component {
     this.cancelEntry = this.cancelEntry.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleEntry = this.handleEntry.bind(this);
+    this.handleDetails = this.handleDetails.bind(this);
     this.setPresentDate = this.setPresentDate.bind(this);
   }
 
@@ -96,6 +97,19 @@ export default class App extends React.Component {
     this.setState({ resume: resume });
   }
 
+  handleDetails(event, sectionName, entryID, detailsID) {
+    const target = event.target;
+    const value = target.value;
+
+    const resume = this.state.resume;
+    const section = resume[sectionName];
+    const entry = section.filter((entry) => entry.id === entryID)[0];
+    const detailsEntry = entry.details.filter((detailsEntry) => detailsEntry.id === detailsID)[0];
+    detailsEntry.text = value;
+
+    this.setState({ resume: resume });
+  }
+
   setPresentDate(sectionName, entryID) {
     const resume = this.state.resume;
     const section = resume[sectionName];
@@ -117,6 +131,7 @@ export default class App extends React.Component {
       cancelEntry: this.cancelEntry,
       handleInput: this.handleInput,
       handleEntry: this.handleEntry,
+      handleDetails: this.handleDetails,
       setPresentDate: this.setPresentDate,
     };
 
