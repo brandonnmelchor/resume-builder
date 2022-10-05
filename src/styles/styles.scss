@@ -3,32 +3,44 @@
 // }
 
 #resume {
+  @media (min-width: 992px) {
+    padding: 13.2px;
+  }
+
   @media (min-width: 1200px) {
-    padding: 25.83px;
+    padding: 15.7px;
   }
 
   @media (min-width: 1400px) {
-    padding: 30px;
+    padding: 18.2px;
   }
 }
 
 .section-header {
+  @media (min-width: 992px) {
+    font-size: 9.2px;
+  }
+
   @media (min-width: 1200px) {
-    font-size: 10.33px;
+    font-size: 10.9px;
   }
 
   @media (min-width: 1400px) {
-    font-size: 12px;
+    font-size: 12.7px;
   }
 }
 
 .section-content {
+  @media (min-width: 992px) {
+    font-size: 8px;
+  }
+
   @media (min-width: 1200px) {
-    font-size: 9.47px;
+    font-size: 9.6px;
   }
 
   @media (min-width: 1400px) {
-    font-size: 11px;
+    font-size: 11.1px;
   }
 }
 
