@@ -84,8 +84,14 @@ export default class App extends React.Component {
     this.setState({ resume: resume });
   }
 
-  deleteDetails() {
-    console.log("delete details");
+  deleteDetails(sectionName, entryID, detailsID) {
+    const resume = this.state.resume;
+    const section = resume[sectionName];
+    const entry = section.filter((entry) => entry.id === entryID)[0];
+    const details = entry.details.filter((entry) => entry.id !== detailsID);
+    entry.details = details;
+
+    this.setState({ resume: resume });
   }
 
   handleInput(event, sectionName) {

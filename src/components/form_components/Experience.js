@@ -156,7 +156,7 @@ class EntryForm extends React.Component {
             <label className="form-label fw-bold">Details</label>
             <div className="d-flex flex-column gap-3">
               {details.map((detailsEntry) => (
-                <DetailsForm key={detailsEntry.id} detailsEntry={detailsEntry} handleChange={handleChange} />
+                <DetailsForm key={detailsEntry.id} detailsEntry={detailsEntry} entryID={id} handleChange={handleChange} />
               ))}
               <AddDetails entryID={id} handleChange={handleChange} />
             </div>
@@ -171,6 +171,7 @@ class DetailsForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.deleteDetails = this.deleteDetails.bind(this);
   }
 
   handleChange(event) {
@@ -178,6 +179,13 @@ class DetailsForm extends React.Component {
     const entryID = event.target.form.id;
     const detailsID = event.target.id;
     handleDetails(event, "experience", entryID, detailsID);
+  }
+
+  deleteDetails(event) {
+    const deleteDetails = this.props.handleChange.deleteDetails;
+    const entryID = this.props.entryID;
+    const detailsID = event.target.parentElement.attributes.id.value;
+    deleteDetails("experience", entryID, detailsID);
   }
 
   render() {
@@ -189,7 +197,7 @@ class DetailsForm extends React.Component {
           <textarea className="form-control details-form" id={id} value={text} onChange={this.handleChange} maxLength="110" rows="2" />
         </div>
         <div className="col-1 d-flex justify-content-center">
-          <button type="button" className="btn gray px-1" entry={id}>
+          <button type="button" className="btn gray px-1" id={id} onClick={this.deleteDetails}>
             <i className="bi bi-x-lg"></i>
           </button>
         </div>
