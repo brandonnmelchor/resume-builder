@@ -1,5 +1,5 @@
 import React from "react";
-import { TextInput, TextAreaInput, YearInput, MonthSelectInput, CheckboxInput } from "./FormInputs";
+import { TextInput, YearInput, MonthSelectInput, CheckboxInput } from "./FormInputs";
 
 export default class Experience extends React.Component {
   render() {
@@ -184,11 +184,11 @@ class DetailsForm extends React.Component {
     const { id, text } = this.props.detailsEntry;
 
     return (
-      <div className="row flex-row justify-content-between">
+      <div className="card flex-row justify-content-between">
         <div className="col-11">
-          <TextAreaInput label="" id={id} value={text} handleChange={this.handleChange} length="110" />
+          <textarea className="form-control details-form" id={id} value={text} onChange={this.handleChange} maxLength="110" rows="2" />
         </div>
-        <div className="col-1">
+        <div className="col-1 d-flex justify-content-center">
           <button type="button" className="btn gray px-1" entry={id}>
             <i className="bi bi-x-lg"></i>
           </button>
