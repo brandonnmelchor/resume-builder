@@ -8,7 +8,7 @@ import Projects from "./resume_components/Projects";
 export default class Resume extends React.Component {
   componentDidMount() {
     const setPrintRef = this.props.handleChange.setPrintRef;
-    console.log(setPrintRef);
+    setPrintRef(this);
   }
 
   render() {
