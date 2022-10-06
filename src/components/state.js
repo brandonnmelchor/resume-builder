@@ -138,7 +138,7 @@ export const demoResume = () => {
           },
           {
             id: uniqid(),
-            text: "Coordinated the design and implementation of Covid-19 protocols, optimizing admission and treatment times for 95% of all incoming Covid-19 patients",
+            text: "Coordinated the implementation of Covid-19 protocols, optimizing treatment times for 95% of all incoming patients",
           },
         ],
       },
