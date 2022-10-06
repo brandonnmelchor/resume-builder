@@ -17,6 +17,8 @@ export default class Personal extends React.Component {
 
     return (
       <div className="w-100">
+        <div className="fs-4 fw-bold gray">Personal</div>
+        <hr className="mb-4" />
         <form>
           <div className="row justify-content-center align-items-center mb-4">
             <div className="col">

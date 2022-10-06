@@ -8,7 +8,7 @@ import Projects from "./form_components/Projects";
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { sectionNumber: 5 };
+    this.state = { sectionNumber: 1 };
 
     this.prevSection = this.prevSection.bind(this);
     this.nextSection = this.nextSection.bind(this);
@@ -44,7 +44,7 @@ export default class Form extends React.Component {
     else formNav = <FormNav sectionNumber={sectionNumber} prevSection={this.prevSection} nextSection={this.nextSection} />;
 
     return (
-      <div className="card col-5 d-flex flex-column justify-content-center p-4">
+      <div className="col-5 d-flex flex-column justify-content-center p-4">
         {currentSection}
         {formNav}
       </div>

@@ -17,6 +17,8 @@ export default class Skills extends React.Component {
 
     return (
       <div className="w-100">
+        <div className="fs-4 fw-bold gray">Skills</div>
+        <hr className="mb-4" />
         <form>
           <div className="mb-4">
             <TextAreaInput label="Languages" id="languages" value={languages} handleChange={this.handleChange} length="100" />

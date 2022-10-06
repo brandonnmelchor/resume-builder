@@ -22,7 +22,13 @@ export default class Projects extends React.Component {
       );
     }
 
-    return <div className="w-100 d-flex flex-column">{display}</div>;
+    return (
+      <div className="w-100 d-flex flex-column">
+        <div className="fs-4 fw-bold gray">Projects</div>
+        <hr className="mb-4" />
+        {display}
+      </div>
+    );
   }
 }
 
