@@ -13,7 +13,7 @@ export default class Skills extends React.Component {
   }
 
   render() {
-    const { languages, technologies } = this.props.resume.skills;
+    const { languages, frameworks, technologies } = this.props.resume.skills;
 
     return (
       <div className="w-100">
@@ -22,6 +22,9 @@ export default class Skills extends React.Component {
         <form>
           <div className="mb-4">
             <TextAreaInput label="Languages" id="languages" value={languages} handleChange={this.handleChange} length="100" />
+          </div>
+          <div>
+            <TextAreaInput label="Frameworks" id="frameworks" value={frameworks} handleChange={this.handleChange} length="100" />
           </div>
           <div>
             <TextAreaInput label="Technologies" id="technologies" value={technologies} handleChange={this.handleChange} length="100" />

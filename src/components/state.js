@@ -13,6 +13,7 @@ export const newResume = () => {
     education: [],
     skills: {
       languages: "",
+      frameworks: "",
       technologies: "",
     },
     experience: [],
@@ -63,8 +64,9 @@ export const demoResume = () => {
       },
     ],
     skills: {
-      languages: "JavaScript, CSS/SASS, HTML",
-      technologies: "React.js, Node.js, Bootstrap, Webpack, Parcel, Git, Bash, Google Cloud Platform, Google Search",
+      languages: "JavaScript/NodeJS, CSS/SASS, HTML, Bash",
+      frameworks: "ExpressJS, ReactJS, Material UI, Bootstrap",
+      technologies: "NextJS, Firebase, Google Cloud Platform, Webpack, Parcel, Git, Google Search",
     },
     experience: [
       {
@@ -146,7 +148,7 @@ export const demoResume = () => {
         id: uniqid(),
         projectName: "Resume Builder",
         url: "https://brandonnmelchor.github.io/resume-builder/",
-        tech: "JavaScript, CSS/SASS, HTML, React.js, Bootstrap",
+        tech: "JavaScript, CSS/SASS, HTML, ReactJS, Bootstrap",
         details: [
           {
             id: uniqid(),
@@ -154,7 +156,7 @@ export const demoResume = () => {
           },
           {
             id: uniqid(),
-            text: "Leveraged React.js to conditionally render components based on user input and current resume section",
+            text: "Leveraged ReactJS to conditionally render components based on user input and current resume section",
           },
           {
             id: uniqid(),
@@ -166,7 +168,7 @@ export const demoResume = () => {
         id: uniqid(),
         projectName: "Forecast",
         url: "https://brandonnmelchor.github.io/forecast/",
-        tech: "JavaScript, CSS/SASS, HTML, React.js, Bootstrap",
+        tech: "JavaScript, CSS/SASS, HTML, ReactJS, Bootstrap",
         details: [
           {
             id: uniqid(),
