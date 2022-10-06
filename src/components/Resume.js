@@ -6,6 +6,11 @@ import Experience from "./resume_components/Experience";
 import Projects from "./resume_components/Projects";
 
 export default class Resume extends React.Component {
+  componentDidMount() {
+    const setPrintRef = this.props.handleChange.setPrintRef;
+    console.log(setPrintRef);
+  }
+
   render() {
     const { personal, education, skills, experience, projects } = this.props.resume;
 
