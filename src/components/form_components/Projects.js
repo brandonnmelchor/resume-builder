@@ -46,7 +46,7 @@ class EntryCard extends React.Component {
   }
 
   render() {
-    const { id, projectName, url } = this.props.projectEntry;
+    const { id, projectName, url, tech } = this.props.projectEntry;
 
     return (
       <div className="card d-flex flex-row justify-content-between p-3">
@@ -57,8 +57,9 @@ class EntryCard extends React.Component {
               | Demo
             </a>
           </div>
+          <div className="mt-3 gray">{tech}</div>
         </div>
-        <div>
+        <div className="btn-group" role="group">
           <button type="button" className="btn gray px-1" entry={id} onClick={this.editEntry}>
             <i className="bi bi-pencil-square"></i>
           </button>

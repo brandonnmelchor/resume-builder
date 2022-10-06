@@ -57,7 +57,7 @@ class EntryCard extends React.Component {
             {startMonth} {startYear} - {endMonth} {endYear}
           </div>
         </div>
-        <div>
+        <div className="btn-group" role="group">
           <button type="button" className="btn gray px-1" entry={id} onClick={this.editEntry}>
             <i className="bi bi-pencil-square"></i>
           </button>
