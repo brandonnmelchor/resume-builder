@@ -12,6 +12,23 @@ export default class Nav extends React.Component {
             </span>
             <span className="fs-2 fw-bold"> CS Resume Builder</span>
           </Navbar.Brand>
+          <ul className="navbar-nav d-flex justify-content-between">
+            <div className="nav-item fs-5 text-white user-select-none me-3" style={{ cursor: "pointer" }}>
+              <span className="nav-link">
+                <i className="bi bi-file-break"></i> Clear
+              </span>
+            </div>
+            <div className="nav-item fs-5 text-white user-select-none me-3" style={{ cursor: "pointer" }}>
+              <span className="nav-link">
+                <i className="bi bi-file-person"></i> Demo
+              </span>
+            </div>
+            <div className="nav-item fs-5 text-white user-select-none" style={{ cursor: "pointer" }}>
+              <span className="nav-link">
+                <i className="bi bi-download"></i> Save
+              </span>
+            </div>
+          </ul>
         </div>
       </Navbar>
     );
