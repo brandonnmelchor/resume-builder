@@ -1,8 +1,12 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
+import ReactToPrint, { PrintContextConsumer } from "react-to-print";
 
 export default class Nav extends React.Component {
   render() {
+    const { firstName, lastName } = this.props.resume.personal;
+    const printRef = this.props.printRef;
+
     return (
       <Navbar className="mb-auto" bg="dark" variant="dark">
         <div className="container-lg">
@@ -23,11 +27,17 @@ export default class Nav extends React.Component {
                 <i className="bi bi-file-person"></i> Demo
               </span>
             </div>
-            <div className="nav-item fs-5 text-white user-select-none" style={{ cursor: "pointer" }}>
-              <span className="nav-link">
-                <i className="bi bi-download"></i> Save
-              </span>
-            </div>
+            <ReactToPrint content={() => printRef} documentTitle={`${firstName}${lastName}_Resume`}>
+              <PrintContextConsumer>
+                {({ handlePrint }) => (
+                  <div className="nav-item fs-5 text-white user-select-none" onClick={handlePrint} style={{ cursor: "pointer" }}>
+                    <span className="nav-link">
+                      <i className="bi bi-download"></i> Save
+                    </span>
+                  </div>
+                )}
+              </PrintContextConsumer>
+            </ReactToPrint>
           </ul>
         </div>
       </Navbar>

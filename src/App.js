@@ -169,7 +169,7 @@ export default class App extends React.Component {
 
     return (
       <div className="d-flex flex-column justify-content-center min-vh-100">
-        <Nav />
+        <Nav resume={resume} printRef={printRef} />
         <div className="container-lg px-4 py-5">
           <div className="row justify-content-center align-items-start gap-4">
             <Form resume={resume} entryMode={entryMode} printRef={printRef} handleChange={handleChange} />
