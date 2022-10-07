@@ -47,7 +47,7 @@ export default class Form extends React.Component {
     else formNav = <FormNav sectionNumber={sectionNumber} prevSection={this.prevSection} nextSection={this.nextSection} />;
 
     return (
-      <div className="col-5 d-flex flex-column justify-content-center p-4">
+      <div className="col-12 col-xl-5 d-flex flex-column justify-content-center p-4">
         {currentSection}
         {formNav}
       </div>

@@ -3,10 +3,6 @@
 // }
 
 #resume {
-  @media (min-width: 992px) {
-    padding: 13.2px;
-  }
-
   @media (min-width: 1200px) {
     padding: 15.7px;
   }
@@ -17,10 +13,6 @@
 }
 
 .section-header {
-  @media (min-width: 992px) {
-    font-size: 9.2px;
-  }
-
   @media (min-width: 1200px) {
     font-size: 10.9px;
   }
@@ -31,10 +23,6 @@
 }
 
 .section-content {
-  @media (min-width: 992px) {
-    font-size: 8px;
-  }
-
   @media (min-width: 1200px) {
     font-size: 9.6px;
   }
