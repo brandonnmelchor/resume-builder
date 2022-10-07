@@ -59,9 +59,11 @@ class EntryCard extends React.Component {
         <div className="user-select-none">
           <div>
             <span className="fw-bold">{projectName} </span>
-            <a className="text-decoration-none" href={url} target="_blank" rel="noreferrer">
-              | Demo
-            </a>
+            {url.length > 0 && (
+              <a className="text-decoration-none" href={url} target="_blank" rel="noreferrer">
+                | Demo
+              </a>
+            )}
           </div>
           <div className="mt-3 gray">{tech}</div>
         </div>

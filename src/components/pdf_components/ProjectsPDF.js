@@ -25,10 +25,12 @@ class ProjectEntry extends React.Component {
     return (
       <div>
         <div>
-          <span className="fw-bold">{projectName} | </span>
-          <a className="text-decoration-none" href={url} target="_blank" rel="noreferrer" style={{ color: "black" }}>
-            Demo
-          </a>
+          <span className="fw-bold">{projectName} </span>
+          {url.length > 0 && (
+            <a className="text-decoration-none" href={url} target="_blank" rel="noreferrer">
+              | Demo
+            </a>
+          )}
         </div>
         <div className="fst-italic pdf-gray">{tech}</div>
         <ul style={{ margin: "0" }}>
