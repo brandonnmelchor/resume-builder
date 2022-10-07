@@ -7,9 +7,9 @@ export default class ProjectsPDF extends React.Component {
 
     return (
       <div className="w-100">
-        <div className="section-header fw-bold gray">Projects</div>
+        <div className="pdf-header fw-bold gray">Projects</div>
         <hr />
-        <div className="section-content">
+        <div className="pdf-content">
           {projects.map((entry) => (
             <ProjectEntry key={entry.id} projectEntry={entry} />
           ))}
