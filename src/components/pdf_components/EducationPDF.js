@@ -7,9 +7,9 @@ export default class EducationPDF extends React.Component {
 
     return (
       <div className="w-100 mb-2">
-        <div className="section-header fw-bold gray">Education</div>
+        <div className="pdf-header fw-bold gray">Education</div>
         <hr />
-        <div className="section-content">
+        <div className="pdf-content">
           {education.map((entry) => (
             <EducationEntry key={entry.id} educationEntry={entry} />
           ))}
@@ -28,7 +28,7 @@ class EducationEntry extends React.Component {
         <div className="fw-bold">
           {schoolName} -- {degree} in {major}
         </div>
-        <div className="gray" style={{ width: "120px" }}>
+        <div className="gray" style={{ width: "150px" }}>
           {startMonth} {startYear} - {endMonth} {endYear}
         </div>
       </div>
