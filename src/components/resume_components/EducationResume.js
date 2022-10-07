@@ -6,7 +6,7 @@ export default class EducationResume extends React.Component {
 
     return (
       <div className="w-100 mb-2">
-        <div className="resume-header fw-bold resume-gray">Education</div>
+        <div className="resume-header fw-bold gray">Education</div>
         <hr />
         <div className="resume-content">
           {education.map((entry) => (
@@ -27,7 +27,7 @@ class EducationEntry extends React.Component {
         <div className="fw-bold">
           {schoolName} -- {degree} in {major}
         </div>
-        <div className="resume-gray" style={{ width: "120px" }}>
+        <div className="gray" style={{ width: "120px" }}>
           {startMonth} {startYear} - {endMonth} {endYear}
         </div>
       </div>

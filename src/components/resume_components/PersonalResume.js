@@ -6,7 +6,7 @@ export default class PersonalResume extends React.Component {
 
     return (
       <div className="w-100 mb-2">
-        <div className="resume-header fw-bold resume-gray">
+        <div className="resume-header fw-bold gray">
           {firstName} {lastName}
         </div>
         <hr />
