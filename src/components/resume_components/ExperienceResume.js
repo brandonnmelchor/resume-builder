@@ -20,14 +20,15 @@ export default class ExperienceResume extends React.Component {
 
 class ExperienceEntry extends React.Component {
   render() {
-    const { company, title, startMonth, startYear, endMonth, endYear, details } = this.props.experienceEntry;
+    let { company, title, startMonth, startYear, endMonth, endYear, details } = this.props.experienceEntry;
+    endMonth = endMonth.length ? `- ${endMonth}` : "";
 
     return (
       <div>
         <div className="d-flex justify-content-between">
           <div className="fw-bold">{company}</div>
           <div className="gray" style={{ width: "120px" }}>
-            {startMonth} {startYear} - {endMonth} {endYear}
+            {startMonth} {startYear} {endMonth} {endYear}
           </div>
         </div>
         <div className="gray">{title}</div>

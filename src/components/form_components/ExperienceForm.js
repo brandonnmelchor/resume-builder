@@ -52,7 +52,8 @@ class EntryCard extends React.Component {
   }
 
   render() {
-    const { id, company, title, startMonth, startYear, endMonth, endYear } = this.props.experienceEntry;
+    let { id, company, title, startMonth, startYear, endMonth, endYear } = this.props.experienceEntry;
+    endMonth = endMonth.length ? `- ${endMonth}` : "";
 
     return (
       <div className="card d-flex flex-row justify-content-between p-3">
@@ -60,7 +61,7 @@ class EntryCard extends React.Component {
           <div className="fw-bold">{company}</div>
           <div className="fw-bold gray">{title}</div>
           <div className="mt-3">
-            {startMonth} {startYear} - {endMonth} {endYear}
+            {startMonth} {startYear} {endMonth} {endYear}
           </div>
         </div>
         <div className="btn-group" role="group">
