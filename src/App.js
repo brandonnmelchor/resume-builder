@@ -174,10 +174,10 @@ export default class App extends React.Component {
           <div className="row justify-content-center align-items-start gap-4">
             <Form resume={resume} entryMode={entryMode} printRef={printRef} handleChange={handleChange} />
             <Resume resume={resume} />
-            <div style={{ display: "none" }}>
-              <ResumePDF resume={resume} handleChange={handleChange} />
-            </div>
           </div>
+        </div>
+        <div>
+          <ResumePDF resume={resume} handleChange={handleChange} />
         </div>
         <Footer />
       </div>
