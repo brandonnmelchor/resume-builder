@@ -6,6 +6,7 @@ export default class Nav extends React.Component {
   render() {
     const { firstName, lastName } = this.props.resume.personal;
     const printRef = this.props.printRef;
+    const { clearResume, resetDemo } = this.props.handleChange;
 
     return (
       <Navbar className="mb-auto" bg="dark" variant="dark">
@@ -17,12 +18,12 @@ export default class Nav extends React.Component {
             <span className="fs-2 fw-bold"> CS Resume Builder</span>
           </Navbar.Brand>
           <ul className="navbar-nav d-flex justify-content-between">
-            <div className="nav-item fs-5 text-white user-select-none me-3" style={{ cursor: "pointer" }}>
+            <div className="nav-item fs-5 text-white user-select-none me-3" onClick={clearResume} style={{ cursor: "pointer" }}>
               <span className="nav-link">
                 <i className="bi bi-file-break"></i> Clear
               </span>
             </div>
-            <div className="nav-item fs-5 text-white user-select-none me-3" style={{ cursor: "pointer" }}>
+            <div className="nav-item fs-5 text-white user-select-none me-3" onClick={resetDemo} style={{ cursor: "pointer" }}>
               <span className="nav-link">
                 <i className="bi bi-file-person"></i> Demo
               </span>
