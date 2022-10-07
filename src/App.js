@@ -176,7 +176,7 @@ export default class App extends React.Component {
             <Resume resume={resume} />
           </div>
         </div>
-        <div>
+        <div className="d-flex justify-content-center py-5">
           <ResumePDF resume={resume} handleChange={handleChange} />
         </div>
         <Footer />
