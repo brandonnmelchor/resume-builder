@@ -4,7 +4,7 @@ import Education from "./form_components/Education";
 import Skills from "./form_components/Skills";
 import Experience from "./form_components/Experience";
 import Projects from "./form_components/Projects";
-import SavePDF from "./form_components/SavePDF";
+import Print from "./form_components/Print";
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -31,6 +31,7 @@ export default class Form extends React.Component {
     const sectionNumber = this.state.sectionNumber;
     const resume = this.props.resume;
     const entryMode = this.props.entryMode;
+    const printRef = this.props.printRef;
     const handleChange = this.props.handleChange;
 
     let currentSection;
@@ -39,7 +40,7 @@ export default class Form extends React.Component {
     else if (sectionNumber === 3) currentSection = <Skills resume={resume} handleChange={handleChange} />;
     else if (sectionNumber === 4) currentSection = <Experience resume={resume} entryMode={entryMode} handleChange={handleChange} />;
     else if (sectionNumber === 5) currentSection = <Projects resume={resume} entryMode={entryMode} handleChange={handleChange} />;
-    else if (sectionNumber === 6) currentSection = <SavePDF />;
+    else if (sectionNumber === 6) currentSection = <Print printRef={printRef} />;
 
     let formNav;
     if (entryMode.entryMode) formNav = <EntryNav handleChange={handleChange} />;

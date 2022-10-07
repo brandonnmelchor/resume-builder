@@ -11,6 +11,7 @@ export default class App extends React.Component {
     this.state = {
       resume: demoResume(),
       entryMode: newEntryMode(),
+      printRef: "",
     };
 
     this.addEntry = this.addEntry.bind(this);
@@ -24,6 +25,7 @@ export default class App extends React.Component {
     this.handleEntry = this.handleEntry.bind(this);
     this.handleDetails = this.handleDetails.bind(this);
     this.setPresentDate = this.setPresentDate.bind(this);
+    this.setPrintRef = this.setPrintRef.bind(this);
   }
 
   addEntry(sectionName) {
@@ -141,9 +143,14 @@ export default class App extends React.Component {
     this.setState({ resume: resume });
   }
 
+  setPrintRef(component) {
+    this.setState({ printRef: component });
+  }
+
   render() {
     const resume = this.state.resume;
     const entryMode = this.state.entryMode;
+    const printRef = this.state.printRef;
     const handleChange = {
       addEntry: this.addEntry,
       editEntry: this.editEntry,
@@ -156,6 +163,7 @@ export default class App extends React.Component {
       handleEntry: this.handleEntry,
       handleDetails: this.handleDetails,
       setPresentDate: this.setPresentDate,
+      setPrintRef: this.setPrintRef,
     };
 
     return (
@@ -163,8 +171,8 @@ export default class App extends React.Component {
         <Nav />
         <div className="container-lg px-4 py-5">
           <div className="row justify-content-center align-items-start gap-4">
-            <Form resume={resume} entryMode={entryMode} handleChange={handleChange} />
-            <Resume resume={resume} />
+            <Form resume={resume} entryMode={entryMode} printRef={printRef} handleChange={handleChange} />
+            <Resume resume={resume} handleChange={handleChange} />
           </div>
         </div>
         <Footer />
