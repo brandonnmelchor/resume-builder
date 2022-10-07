@@ -9,7 +9,7 @@ import SavePDF from "./form_components/SavePDF";
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { sectionNumber: 1 };
+    this.state = { sectionNumber: 6 };
 
     this.prevSection = this.prevSection.bind(this);
     this.nextSection = this.nextSection.bind(this);
