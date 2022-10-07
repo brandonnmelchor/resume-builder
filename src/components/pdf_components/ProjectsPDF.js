@@ -6,7 +6,7 @@ export default class ProjectsPDF extends React.Component {
 
     return (
       <div className="w-100">
-        <div className="pdf-header fw-bold resume-gray">Projects</div>
+        <div className="pdf-header fw-bold pdf-gray">Projects</div>
         <hr />
         <div className="pdf-content">
           {projects.map((entry) => (
@@ -26,11 +26,11 @@ class ProjectEntry extends React.Component {
       <div>
         <div>
           <span className="fw-bold">{projectName} | </span>
-          <a className="text-decoration-none" href={url} target="_blank" rel="noreferrer">
+          <a className="text-decoration-none" href={url} target="_blank" rel="noreferrer" style={{ color: "black" }}>
             Demo
           </a>
         </div>
-        <div className="fst-italic resume-gray">{tech}</div>
+        <div className="fst-italic pdf-gray">{tech}</div>
         <ul style={{ margin: "0" }}>
           {details.map((entry) => (
             <DetailsEntry key={entry.id} detailsEntry={entry.text} />

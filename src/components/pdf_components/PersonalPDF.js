@@ -6,7 +6,7 @@ export default class PersonalPDF extends React.Component {
 
     return (
       <div className="w-100 mb-2">
-        <div className="pdf-header fw-bold resume-gray">
+        <div className="pdf-header fw-bold pdf-gray">
           {firstName} {lastName}
         </div>
         <hr />
