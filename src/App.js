@@ -4,7 +4,7 @@ import Form from "./components/Form";
 import Resume from "./components/Resume";
 import ResumePDF from "./components/ResumePDF";
 import Footer from "./components/Footer";
-import { demoResume, educationEntry, experienceEntry, projectEntry, entryDetails, newEntryMode } from "./components/state";
+import { newResume, demoResume, educationEntry, experienceEntry, projectEntry, entryDetails, newEntryMode } from "./components/state";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -15,18 +15,32 @@ export default class App extends React.Component {
       printRef: "",
     };
 
+    this.clearResume = this.clearResume.bind(this);
+    this.resetDemo = this.resetDemo.bind(this);
+
     this.addEntry = this.addEntry.bind(this);
     this.editEntry = this.editEntry.bind(this);
     this.deleteEntry = this.deleteEntry.bind(this);
     this.saveEntry = this.saveEntry.bind(this);
     this.cancelEntry = this.cancelEntry.bind(this);
+
     this.addDetails = this.addDetails.bind(this);
     this.deleteDetails = this.deleteDetails.bind(this);
+
     this.handleInput = this.handleInput.bind(this);
     this.handleEntry = this.handleEntry.bind(this);
     this.handleDetails = this.handleDetails.bind(this);
+
     this.setPresentDate = this.setPresentDate.bind(this);
     this.setPrintRef = this.setPrintRef.bind(this);
+  }
+
+  clearResume() {
+    this.setState({ resume: newResume(), entryMode: newEntryMode() });
+  }
+
+  resetDemo() {
+    this.setState({ resume: demoResume() });
   }
 
   addEntry(sectionName) {
@@ -153,6 +167,8 @@ export default class App extends React.Component {
     const entryMode = this.state.entryMode;
     const printRef = this.state.printRef;
     const handleChange = {
+      clearResume: this.clearResume,
+      resetDemo: this.resetDemo,
       addEntry: this.addEntry,
       editEntry: this.editEntry,
       deleteEntry: this.deleteEntry,
