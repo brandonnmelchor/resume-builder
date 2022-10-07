@@ -6,7 +6,7 @@ export default class SkillsPDF extends React.Component {
 
     return (
       <div className="w-100 mb-2">
-        <div className="pdf-header fw-bold gray">Skills</div>
+        <div className="pdf-header fw-bold resume-gray">Skills</div>
         <hr />
         <div className="pdf-content">
           <div>

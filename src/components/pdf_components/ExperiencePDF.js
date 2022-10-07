@@ -6,7 +6,7 @@ export default class ExperiencePDF extends React.Component {
 
     return (
       <div className="w-100 mb-2">
-        <div className="pdf-header fw-bold gray">Experience</div>
+        <div className="pdf-header fw-bold resume-gray">Experience</div>
         <hr />
         <div className="pdf-content">
           {experience.map((entry) => (
@@ -26,11 +26,11 @@ class ExperienceEntry extends React.Component {
       <div>
         <div className="d-flex justify-content-between">
           <div className="fw-bold">{company}</div>
-          <div className="gray" style={{ width: "150px" }}>
+          <div className="resume-gray" style={{ width: "150px" }}>
             {startMonth} {startYear} - {endMonth} {endYear}
           </div>
         </div>
-        <div className="gray">{title}</div>
+        <div className="resume-gray">{title}</div>
         <ul style={{ margin: "0" }}>
           {details.map((entry) => (
             <DetailsEntry key={entry.id} detailsEntry={entry.text} />

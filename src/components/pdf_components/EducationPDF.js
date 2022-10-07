@@ -6,7 +6,7 @@ export default class EducationPDF extends React.Component {
 
     return (
       <div className="w-100 mb-2">
-        <div className="pdf-header fw-bold gray">Education</div>
+        <div className="pdf-header fw-bold resume-gray">Education</div>
         <hr />
         <div className="pdf-content">
           {education.map((entry) => (
@@ -27,7 +27,7 @@ class EducationEntry extends React.Component {
         <div className="fw-bold">
           {schoolName} -- {degree} in {major}
         </div>
-        <div className="gray" style={{ width: "150px" }}>
+        <div className="resume-gray" style={{ width: "150px" }}>
           {startMonth} {startYear} - {endMonth} {endYear}
         </div>
       </div>

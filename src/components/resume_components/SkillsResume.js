@@ -6,7 +6,7 @@ export default class SkillsResume extends React.Component {
 
     return (
       <div className="w-100 mb-2">
-        <div className="resume-header fw-bold gray">Skills</div>
+        <div className="resume-header fw-bold resume-gray">Skills</div>
         <hr />
         <div className="resume-content">
           <div>

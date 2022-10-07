@@ -6,7 +6,7 @@ export default class ProjectsResume extends React.Component {
 
     return (
       <div className="w-100">
-        <div className="resume-header fw-bold gray">Projects</div>
+        <div className="resume-header fw-bold resume-gray">Projects</div>
         <hr />
         <div className="resume-content">
           {projects.map((entry) => (
@@ -30,7 +30,7 @@ class ProjectEntry extends React.Component {
             Demo
           </a>
         </div>
-        <div className="fst-italic gray">{tech}</div>
+        <div className="fst-italic resume-gray">{tech}</div>
         <ul style={{ margin: "0" }}>
           {details.map((entry) => (
             <DetailsEntry key={entry.id} detailsEntry={entry.text} />
