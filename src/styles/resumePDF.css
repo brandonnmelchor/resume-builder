@@ -1,3 +1,22 @@
+.resume-pdf * {
+  border: 1px solid gray;
+}
+
 .resume-pdf {
-  background-color: red;
+  width: 816px;
+  height: 1056px;
+  padding: 23px;
+  border: 1px solid gray;
+}
+
+.resume-header {
+  font-size: 16px;
+}
+
+.resume-content {
+  font-size: 14px;
+}
+
+.date {
+  width: 150px;
 }

@@ -1,12 +1,12 @@
 import React from "react";
-import Personal from "./resume_components/Personal";
-import Education from "./resume_components/Education";
-import Skills from "./resume_components/Skills";
-import Experience from "./resume_components/Experience";
-import Projects from "./resume_components/Projects";
+import PersonalPDF from "./pdf_components/PersonalPDF";
+import EducationPDF from "./pdf_components/EducationPDF";
+import SkillsPDF from "./pdf_components/SkillsPDF";
+import ExperiencePDF from "./pdf_components/ExperiencePDF";
+import ProjectsPDF from "./pdf_components/ProjectsPDF";
 import "../styles/resumePDF.css";
 
-export default class Resume extends React.Component {
+export default class ResumePDF extends React.Component {
   componentDidMount() {
     const setPrintRef = this.props.handleChange.setPrintRef;
     setPrintRef(this);
@@ -16,12 +16,12 @@ export default class Resume extends React.Component {
     const { personal, education, skills, experience, projects } = this.props.resume;
 
     return (
-      <div className="resume-pdf" style={{ aspectRatio: "1 / 1.3" }} id="resume">
-        <Personal personal={personal} />
-        <Education education={education} />
-        <Skills skills={skills} />
-        <Experience experience={experience} />
-        <Projects projects={projects} />
+      <div className="resume-pdf" id="resume">
+        <PersonalPDF personal={personal} />
+        <EducationPDF education={education} />
+        <SkillsPDF skills={skills} />
+        <ExperiencePDF experience={experience} />
+        <ProjectsPDF projects={projects} />
       </div>
     );
   }
