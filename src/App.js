@@ -172,7 +172,7 @@ export default class App extends React.Component {
         <Nav resume={resume} printRef={printRef} />
         <div className="container-lg px-4 py-5">
           <div className="row justify-content-center align-items-start gap-4">
-            <Form resume={resume} entryMode={entryMode} printRef={printRef} handleChange={handleChange} />
+            <Form resume={resume} entryMode={entryMode} handleChange={handleChange} />
             <Resume resume={resume} />
           </div>
         </div>

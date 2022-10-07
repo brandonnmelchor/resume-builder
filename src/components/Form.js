@@ -4,12 +4,11 @@ import EducationForm from "./form_components/EducationForm";
 import SkillsForm from "./form_components/SkillsForm";
 import ExperienceForm from "./form_components/ExperienceForm";
 import ProjectsForm from "./form_components/ProjectsForm";
-import Print from "./form_components/Print";
 
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { sectionNumber: 6 };
+    this.state = { sectionNumber: 1 };
 
     this.prevSection = this.prevSection.bind(this);
     this.nextSection = this.nextSection.bind(this);
@@ -31,7 +30,6 @@ export default class Form extends React.Component {
     const sectionNumber = this.state.sectionNumber;
     const resume = this.props.resume;
     const entryMode = this.props.entryMode;
-    const printRef = this.props.printRef;
     const handleChange = this.props.handleChange;
 
     let currentSection;
@@ -40,7 +38,6 @@ export default class Form extends React.Component {
     else if (sectionNumber === 3) currentSection = <SkillsForm resume={resume} handleChange={handleChange} />;
     else if (sectionNumber === 4) currentSection = <ExperienceForm resume={resume} entryMode={entryMode} handleChange={handleChange} />;
     else if (sectionNumber === 5) currentSection = <ProjectsForm resume={resume} entryMode={entryMode} handleChange={handleChange} />;
-    else if (sectionNumber === 6) currentSection = <Print resume={resume} printRef={printRef} />;
 
     let formNav;
     if (entryMode.entryMode) formNav = <EntryNav handleChange={handleChange} />;
@@ -93,7 +90,7 @@ class FormNav extends React.Component {
               Back
             </button>
           )}
-          {sectionNumber < 6 && (
+          {sectionNumber < 5 && (
             <button
               type="button"
               className="btn btn-secondary nav-button gray-border ms-auto"
