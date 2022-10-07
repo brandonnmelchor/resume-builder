@@ -14,7 +14,7 @@ export default class SavePDF extends React.Component {
     const { firstName, lastName } = resume.personal;
     const fileName = `${firstName}${lastName}_Resume.pdf`;
 
-    const blob = await pdf(<ResumePDF resume={resume} />).toBlob();
+    const blob = await pdf(<ResumePDF />).toBlob();
     saveAs(blob, fileName);
   }
 
