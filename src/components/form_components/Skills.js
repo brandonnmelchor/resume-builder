@@ -23,7 +23,7 @@ export default class Skills extends React.Component {
           <div className="mb-4">
             <TextAreaInput label="Languages" id="languages" value={languages} handleChange={this.handleChange} length="100" />
           </div>
-          <div>
+          <div className="mb-4">
             <TextAreaInput label="Frameworks" id="frameworks" value={frameworks} handleChange={this.handleChange} length="100" />
           </div>
           <div>
