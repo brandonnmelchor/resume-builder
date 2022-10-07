@@ -10,12 +10,8 @@ export default class SavePDF extends React.Component {
   }
 
   async savePDF() {
-    const resume = this.props.resume;
-    const { firstName, lastName } = resume.personal;
-    const fileName = `${firstName}${lastName}_Resume.pdf`;
-
     const blob = await pdf(<ResumePDF />).toBlob();
-    saveAs(blob, fileName);
+    saveAs(blob, "cv.pdf");
   }
 
   render() {
