@@ -20,15 +20,18 @@ export default class EducationPDF extends React.Component {
 
 class EducationEntry extends React.Component {
   render() {
-    const { schoolName, degree, major, startMonth, startYear, endMonth, endYear } = this.props.educationEntry;
+    let { schoolName, degree, major, startMonth, startYear, endMonth, endYear } = this.props.educationEntry;
+    degree = degree.length ? `-- ${degree}` : "";
+    major = major.length ? `in ${major}` : "";
+    endMonth = endMonth.length ? `- ${endMonth}` : "";
 
     return (
       <div className="d-flex justify-content-between">
         <div className="fw-bold">
-          {schoolName} -- {degree} in {major}
+          {schoolName} {degree} {major}
         </div>
         <div className="pdf-gray" style={{ width: "150px" }}>
-          {startMonth} {startYear} - {endMonth} {endYear}
+          {startMonth} {startYear} {endMonth} {endYear}
         </div>
       </div>
     );

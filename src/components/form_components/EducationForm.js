@@ -52,17 +52,19 @@ class EntryCard extends React.Component {
   }
 
   render() {
-    const { id, schoolName, degree, major, startMonth, startYear, endMonth, endYear } = this.props.educationEntry;
+    let { id, schoolName, degree, major, startMonth, startYear, endMonth, endYear } = this.props.educationEntry;
+    major = major.length ? `in ${major}` : "";
+    endMonth = endMonth.length ? `- ${endMonth}` : "";
 
     return (
       <div className="card d-flex flex-row justify-content-between p-3">
         <div className="user-select-none">
           <div className="fw-bold">{schoolName}</div>
           <div className="fw-bold gray">
-            {degree} in {major}
+            {degree} {major}
           </div>
           <div className="mt-3">
-            {startMonth} {startYear} - {endMonth} {endYear}
+            {startMonth} {startYear} {endMonth} {endYear}
           </div>
         </div>
         <div className="btn-group" role="group">
