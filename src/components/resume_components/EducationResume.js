@@ -6,9 +6,9 @@ export default class EducationResume extends React.Component {
 
     return (
       <div className="w-100 mb-2">
-        <div className="section-header fw-bold gray">Education</div>
+        <div className="resume-header fw-bold gray">Education</div>
         <hr />
-        <div className="section-content">
+        <div className="resume-content">
           {education.map((entry) => (
             <EducationEntry key={entry.id} educationEntry={entry} />
           ))}

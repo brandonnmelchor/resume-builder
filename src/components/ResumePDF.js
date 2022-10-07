@@ -4,7 +4,6 @@ import EducationPDF from "./pdf_components/EducationPDF";
 import SkillsPDF from "./pdf_components/SkillsPDF";
 import ExperiencePDF from "./pdf_components/ExperiencePDF";
 import ProjectsPDF from "./pdf_components/ProjectsPDF";
-import "../styles/resumePDF.css";
 
 export default class ResumePDF extends React.Component {
   componentDidMount() {

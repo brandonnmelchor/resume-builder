@@ -1,5 +1,4 @@
 import React from "react";
-import "../../styles/resumePDF.css";
 
 export default class EducationPDF extends React.Component {
   render() {

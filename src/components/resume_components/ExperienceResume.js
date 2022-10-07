@@ -6,9 +6,9 @@ export default class ExperienceResume extends React.Component {
 
     return (
       <div className="w-100 mb-2">
-        <div className="section-header fw-bold gray">Experience</div>
+        <div className="resume-header fw-bold gray">Experience</div>
         <hr />
-        <div className="section-content">
+        <div className="resume-content">
           {experience.map((entry) => (
             <ExperienceEntry key={entry.id} experienceEntry={entry} />
           ))}

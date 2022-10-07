@@ -6,9 +6,9 @@ export default class ProjectsResume extends React.Component {
 
     return (
       <div className="w-100">
-        <div className="section-header fw-bold gray">Projects</div>
+        <div className="resume-header fw-bold gray">Projects</div>
         <hr />
-        <div className="section-content">
+        <div className="resume-content">
           {projects.map((entry) => (
             <ProjectEntry key={entry.id} projectEntry={entry} />
           ))}

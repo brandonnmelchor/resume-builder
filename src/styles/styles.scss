@@ -12,7 +12,7 @@
   }
 }
 
-.section-header {
+.resume-header {
   @media (min-width: 1200px) {
     font-size: 10.9px;
   }
@@ -22,7 +22,7 @@
   }
 }
 
-.section-content {
+.resume-content {
   @media (min-width: 1200px) {
     font-size: 9.6px;
   }
@@ -30,6 +30,22 @@
   @media (min-width: 1400px) {
     font-size: 11.1px;
   }
+}
+
+.resume-pdf {
+  width: 816px;
+  height: 1056px;
+  padding: 23px;
+  color: black;
+  border: 1px solid gray;
+}
+
+.pdf-header {
+  font-size: 16px;
+}
+
+.pdf-content {
+  font-size: 14px;
 }
 
 .gray {
