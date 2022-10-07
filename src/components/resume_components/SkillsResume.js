@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class Skills extends React.Component {
+export default class SkillsResume extends React.Component {
   render() {
     const { languages, frameworks, technologies } = this.props.skills;
 

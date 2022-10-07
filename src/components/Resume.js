@@ -1,9 +1,9 @@
 import React from "react";
-import Personal from "./resume_components/Personal";
-import Education from "./resume_components/Education";
-import Skills from "./resume_components/Skills";
-import Experience from "./resume_components/Experience";
-import Projects from "./resume_components/Projects";
+import PersonalResume from "./resume_components/PersonalResume";
+import EducationResume from "./resume_components/EducationResume";
+import SkillsResume from "./resume_components/SkillsResume";
+import ExperienceResume from "./resume_components/ExperienceResume";
+import ProjectsResume from "./resume_components/ProjectsResume";
 
 export default class Resume extends React.Component {
   render() {
@@ -11,11 +11,11 @@ export default class Resume extends React.Component {
 
     return (
       <div className="card col-12 col-xl-6 user-select-none" style={{ aspectRatio: "1 / 1.3" }} id="resume">
-        <Personal personal={personal} />
-        <Education education={education} />
-        <Skills skills={skills} />
-        <Experience experience={experience} />
-        <Projects projects={projects} />
+        <PersonalResume personal={personal} />
+        <EducationResume education={education} />
+        <SkillsResume skills={skills} />
+        <ExperienceResume experience={experience} />
+        <ProjectsResume projects={projects} />
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class Projects extends React.Component {
+export default class ProjectsResume extends React.Component {
   render() {
     const projects = this.props.projects;
 

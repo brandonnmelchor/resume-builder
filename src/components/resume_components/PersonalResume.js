@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class Personal extends React.Component {
+export default class PersonalResume extends React.Component {
   render() {
     const { firstName, lastName, phone, email, linkedin, github } = this.props.personal;
 

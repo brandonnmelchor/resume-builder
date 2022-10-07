@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class Education extends React.Component {
+export default class EducationResume extends React.Component {
   render() {
     const education = this.props.education;
 
