@@ -1,7 +1,7 @@
 import React from "react";
 import { TextInput } from "./FormInputs";
 
-export default class Personal extends React.Component {
+export default class PersonalForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);

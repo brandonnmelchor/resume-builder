@@ -1,9 +1,9 @@
 import React from "react";
-import Personal from "./form_components/Personal";
-import Education from "./form_components/Education";
-import Skills from "./form_components/Skills";
-import Experience from "./form_components/Experience";
-import Projects from "./form_components/Projects";
+import PersonalForm from "./form_components/PersonalForm";
+import EducationForm from "./form_components/EducationForm";
+import SkillsForm from "./form_components/SkillsForm";
+import ExperienceForm from "./form_components/ExperienceForm";
+import ProjectsForm from "./form_components/ProjectsForm";
 import Print from "./form_components/Print";
 
 export default class Form extends React.Component {
@@ -35,11 +35,11 @@ export default class Form extends React.Component {
     const handleChange = this.props.handleChange;
 
     let currentSection;
-    if (sectionNumber === 1) currentSection = <Personal resume={resume} handleChange={handleChange} />;
-    else if (sectionNumber === 2) currentSection = <Education resume={resume} entryMode={entryMode} handleChange={handleChange} />;
-    else if (sectionNumber === 3) currentSection = <Skills resume={resume} handleChange={handleChange} />;
-    else if (sectionNumber === 4) currentSection = <Experience resume={resume} entryMode={entryMode} handleChange={handleChange} />;
-    else if (sectionNumber === 5) currentSection = <Projects resume={resume} entryMode={entryMode} handleChange={handleChange} />;
+    if (sectionNumber === 1) currentSection = <PersonalForm resume={resume} handleChange={handleChange} />;
+    else if (sectionNumber === 2) currentSection = <EducationForm resume={resume} entryMode={entryMode} handleChange={handleChange} />;
+    else if (sectionNumber === 3) currentSection = <SkillsForm resume={resume} handleChange={handleChange} />;
+    else if (sectionNumber === 4) currentSection = <ExperienceForm resume={resume} entryMode={entryMode} handleChange={handleChange} />;
+    else if (sectionNumber === 5) currentSection = <ProjectsForm resume={resume} entryMode={entryMode} handleChange={handleChange} />;
     else if (sectionNumber === 6) currentSection = <Print resume={resume} printRef={printRef} />;
 
     let formNav;

@@ -1,7 +1,7 @@
 import React from "react";
 import { TextInput } from "./FormInputs";
 
-export default class Projects extends React.Component {
+export default class ProjectsForm extends React.Component {
   render() {
     const projects = this.props.resume.projects;
     const { entryMode, targetEntry } = this.props.entryMode;

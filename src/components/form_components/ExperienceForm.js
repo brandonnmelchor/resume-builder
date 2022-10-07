@@ -1,7 +1,7 @@
 import React from "react";
 import { TextInput, YearInput, MonthSelectInput, CheckboxInput } from "./FormInputs";
 
-export default class Experience extends React.Component {
+export default class ExperienceForm extends React.Component {
   render() {
     const experience = this.props.resume.experience;
     const { entryMode, targetEntry } = this.props.entryMode;

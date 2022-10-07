@@ -1,7 +1,7 @@
 import React from "react";
 import { TextInput, YearInput, MonthSelectInput, CheckboxInput } from "./FormInputs";
 
-export default class Education extends React.Component {
+export default class EducationForm extends React.Component {
   render() {
     const education = this.props.resume.education;
     const { entryMode, targetEntry } = this.props.entryMode;

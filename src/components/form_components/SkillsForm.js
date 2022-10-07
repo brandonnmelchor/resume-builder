@@ -1,7 +1,7 @@
 import React from "react";
 import { TextAreaInput } from "./FormInputs";
 
-export default class Skills extends React.Component {
+export default class SkillsForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
