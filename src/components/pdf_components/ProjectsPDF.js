@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/resumePDF.css";
 
-export default class ProjectsResume extends React.Component {
+export default class ProjectsPDF extends React.Component {
   render() {
     const projects = this.props.projects;
 

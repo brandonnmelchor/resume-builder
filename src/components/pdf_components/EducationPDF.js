@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/resumePDF.css";
 
-export default class EducationResume extends React.Component {
+export default class EducationPDF extends React.Component {
   render() {
     const education = this.props.education;
 

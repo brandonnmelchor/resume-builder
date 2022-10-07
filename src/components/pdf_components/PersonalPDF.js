@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/resumePDF.css";
 
-export default class PersonalResume extends React.Component {
+export default class PersonalPDF extends React.Component {
   render() {
     const { firstName, lastName, phone, email, linkedin, github } = this.props.personal;
 
