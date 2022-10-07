@@ -39,7 +39,7 @@ export default class Form extends React.Component {
     else if (sectionNumber === 3) currentSection = <Skills resume={resume} handleChange={handleChange} />;
     else if (sectionNumber === 4) currentSection = <Experience resume={resume} entryMode={entryMode} handleChange={handleChange} />;
     else if (sectionNumber === 5) currentSection = <Projects resume={resume} entryMode={entryMode} handleChange={handleChange} />;
-    else if (sectionNumber === 6) currentSection = <SavePDF />;
+    else if (sectionNumber === 6) currentSection = <SavePDF resume={resume} />;
 
     let formNav;
     if (entryMode.entryMode) formNav = <EntryNav handleChange={handleChange} />;
