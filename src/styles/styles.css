@@ -42,34 +42,29 @@
   color: rgba(var(--c-dark), 0.75);
 }
 
-.gray-border {
+/* .gray-border {
   border-color: rgba(var(--c-dark), 0.5);
-}
+} */
 
-hr {
+/* hr {
   padding: 0;
   margin: 0 0 2px 0;
-}
+} */
 
-.nav-button {
+/* .nav-button {
   width: 90px;
-}
+} */
 
-.details-form {
+/* .details-form {
   border: none;
   resize: none;
-}
+} */
 
-.resize-none {
+/* .resize-none {
   resize: none;
-}
+} */
 
 @media print {
-  .card {
-    display: block;
-    border: none;
-  }
-
   #resume {
     width: 816px;
     height: 1056px;
