@@ -5,7 +5,7 @@ export default class ExperienceResume extends React.Component {
     const experience = this.props.experience;
 
     return (
-      <div className="w-100 mb-2">
+      <div className="w-100 mb-2 page-break">
         <div className="resume-header fw-bold gray">Experience</div>
         <hr />
         <div className="resume-content">

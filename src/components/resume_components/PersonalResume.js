@@ -9,7 +9,7 @@ export default class PersonalResume extends React.Component {
     github = github.length ? `| ${github}` : "";
 
     return (
-      <div className="w-100 mb-2">
+      <div className="w-100 mb-2 page-break">
         <div className="resume-header fw-bold gray">
           {firstName} {lastName}
         </div>

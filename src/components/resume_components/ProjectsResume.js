@@ -5,7 +5,7 @@ export default class ProjectsResume extends React.Component {
     const projects = this.props.projects;
 
     return (
-      <div className="w-100">
+      <div className="w-100 page-break">
         <div className="resume-header fw-bold gray">Projects</div>
         <hr />
         <div className="resume-content">

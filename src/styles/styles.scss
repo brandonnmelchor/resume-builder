@@ -14,9 +14,7 @@
   @media print {
     width: 816px;
     height: 1056px;
-    padding: 23px;
     color: black;
-    border: 1px solid gray;
   }
 }
 
@@ -90,4 +88,20 @@ hr {
 
 .resize-none {
   resize: none;
+}
+
+@media print {
+  .card {
+    display: block;
+    border: none;
+  }
+
+  .page-break {
+    break-before: auto;
+    break-inside: avoid;
+  }
+}
+
+@page {
+  margin: 23px;
 }

@@ -5,7 +5,7 @@ export default class SkillsResume extends React.Component {
     const { languages, frameworks, technologies } = this.props.skills;
 
     return (
-      <div className="w-100 mb-2">
+      <div className="w-100 mb-2 page-break">
         <div className="resume-header fw-bold gray">Skills</div>
         <hr />
         <div className="resume-content">

@@ -5,7 +5,7 @@ export default class EducationResume extends React.Component {
     const education = this.props.education;
 
     return (
-      <div className="w-100 mb-2">
+      <div className="w-100 mb-2 page-break">
         <div className="resume-header fw-bold gray">Education</div>
         <hr />
         <div className="resume-content">
