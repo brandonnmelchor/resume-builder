@@ -27,7 +27,7 @@ class ProjectEntry extends React.Component {
         <div>
           <span className="fw-bold">{projectName} </span>
           {url.length > 0 && (
-            <a className="text-decoration-none" href={url} target="_blank" rel="noreferrer">
+            <a className="text-decoration-none demo-link" href={url} target="_blank" rel="noreferrer">
               | Demo
             </a>
           )}

@@ -10,6 +10,14 @@
   @media (min-width: 1400px) {
     padding: 18.2px;
   }
+
+  @media print {
+    width: 816px;
+    height: 1056px;
+    padding: 23px;
+    color: black;
+    border: 1px solid gray;
+  }
 }
 
 .resume-header {
@@ -19,6 +27,10 @@
 
   @media (min-width: 1400px) {
     font-size: 12.7px;
+  }
+
+  @media print {
+    font-size: 16px;
   }
 }
 
@@ -30,30 +42,32 @@
   @media (min-width: 1400px) {
     font-size: 11.1px;
   }
+
+  @media print {
+    font-size: 14px;
+  }
 }
 
-.resume-pdf {
-  width: 816px;
-  height: 1056px;
-  padding: 23px;
-  color: black;
-  border: 1px solid gray;
+.resume-dates {
+  width: 120px;
+
+  @media print {
+    width: 150px;
+  }
 }
 
-.pdf-header {
-  font-size: 16px;
-}
-
-.pdf-content {
-  font-size: 14px;
+.demo-link {
+  @media print {
+    color: black;
+  }
 }
 
 .gray {
   color: $secondary;
-}
 
-.pdf-gray {
-  color: rgba(black, 0.75);
+  @media print {
+    color: rgba(black, 0.75);
+  }
 }
 
 .gray-border {

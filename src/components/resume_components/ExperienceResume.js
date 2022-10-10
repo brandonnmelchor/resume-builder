@@ -27,7 +27,7 @@ class ExperienceEntry extends React.Component {
       <div>
         <div className="d-flex justify-content-between">
           <div className="fw-bold">{company}</div>
-          <div className="gray" style={{ width: "120px" }}>
+          <div className="resume-dates gray">
             {startMonth} {startYear} {endMonth} {endYear}
           </div>
         </div>

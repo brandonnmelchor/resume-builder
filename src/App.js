@@ -2,7 +2,6 @@ import React from "react";
 import Nav from "./components/Nav";
 import Form from "./components/Form";
 import Resume from "./components/Resume";
-import ResumePDF from "./components/ResumePDF";
 import Footer from "./components/Footer";
 import { newResume, demoResume, educationEntry, experienceEntry, projectEntry, entryDetails, newEntryMode } from "./components/state";
 
@@ -189,11 +188,8 @@ export default class App extends React.Component {
         <div className="container-lg px-4 py-5">
           <div className="row justify-content-center align-items-start gap-4">
             <Form resume={resume} entryMode={entryMode} handleChange={handleChange} />
-            <Resume resume={resume} />
+            <Resume resume={resume} handleChange={handleChange} />
           </div>
-        </div>
-        <div className="d-none">
-          <ResumePDF resume={resume} handleChange={handleChange} />
         </div>
         <Footer />
       </div>
