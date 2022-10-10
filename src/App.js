@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "./components/Nav";
+import AppBar from "./components/AppBar";
 import Form from "./components/Form";
 import Resume from "./components/Resume";
 import Footer from "./components/Footer";
@@ -185,7 +185,7 @@ export default class App extends React.Component {
 
     return (
       <Box id="app">
-        <Nav resume={resume} printRef={printRef} handleChange={handleChange} />
+        <AppBar resume={resume} printRef={printRef} handleChange={handleChange} />
         {/* <div className="container-lg px-4 py-5">
           <div className="row justify-content-center align-items-start gap-4">
             <Form resume={resume} entryMode={entryMode} handleChange={handleChange} />

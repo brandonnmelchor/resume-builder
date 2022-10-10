@@ -1,7 +1,7 @@
 import React from "react";
 import ReactToPrint, { PrintContextConsumer } from "react-to-print";
 
-export default class Nav extends React.Component {
+export default class AppBar extends React.Component {
   render() {
     const { firstName, lastName } = this.props.resume.personal;
     const printRef = this.props.printRef;
