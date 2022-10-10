@@ -4,7 +4,18 @@ import Form from "./components/Form";
 import Resume from "./components/Resume";
 import Footer from "./components/Footer";
 import { newResume, demoResume, educationEntry, experienceEntry, projectEntry, entryDetails, newEntryMode } from "./components/state";
+
 import Box from "@mui/material/Box";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { blueGrey } from "@mui/material/colors";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: blueGrey[500],
+    },
+  },
+});
 
 export default class App extends React.Component {
   constructor(props) {
@@ -185,14 +196,16 @@ export default class App extends React.Component {
 
     return (
       <Box id="app">
-        <AppBar resume={resume} printRef={printRef} handleChange={handleChange} />
-        {/* <div className="container-lg px-4 py-5">
+        <ThemeProvider theme={theme}>
+          <AppBar resume={resume} printRef={printRef} handleChange={handleChange} />
+          {/* <div className="container-lg px-4 py-5">
           <div className="row justify-content-center align-items-start gap-4">
             <Form resume={resume} entryMode={entryMode} handleChange={handleChange} />
             <Resume resume={resume} handleChange={handleChange} />
           </div>
         </div> */}
-        <Footer />
+          <Footer />
+        </ThemeProvider>
       </Box>
     );
   }
