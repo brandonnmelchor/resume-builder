@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "react-bootstrap/Navbar";
 import ReactToPrint, { PrintContextConsumer } from "react-to-print";
 
 export default class Nav extends React.Component {
@@ -9,14 +8,14 @@ export default class Nav extends React.Component {
     const { clearResume, resetDemo } = this.props.handleChange;
 
     return (
-      <Navbar className="mb-auto" bg="dark" variant="dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-auto">
         <div className="container-lg">
-          <Navbar.Brand role="button">
+          <a className="navbar-brand" role="button">
             <span className="fs-1 fw-bold">
               <i className="bi bi-file-code"></i>
             </span>
             <span className="fs-2 fw-bold"> CS Resume Builder</span>
-          </Navbar.Brand>
+          </a>
           <ul className="navbar-nav d-flex justify-content-between">
             <div className="nav-item fs-5 text-white user-select-none me-3" onClick={clearResume} style={{ cursor: "pointer" }}>
               <span className="nav-link">
@@ -41,7 +40,7 @@ export default class Nav extends React.Component {
             </ReactToPrint>
           </ul>
         </div>
-      </Navbar>
+      </nav>
     );
   }
 }
