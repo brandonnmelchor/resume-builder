@@ -47,6 +47,17 @@
   resize: none;
 }
 
+/* form and resume */
+
+.gray {
+  color: var(--grayA);
+}
+
+.divider {
+  margin-bottom: 3px !important;
+  border-color: var(--grayC) !important;
+}
+
 /* resume */
 
 #resume {
@@ -86,15 +97,6 @@
 
 .resume-dates {
   width: 125px;
-}
-
-.gray {
-  color: var(--grayA);
-}
-
-.divider {
-  margin-bottom: 3px !important;
-  border-color: var(--grayC) !important;
 }
 
 @media print {
