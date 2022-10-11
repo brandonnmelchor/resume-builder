@@ -1,5 +1,9 @@
 import React from "react";
 
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+import { blueGrey } from "@mui/material/colors";
+
 export default class PersonalResume extends React.Component {
   render() {
     let { firstName, lastName, phone, email, linkedin, github } = this.props.personal;
@@ -9,18 +13,18 @@ export default class PersonalResume extends React.Component {
     github = github.length ? `| ${github}` : "";
 
     return (
-      <div className="w-100 mb-2 page-break">
-        <div className="resume-header fw-bold gray">
+      <Box className="page-break" mb={1}>
+        <Box className="resume-header" sx={{ color: blueGrey[500], fontWeight: 500 }}>
           {firstName} {lastName}
-        </div>
-        <hr />
-        <div className="resume-content">
+        </Box>
+        <Divider sx={{ borderColor: blueGrey[300] }} />
+        <Box className="resume-content">
           {phone} {email}
-        </div>
-        <div className="resume-content">
+        </Box>
+        <Box className="resume-content">
           {linkedin} {github}
-        </div>
-      </div>
+        </Box>
+      </Box>
     );
   }
 }
