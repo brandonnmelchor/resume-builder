@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
-import TextField from "@mui/material/TextField";
+import { GrayTextField } from "../../styles/styles";
 
 export default class PersonalForm extends React.Component {
   constructor(props) {
@@ -29,7 +29,7 @@ export default class PersonalForm extends React.Component {
         <Box component="form">
           <Grid container direction="row" justifyContent="center" alignItems="center" spacing={3} sx={{ mb: 3 }}>
             <Grid item xs={6}>
-              <TextField
+              <GrayTextField
                 type="text"
                 variant="outlined"
                 size="small"
@@ -42,7 +42,7 @@ export default class PersonalForm extends React.Component {
               />
             </Grid>
             <Grid item xs={6}>
-              <TextField
+              <GrayTextField
                 type="text"
                 variant="outlined"
                 size="small"
@@ -56,7 +56,7 @@ export default class PersonalForm extends React.Component {
             </Grid>
           </Grid>
           <Box sx={{ mb: 3 }}>
-            <TextField
+            <GrayTextField
               type="tel"
               variant="outlined"
               size="small"
@@ -69,7 +69,7 @@ export default class PersonalForm extends React.Component {
             />
           </Box>
           <Box sx={{ mb: 3 }}>
-            <TextField
+            <GrayTextField
               type="email"
               variant="outlined"
               size="small"
@@ -82,7 +82,7 @@ export default class PersonalForm extends React.Component {
             />
           </Box>
           <Box sx={{ mb: 3 }}>
-            <TextField
+            <GrayTextField
               type="url"
               variant="outlined"
               size="small"
@@ -95,7 +95,7 @@ export default class PersonalForm extends React.Component {
             />
           </Box>
           <Box>
-            <TextField
+            <GrayTextField
               type="url"
               variant="outlined"
               size="small"

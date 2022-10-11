@@ -9,7 +9,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "./styles/theme";
+import { theme } from "./styles/styles";
 
 export default class App extends React.Component {
   constructor(props) {
