@@ -34,6 +34,10 @@
   border: 1px solid var(--grayC);
 }
 
+.form-divider {
+  border-color: var(--grayC) !important;
+}
+
 .nav-button {
   width: 90px;
 }
@@ -97,7 +101,6 @@
 .resume-divider {
   margin-bottom: 3px !important;
   border-color: var(--grayC) !important;
-  border-color: red !important;
 }
 
 @media print {
