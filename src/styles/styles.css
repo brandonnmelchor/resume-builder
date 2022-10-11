@@ -29,6 +29,10 @@
   font-weight: 500;
 }
 
+.resume-dates {
+  width: 120px;
+}
+
 @media (min-width: 1200px) {
   #resume {
     padding: 15.9px;
@@ -60,4 +64,54 @@
 .divider {
   margin-bottom: 3px !important;
   border-color: var(--grayC) !important;
+}
+
+.nav-button {
+  width: 90px;
+}
+
+.details-form {
+  border: none;
+  resize: none;
+}
+
+.resize-none {
+  resize: none;
+}
+
+@media print {
+  #resume {
+    width: 816px;
+    height: 1056px;
+    color: black;
+  }
+
+  .resume-header {
+    font-size: 16px;
+  }
+
+  .resume-content {
+    font-size: 14px;
+  }
+
+  .resume-dates {
+    width: 150px;
+  }
+
+  .demo-link {
+    color: black;
+  }
+
+  .gray {
+    color: rgba(black, 0.75);
+  }
+
+  .page-break {
+    break-before: auto;
+    break-inside: avoid;
+  }
+}
+
+@page {
+  margin: 23px;
 }
