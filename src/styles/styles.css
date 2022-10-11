@@ -1,3 +1,5 @@
+/* all */
+
 :root {
   --dark: #30475e;
   --grayA: #596b7e;
@@ -13,12 +15,39 @@
   /* border: 1px solid black; */
 }
 
+/* app */
+
 #app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
+/* form */
+
+#form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--dark);
+  border: 1px solid var(--grayC);
+}
+
+.nav-button {
+  width: 90px;
+}
+
+.details-form {
+  border: none;
+  resize: none;
+}
+
+.resize-none {
+  resize: none;
+}
+
+/* resume */
 
 #resume {
   color: var(--dark);
@@ -66,19 +95,6 @@
 .divider {
   margin-bottom: 3px !important;
   border-color: var(--grayC) !important;
-}
-
-.nav-button {
-  width: 90px;
-}
-
-.details-form {
-  border: none;
-  resize: none;
-}
-
-.resize-none {
-  resize: none;
 }
 
 @media print {
