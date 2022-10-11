@@ -1,19 +1,25 @@
 import React from "react";
 
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+import Link from "@mui/material/Link";
+
 export default class ProjectsResume extends React.Component {
   render() {
     const projects = this.props.projects;
 
     return (
-      <div className="w-100 page-break">
-        <div className="resume-header fw-bold gray">Projects</div>
-        <hr />
-        <div className="resume-content">
+      <Box className="page-break">
+        <Box className="resume-header gray" sx={{ fontWeight: "bold" }}>
+          Projects
+        </Box>
+        <Divider className="divider" />
+        <Box className="resume-content">
           {projects.map((entry) => (
             <ProjectEntry key={entry.id} projectEntry={entry} />
           ))}
-        </div>
-      </div>
+        </Box>
+      </Box>
     );
   }
 }
@@ -23,22 +29,26 @@ class ProjectEntry extends React.Component {
     const { projectName, url, tech, details } = this.props.projectEntry;
 
     return (
-      <div>
-        <div>
-          <span className="fw-bold">{projectName} </span>
+      <Box>
+        <Box>
+          <Box sx={{ display: "inline", fontWeight: "bold" }}>{projectName} </Box>
           {url.length > 0 && (
-            <a className="text-decoration-none demo-link" href={url} target="_blank" rel="noreferrer">
-              | Demo
-            </a>
+            <Box sx={{ display: "inline" }}>
+              <Link color="inherit" href={url} target="_blank" rel="noreferrer" sx={{ textDecoration: "none" }}>
+                | Demo
+              </Link>
+            </Box>
           )}
-        </div>
-        <div className="fst-italic gray">{tech}</div>
-        <ul style={{ margin: "0" }}>
+        </Box>
+        <Box className="gray" sx={{ fontStyle: "italic" }}>
+          {tech}
+        </Box>
+        <ul style={{ margin: 0, paddingLeft: 40 }}>
           {details.map((entry) => (
             <DetailsEntry key={entry.id} detailsEntry={entry.text} />
           ))}
         </ul>
-      </div>
+      </Box>
     );
   }
 }
