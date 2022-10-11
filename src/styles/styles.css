@@ -21,6 +21,7 @@
 }
 
 #resume {
+  color: var(--dark);
   border-color: var(--grayC);
 }
 
