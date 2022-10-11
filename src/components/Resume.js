@@ -19,7 +19,7 @@ export default class Resume extends React.Component {
 
     return (
       <Grid item lg={6}>
-        <Paper id="resume" variant="outlined" sx={{ userSelect: "none", aspectRatio: "1 / 1.3" }}>
+        <Paper id="resume" variant="outlined">
           <PersonalResume personal={personal} />
           <EducationResume education={education} />
           <SkillsResume skills={skills} />
