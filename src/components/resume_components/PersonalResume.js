@@ -16,7 +16,7 @@ export default class PersonalResume extends React.Component {
         <Box className="resume-header gray" sx={{ fontWeight: "bold" }}>
           {firstName} {lastName}
         </Box>
-        <Divider className="divider" />
+        <Divider className="resume-divider" />
         <Box className="resume-content">
           {phone} {email}
         </Box>

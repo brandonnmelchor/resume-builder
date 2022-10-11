@@ -53,11 +53,6 @@
   color: var(--grayA);
 }
 
-.divider {
-  margin-bottom: 3px !important;
-  border-color: var(--grayC) !important;
-}
-
 /* resume */
 
 #resume {
@@ -97,6 +92,12 @@
 
 .resume-dates {
   width: 125px;
+}
+
+.resume-divider {
+  margin-bottom: 3px !important;
+  border-color: var(--grayC) !important;
+  border-color: red !important;
 }
 
 @media print {

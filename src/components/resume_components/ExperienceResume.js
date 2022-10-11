@@ -12,7 +12,7 @@ export default class ExperienceResume extends React.Component {
         <Box className="resume-header gray" sx={{ fontWeight: "bold" }}>
           Experience
         </Box>
-        <Divider className="divider" />
+        <Divider className="resume-divider" />
         <Box className="resume-content">
           {experience.map((entry) => (
             <ExperienceEntry key={entry.id} experienceEntry={entry} />

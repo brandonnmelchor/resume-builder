@@ -12,7 +12,7 @@ export default class EducationResume extends React.Component {
         <Box className="resume-header gray" sx={{ fontWeight: "bold" }}>
           Education
         </Box>
-        <Divider className="divider" />
+        <Divider className="resume-divider" />
         <Box className="resume-content">
           {education.map((entry) => (
             <EducationEntry key={entry.id} educationEntry={entry} />

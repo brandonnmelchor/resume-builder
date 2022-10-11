@@ -12,7 +12,7 @@ export default class SkillsResume extends React.Component {
         <Box className="resume-header gray" sx={{ fontWeight: "bold" }}>
           Skills
         </Box>
-        <Divider className="divider" />
+        <Divider className="resume-divider" />
         <Box className="resume-content">
           {languages.length > 0 && (
             <Box>

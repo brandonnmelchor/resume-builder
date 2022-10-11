@@ -13,7 +13,7 @@ export default class ProjectsResume extends React.Component {
         <Box className="resume-header gray" sx={{ fontWeight: "bold" }}>
           Projects
         </Box>
-        <Divider className="divider" />
+        <Divider className="resume-divider" />
         <Box className="resume-content">
           {projects.map((entry) => (
             <ProjectEntry key={entry.id} projectEntry={entry} />
