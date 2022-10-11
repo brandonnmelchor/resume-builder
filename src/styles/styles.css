@@ -88,7 +88,6 @@
   }
 
   .resume-header {
-    color: black;
     font-size: 16px;
   }
 
@@ -97,7 +96,6 @@
   }
 
   .resume-dates {
-    color: black;
     width: 150px;
   }
 
@@ -106,7 +104,7 @@
   }
 
   .gray {
-    color: rgba(black, 0.75);
+    color: rgba(0, 0, 0, 0.75);
   }
 
   .page-break {
