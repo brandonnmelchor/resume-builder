@@ -24,12 +24,12 @@ export default class Nav extends React.Component {
         <AppBar elevation={0} position="static">
           <Container maxWidth="xl" fixed>
             <Toolbar sx={{ display: "flex", justifyContent: "space-between" }} disableGutters>
-              <Stack direction="row" justifyContent="center" alignItems="center">
+              <Button color="inherit" sx={{ textTransform: "none" }}>
                 <ClearAllOutlinedIcon sx={{ fontSize: "100px" }} />
                 <Typography variant="h4" sx={{ fontWeight: "500" }} component="h1">
                   CS Resume Builder
                 </Typography>
-              </Stack>
+              </Button>
               <Stack direction="row" justifyContent="center" alignItems="center">
                 <Box mr={2}>
                   <Button color="inherit" sx={{ fontSize: "20px" }} onClick={clearResume}>
