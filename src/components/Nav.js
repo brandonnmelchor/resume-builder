@@ -21,9 +21,9 @@ export default class Nav extends React.Component {
 
     return (
       <Box mb={"auto"}>
-        <AppBar position="static">
-          <Container maxWidth="xl">
-            <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        <AppBar elevation={0} position="static">
+          <Container maxWidth="xl" fixed>
+            <Toolbar sx={{ display: "flex", justifyContent: "space-between" }} disableGutters>
               <Stack direction="row" justifyContent="center" alignItems="center">
                 <ClearAllOutlinedIcon sx={{ fontSize: "100px" }} />
                 <Typography variant="h4" sx={{ fontWeight: "500" }} component="h1">
