@@ -46,7 +46,7 @@ export default class Form extends React.Component {
     else formNav = <FormNav sectionNumber={sectionNumber} prevSection={this.prevSection} nextSection={this.nextSection} />;
 
     return (
-      <Grid item lg={5} className="col-12 col-xl-5 d-flex flex-column justify-content-center p-4">
+      <Grid item lg={5} sx={{ mr: 5 }} className="col-12 col-xl-5 d-flex flex-column justify-content-center p-4">
         {currentSection}
         {formNav}
       </Grid>
