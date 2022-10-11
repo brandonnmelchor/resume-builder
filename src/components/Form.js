@@ -6,11 +6,14 @@ import ExperienceForm from "./form_components/ExperienceForm";
 import ProjectsForm from "./form_components/ProjectsForm";
 
 import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import Divider from "@mui/material/Divider";
+import Button from "@mui/material/Button";
 
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { sectionNumber: 1 };
+    this.state = { sectionNumber: 2 };
 
     this.prevSection = this.prevSection.bind(this);
     this.nextSection = this.nextSection.bind(this);
@@ -46,7 +49,7 @@ export default class Form extends React.Component {
     else formNav = <FormNav sectionNumber={sectionNumber} prevSection={this.prevSection} nextSection={this.nextSection} />;
 
     return (
-      <Grid item lg={5} sx={{ mr: 5 }} className="col-12 col-xl-5 d-flex flex-column justify-content-center p-4">
+      <Grid item lg={5} sx={{ mr: 5 }} id="form" p={2}>
         {currentSection}
         {formNav}
       </Grid>
@@ -59,17 +62,29 @@ class EntryNav extends React.Component {
     const { saveEntry, cancelEntry } = this.props.handleChange;
 
     return (
-      <div className="w-100 d-flex flex-column mt-5">
-        <hr className="mb-3" />
-        <div className="w-100 d-flex ">
-          <button type="button" className="btn btn-outline-secondary nav-button gray-border" onClick={cancelEntry}>
+      <Stack mt={5}>
+        <Divider className="form-divider" sx={{ mb: 3 }} />
+        <Stack direction="row">
+          <Button
+            variant="outlined"
+            className="nav-button"
+            onClick={() => {
+              cancelEntry();
+            }}>
             Cancel
-          </button>
-          <button type="button" className="btn btn-secondary nav-button gray-border ms-auto" onClick={saveEntry}>
+          </Button>
+          <Button
+            variant="contained"
+            disableElevation
+            className="nav-button"
+            onClick={() => {
+              saveEntry();
+            }}
+            sx={{ ml: "auto" }}>
             Save
-          </button>
-        </div>
-      </div>
+          </Button>
+        </Stack>
+      </Stack>
     );
   }
 }
@@ -79,31 +94,33 @@ class FormNav extends React.Component {
     const { sectionNumber, prevSection, nextSection } = this.props;
 
     return (
-      <div className="w-100 d-flex flex-column mt-5">
-        <hr className="mb-3" />
-        <div className="w-100 d-flex ">
+      <Stack mt={5}>
+        <Divider className="form-divider" sx={{ mb: 3 }} />
+        <Stack direction="row">
           {sectionNumber > 1 && (
-            <button
-              type="button"
-              className="btn btn-outline-secondary nav-button gray-border"
+            <Button
+              variant="outlined"
+              className="nav-button"
               onClick={() => {
                 prevSection();
               }}>
               Back
-            </button>
+            </Button>
           )}
           {sectionNumber < 5 && (
-            <button
-              type="button"
-              className="btn btn-secondary nav-button gray-border ms-auto"
+            <Button
+              variant="contained"
+              disableElevation
+              className="nav-button"
               onClick={() => {
                 nextSection();
-              }}>
+              }}
+              sx={{ ml: "auto" }}>
               Continue
-            </button>
+            </Button>
           )}
-        </div>
-      </div>
+        </Stack>
+      </Stack>
     );
   }
 }
