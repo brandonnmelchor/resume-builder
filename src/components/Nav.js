@@ -8,10 +8,6 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import ClearAllOutlinedIcon from "@mui/icons-material/ClearAllOutlined";
-import RestartAltOutlinedIcon from "@mui/icons-material/RestartAltOutlined";
-import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
-import FileDownloadDoneOutlinedIcon from "@mui/icons-material/FileDownloadDoneOutlined";
 
 export default class Nav extends React.Component {
   render() {
@@ -25,21 +21,27 @@ export default class Nav extends React.Component {
           <Container maxWidth="xl" fixed>
             <Toolbar sx={{ display: "flex", justifyContent: "space-between" }} disableGutters>
               <Button color="inherit" sx={{ textTransform: "none" }}>
-                <ClearAllOutlinedIcon sx={{ fontSize: "100px" }} />
+                <Box sx={{ fontSize: "45px", marginRight: 1 }}>
+                  <i className="bi bi-file-code"></i>
+                </Box>
                 <Typography variant="h4" sx={{ fontWeight: "500" }} component="h1">
                   CS Resume Builder
                 </Typography>
               </Button>
               <Stack direction="row" justifyContent="center" alignItems="center">
                 <Box mr={2}>
-                  <Button color="inherit" sx={{ fontSize: "20px" }} onClick={clearResume}>
-                    <RestartAltOutlinedIcon sx={{ fontSize: "30px", marginRight: 1 }} />
+                  <Button color="inherit" sx={{ fontSize: "18px" }} onClick={clearResume}>
+                    <Box sx={{ fontSize: "30px", marginRight: 1 }}>
+                      <i className="bi bi-file-break"></i>
+                    </Box>
                     Clear
                   </Button>
                 </Box>
                 <Box mr={2}>
-                  <Button color="inherit" sx={{ fontSize: "20px" }} onClick={resetDemo}>
-                    <CodeOutlinedIcon sx={{ fontSize: "30px", marginRight: 1 }} />
+                  <Button color="inherit" sx={{ fontSize: "18px" }} onClick={resetDemo}>
+                    <Box sx={{ fontSize: "30px", marginRight: 1 }}>
+                      <i className="bi bi-file-person"></i>
+                    </Box>
                     Demo
                   </Button>
                 </Box>
@@ -47,8 +49,10 @@ export default class Nav extends React.Component {
                   <ReactToPrint content={() => printRef} documentTitle={`${firstName}${lastName}_Resume`}>
                     <PrintContextConsumer>
                       {({ handlePrint }) => (
-                        <Button color="inherit" sx={{ fontSize: "20px" }} onClick={handlePrint}>
-                          <FileDownloadDoneOutlinedIcon sx={{ fontSize: "30px", marginRight: 1 }} />
+                        <Button color="inherit" sx={{ fontSize: "18px" }} onClick={handlePrint}>
+                          <Box sx={{ fontSize: "30px", marginRight: 1 }}>
+                            <i className="bi bi-file-check"></i>
+                          </Box>
                           Save
                         </Button>
                       )}

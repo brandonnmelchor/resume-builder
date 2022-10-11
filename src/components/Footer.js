@@ -18,10 +18,10 @@ export default class Footer extends React.Component {
             <Typography variant="body1" component="p" sx={{ fontSize: "16px" }}>
               &copy; 2022 Brandonn Melchor
               <Link color="inherit" href={github} target="_blank" rel="noreferrer" sx={{ marginLeft: 1, marginRight: 1 }}>
-                <i class="bi bi-github"></i>
+                <i className="bi bi-github"></i>
               </Link>
               <Link color="inherit" href={linkedin} target="_blank" rel="noreferrer">
-                <i class="bi bi-linkedin"></i>
+                <i className="bi bi-linkedin"></i>
               </Link>
             </Typography>
           </Stack>
