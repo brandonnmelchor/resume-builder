@@ -15,7 +15,7 @@ export default class Footer extends React.Component {
       <Box mt={"auto"} sx={{ backgroundColor: "primary.main", color: "white" }}>
         <Container maxWidth="xl" fixed sx={{ padding: 1 }}>
           <Stack direction="row" justifyContent="end" alignItems="center">
-            <Typography variant="body1" component="p" sx={{ fontSize: "16px" }}>
+            <Typography variant="body1" component="p" sx={{ fontSize: 16 }}>
               &copy; 2022 Brandonn Melchor
               <Link color="inherit" href={github} target="_blank" rel="noreferrer" sx={{ marginLeft: 1, marginRight: 1 }}>
                 <i className="bi bi-github"></i>
