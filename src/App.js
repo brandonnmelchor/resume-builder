@@ -1,18 +1,18 @@
 import React from "react";
-import AppBar from "./components/AppBar";
+import Nav from "./components/Nav";
 import Form from "./components/Form";
 import Resume from "./components/Resume";
 import Footer from "./components/Footer";
 import { newResume, demoResume, educationEntry, experienceEntry, projectEntry, entryDetails, newEntryMode } from "./components/state";
 
 import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { blueGrey } from "@mui/material/colors";
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: blueGrey[500],
+      main: "#30475e",
     },
   },
 });
@@ -195,9 +195,9 @@ export default class App extends React.Component {
     };
 
     return (
-      <Box id="app">
+      <Stack direction="column" justifyContent="center" alignItems="stretch">
         <ThemeProvider theme={theme}>
-          <AppBar resume={resume} printRef={printRef} handleChange={handleChange} />
+          <Nav resume={resume} printRef={printRef} handleChange={handleChange} />
           {/* <div className="container-lg px-4 py-5">
           <div className="row justify-content-center align-items-start gap-4">
             <Form resume={resume} entryMode={entryMode} handleChange={handleChange} />
@@ -206,7 +206,7 @@ export default class App extends React.Component {
         </div> */}
           <Footer />
         </ThemeProvider>
-      </Box>
+      </Stack>
     );
   }
 }
