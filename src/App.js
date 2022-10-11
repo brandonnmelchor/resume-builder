@@ -199,7 +199,7 @@ export default class App extends React.Component {
       <Box id="app">
         <ThemeProvider theme={theme}>
           <Nav resume={resume} printRef={printRef} handleChange={handleChange} />
-          <Container maxWidth="xl" fixed sx={{ padding: 5 }}>
+          <Container maxWidth="xl" fixed sx={{ marginTop: 7, marginBottom: 7 }}>
             <Grid container direction="row" justifyContent="center" alignItems="flex-start">
               <Form resume={resume} entryMode={entryMode} handleChange={handleChange} />
               <Resume resume={resume} handleChange={handleChange} />

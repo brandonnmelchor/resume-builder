@@ -1,3 +1,7 @@
+:root {
+  --c-dark: #30475e;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
