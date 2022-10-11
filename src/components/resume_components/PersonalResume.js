@@ -13,7 +13,7 @@ export default class PersonalResume extends React.Component {
 
     return (
       <Box className="page-break" mb={1}>
-        <Box className="resume-header">
+        <Box className="resume-header gray" sx={{ fontWeight: "bold" }}>
           {firstName} {lastName}
         </Box>
         <Divider className="divider" />

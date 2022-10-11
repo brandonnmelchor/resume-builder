@@ -9,7 +9,9 @@ export default class EducationResume extends React.Component {
 
     return (
       <Box className="page-break" mb={1}>
-        <Box className="resume-header">Education</Box>
+        <Box className="resume-header gray" sx={{ fontWeight: "bold" }}>
+          Education
+        </Box>
         <Divider className="divider" />
         <Box className="resume-content">
           {education.map((entry) => (
@@ -33,7 +35,7 @@ class EducationEntry extends React.Component {
         <Box sx={{ fontWeight: "bold" }}>
           {schoolName} {degree} {major}
         </Box>
-        <Box className="resume-dates">
+        <Box className="resume-dates gray">
           {startMonth} {startYear} {endMonth} {endYear}
         </Box>
       </Box>

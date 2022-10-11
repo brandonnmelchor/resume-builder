@@ -9,7 +9,9 @@ export default class SkillsResume extends React.Component {
 
     return (
       <Box className="page-break" mb={1}>
-        <Box className="resume-header">Skills</Box>
+        <Box className="resume-header gray" sx={{ fontWeight: "bold" }}>
+          Skills
+        </Box>
         <Divider className="divider" />
         <Box className="resume-content">
           {languages.length > 0 && (

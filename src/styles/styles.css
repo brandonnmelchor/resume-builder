@@ -25,11 +25,6 @@
   border-color: var(--grayC);
 }
 
-.resume-header {
-  color: var(--grayA);
-  font-weight: 500;
-}
-
 @media (min-width: 1200px) {
   #resume {
     padding: 15.9px;
@@ -60,6 +55,9 @@
 
 .resume-dates {
   width: 125px;
+}
+
+.gray {
   color: var(--grayA);
 }
 
