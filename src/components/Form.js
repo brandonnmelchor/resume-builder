@@ -63,7 +63,7 @@ class EntryNav extends React.Component {
 
     return (
       <Stack mt={5}>
-        <Divider className="form-divider" sx={{ mb: 2 }} />
+        <Divider className="form-divider" sx={{ mb: 4 }} />
         <Stack direction="row">
           <Button
             variant="outlined"
@@ -95,7 +95,7 @@ class FormNav extends React.Component {
 
     return (
       <Stack mt={5}>
-        <Divider className="form-divider" sx={{ mb: 2 }} />
+        <Divider className="form-divider" sx={{ mb: 4 }} />
         <Stack direction="row">
           {sectionNumber > 1 && (
             <Button

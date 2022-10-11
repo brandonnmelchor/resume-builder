@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   color: var(--dark);
-  border: 1px solid var(--grayC);
+  /* border: 1px solid var(--grayC); */
 }
 
 .form-divider {

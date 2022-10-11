@@ -25,9 +25,9 @@ export default class PersonalForm extends React.Component {
         <Typography variant="h5" className="gray" sx={{ fontWeight: 500 }} component="h2">
           Personal
         </Typography>
-        <Divider className="form-divider" sx={{ mb: 3 }} />
+        <Divider className="form-divider" sx={{ mb: 5 }} />
         <Box component="form">
-          <Grid container direction="row" justifyContent="center" alignItems="center" spacing={3} sx={{ mb: 3 }}>
+          <Grid container direction="row" justifyContent="center" alignItems="center" spacing={3} sx={{ mb: 4 }}>
             <Grid item xs={6}>
               <GrayTextField
                 type="text"
@@ -55,7 +55,7 @@ export default class PersonalForm extends React.Component {
               />
             </Grid>
           </Grid>
-          <Box sx={{ mb: 3 }}>
+          <Box sx={{ mb: 4 }}>
             <GrayTextField
               type="tel"
               variant="outlined"
@@ -68,7 +68,7 @@ export default class PersonalForm extends React.Component {
               inputProps={{ maxLength: 25 }}
             />
           </Box>
-          <Box sx={{ mb: 3 }}>
+          <Box sx={{ mb: 4 }}>
             <GrayTextField
               type="email"
               variant="outlined"
@@ -81,7 +81,7 @@ export default class PersonalForm extends React.Component {
               inputProps={{ maxLength: 40 }}
             />
           </Box>
-          <Box sx={{ mb: 3 }}>
+          <Box sx={{ mb: 4 }}>
             <GrayTextField
               type="url"
               variant="outlined"
