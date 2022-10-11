@@ -7,7 +7,6 @@ import ProjectsResume from "./resume_components/ProjectsResume";
 
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import { blueGrey } from "@mui/material/colors";
 
 export default class Resume extends React.Component {
   componentDidMount() {
@@ -20,7 +19,7 @@ export default class Resume extends React.Component {
 
     return (
       <Grid item lg={6} sx={{ ml: 5, userSelect: "none", aspectRatio: "1 / 1.3" }}>
-        <Paper id="resume" variant="outlined" sx={{ color: "primary.main", borderColor: blueGrey[200], borderWidth: 2 }}>
+        <Paper id="resume" variant="outlined" sx={{ color: "primary.main", borderWidth: 2 }}>
           <PersonalResume personal={personal} />
           <EducationResume education={education} />
           <SkillsResume skills={skills} />

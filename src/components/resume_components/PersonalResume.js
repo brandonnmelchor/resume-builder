@@ -2,7 +2,6 @@ import React from "react";
 
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
-import { blueGrey } from "@mui/material/colors";
 
 export default class PersonalResume extends React.Component {
   render() {
@@ -14,10 +13,10 @@ export default class PersonalResume extends React.Component {
 
     return (
       <Box className="page-break" mb={1}>
-        <Box className="resume-header" sx={{ color: blueGrey[500], fontWeight: 500 }}>
+        <Box className="resume-header">
           {firstName} {lastName}
         </Box>
-        <Divider sx={{ marginBottom: "3px", borderColor: blueGrey[300] }} />
+        <Divider className="divider" />
         <Box className="resume-content">
           {phone} {email}
         </Box>
