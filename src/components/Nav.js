@@ -13,50 +13,6 @@ import RestartAltOutlinedIcon from "@mui/icons-material/RestartAltOutlined";
 import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
 import FileDownloadDoneOutlinedIcon from "@mui/icons-material/FileDownloadDoneOutlined";
 
-class AppBarA extends React.Component {
-  render() {
-    const { firstName, lastName } = this.props.resume.personal;
-    const printRef = this.props.printRef;
-    const { clearResume, resetDemo } = this.props.handleChange;
-
-    return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-auto">
-        <div className="container-lg">
-          <a className="navbar-brand" role="button">
-            <span className="fs-1 fw-bold">
-              <i className="bi bi-file-code"></i>
-            </span>
-            <span className="fs-2 fw-bold"> CS Resume Builder</span>
-          </a>
-          <ul className="navbar-nav d-flex justify-content-between">
-            <div className="nav-item fs-5 text-white user-select-none me-3" onClick={clearResume} style={{ cursor: "pointer" }}>
-              <span className="nav-link">
-                <i className="bi bi-file-break"></i> Clear
-              </span>
-            </div>
-            <div className="nav-item fs-5 text-white user-select-none me-3" onClick={resetDemo} style={{ cursor: "pointer" }}>
-              <span className="nav-link">
-                <i className="bi bi-file-person"></i> Demo
-              </span>
-            </div>
-            <ReactToPrint content={() => printRef} documentTitle={`${firstName}${lastName}_Resume`}>
-              <PrintContextConsumer>
-                {({ handlePrint }) => (
-                  <div className="nav-item fs-5 text-white user-select-none" onClick={handlePrint} style={{ cursor: "pointer" }}>
-                    <span className="nav-link">
-                      <i className="bi bi-download"></i> Save
-                    </span>
-                  </div>
-                )}
-              </PrintContextConsumer>
-            </ReactToPrint>
-          </ul>
-        </div>
-      </nav>
-    );
-  }
-}
-
 export default class Nav extends React.Component {
   render() {
     const { firstName, lastName } = this.props.resume.personal;
@@ -76,22 +32,28 @@ export default class Nav extends React.Component {
               </Stack>
               <Stack direction="row" justifyContent="center" alignItems="center">
                 <Box mr={2}>
-                  <Button color="inherit" sx={{ fontSize: "20px" }}>
+                  <Button color="inherit" sx={{ fontSize: "20px" }} onClick={clearResume}>
                     <RestartAltOutlinedIcon sx={{ fontSize: "30px", marginRight: "5px" }} />
                     Clear
                   </Button>
                 </Box>
                 <Box mr={2}>
-                  <Button color="inherit" sx={{ fontSize: "20px" }}>
+                  <Button color="inherit" sx={{ fontSize: "20px" }} onClick={resetDemo}>
                     <CodeOutlinedIcon sx={{ fontSize: "30px", marginRight: "5px" }} />
                     Demo
                   </Button>
                 </Box>
                 <Box>
-                  <Button color="inherit" sx={{ fontSize: "20px" }}>
-                    <FileDownloadDoneOutlinedIcon sx={{ fontSize: "30px", marginRight: "5px" }} />
-                    Save
-                  </Button>
+                  <ReactToPrint content={() => printRef} documentTitle={`${firstName}${lastName}_Resume`}>
+                    <PrintContextConsumer>
+                      {({ handlePrint }) => (
+                        <Button color="inherit" sx={{ fontSize: "20px" }} onClick={handlePrint}>
+                          <FileDownloadDoneOutlinedIcon sx={{ fontSize: "30px", marginRight: "5px" }} />
+                          Save
+                        </Button>
+                      )}
+                    </PrintContextConsumer>
+                  </ReactToPrint>
                 </Box>
               </Stack>
             </Toolbar>
