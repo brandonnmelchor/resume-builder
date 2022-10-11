@@ -33,13 +33,13 @@ export default class Nav extends React.Component {
               <Stack direction="row" justifyContent="center" alignItems="center">
                 <Box mr={2}>
                   <Button color="inherit" sx={{ fontSize: "20px" }} onClick={clearResume}>
-                    <RestartAltOutlinedIcon sx={{ fontSize: "30px", marginRight: "5px" }} />
+                    <RestartAltOutlinedIcon sx={{ fontSize: "30px", marginRight: 1 }} />
                     Clear
                   </Button>
                 </Box>
                 <Box mr={2}>
                   <Button color="inherit" sx={{ fontSize: "20px" }} onClick={resetDemo}>
-                    <CodeOutlinedIcon sx={{ fontSize: "30px", marginRight: "5px" }} />
+                    <CodeOutlinedIcon sx={{ fontSize: "30px", marginRight: 1 }} />
                     Demo
                   </Button>
                 </Box>
@@ -48,7 +48,7 @@ export default class Nav extends React.Component {
                     <PrintContextConsumer>
                       {({ handlePrint }) => (
                         <Button color="inherit" sx={{ fontSize: "20px" }} onClick={handlePrint}>
-                          <FileDownloadDoneOutlinedIcon sx={{ fontSize: "30px", marginRight: "5px" }} />
+                          <FileDownloadDoneOutlinedIcon sx={{ fontSize: "30px", marginRight: 1 }} />
                           Save
                         </Button>
                       )}
