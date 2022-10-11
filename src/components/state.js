@@ -168,7 +168,7 @@ export const demoResume = () => {
         id: uniqid(),
         projectName: "Forecast",
         url: "https://brandonnmelchor.github.io/forecast/",
-        tech: "JavaScript, CSS/SASS, HTML, ReactJS, Bootstrap",
+        tech: "JavaScript, CSS/SASS, HTML, ReactJS, Material UI",
         details: [
           {
             id: uniqid(),
