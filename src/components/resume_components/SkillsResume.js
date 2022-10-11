@@ -1,34 +1,37 @@
 import React from "react";
 
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+
 export default class SkillsResume extends React.Component {
   render() {
     const { languages, frameworks, technologies } = this.props.skills;
 
     return (
-      <div className="w-100 mb-2 page-break">
-        <div className="resume-header fw-bold gray">Skills</div>
-        <hr />
-        <div className="resume-content">
+      <Box className="page-break" mb={1}>
+        <Box className="resume-header">Skills</Box>
+        <Divider className="divider" />
+        <Box className="resume-content">
           {languages.length > 0 && (
-            <div>
-              <span className="fw-bold">Languages:&emsp;&emsp;</span>
-              <span>{languages}</span>
-            </div>
+            <Box>
+              <Box sx={{ display: "inline", fontWeight: "bold" }}>Languages:&emsp;&emsp;</Box>
+              <Box sx={{ display: "inline" }}>{languages}</Box>
+            </Box>
           )}
           {frameworks.length > 0 && (
-            <div>
-              <span className="fw-bold">Frameworks:&emsp;&ensp;</span>
-              <span>{frameworks}</span>
-            </div>
+            <Box>
+              <Box sx={{ display: "inline", fontWeight: "bold" }}>Frameworks:&emsp;&ensp;</Box>
+              <Box sx={{ display: "inline" }}>{frameworks}</Box>
+            </Box>
           )}
           {technologies.length > 0 && (
-            <div>
-              <span className="fw-bold">Technologies:&emsp;</span>
-              <span>{technologies}</span>
-            </div>
+            <Box>
+              <Box sx={{ display: "inline", fontWeight: "bold" }}>Technologies:&emsp;</Box>
+              <Box sx={{ display: "inline" }}>{technologies}</Box>
+            </Box>
           )}
-        </div>
-      </div>
+        </Box>
+      </Box>
     );
   }
 }
