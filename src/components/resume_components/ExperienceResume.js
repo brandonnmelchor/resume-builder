@@ -1,19 +1,24 @@
 import React from "react";
 
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+
 export default class ExperienceResume extends React.Component {
   render() {
     const experience = this.props.experience;
 
     return (
-      <div className="w-100 mb-2 page-break">
-        <div className="resume-header fw-bold gray">Experience</div>
-        <hr />
-        <div className="resume-content">
+      <Box className="page-break" mb={1}>
+        <Box className="resume-header gray" sx={{ fontWeight: "bold" }}>
+          Experience
+        </Box>
+        <Divider className="divider" />
+        <Box className="resume-content">
           {experience.map((entry) => (
             <ExperienceEntry key={entry.id} experienceEntry={entry} />
           ))}
-        </div>
-      </div>
+        </Box>
+      </Box>
     );
   }
 }
@@ -24,20 +29,20 @@ class ExperienceEntry extends React.Component {
     endMonth = endMonth.length ? `- ${endMonth}` : "";
 
     return (
-      <div>
-        <div className="d-flex justify-content-between">
-          <div className="fw-bold">{company}</div>
-          <div className="resume-dates gray">
+      <Box>
+        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box sx={{ fontWeight: "bold" }}>{company}</Box>
+          <Box className="resume-dates gray">
             {startMonth} {startYear} {endMonth} {endYear}
-          </div>
-        </div>
-        <div className="gray">{title}</div>
-        <ul style={{ margin: "0" }}>
+          </Box>
+        </Box>
+        <Box className="gray">{title}</Box>
+        <ul style={{ margin: 0, paddingLeft: 40 }}>
           {details.map((entry) => (
             <DetailsEntry key={entry.id} detailsEntry={entry.text} />
           ))}
         </ul>
-      </div>
+      </Box>
     );
   }
 }
