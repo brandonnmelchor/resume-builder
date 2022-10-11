@@ -195,7 +195,7 @@ export default class App extends React.Component {
     };
 
     return (
-      <Stack direction="column" justifyContent="center" alignItems="stretch">
+      <Box id="app">
         <ThemeProvider theme={theme}>
           <Nav resume={resume} printRef={printRef} handleChange={handleChange} />
           {/* <div className="container-lg px-4 py-5">
@@ -206,7 +206,7 @@ export default class App extends React.Component {
         </div> */}
           <Footer />
         </ThemeProvider>
-      </Stack>
+      </Box>
     );
   }
 }

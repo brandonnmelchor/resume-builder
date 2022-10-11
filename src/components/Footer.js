@@ -1,26 +1,32 @@
 import React from "react";
 
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+
 export default class Footer extends React.Component {
   render() {
     const github = "https://github.com/brandonnmelchor";
     const linkedin = "https://www.linkedin.com/in/brandonnmelchor/";
 
     return (
-      <footer className="bg-dark text-white mt-auto">
-        <div className="container-lg py-2">
-          <div className="row justify-content-center align-items-center">
-            <div className="col text-end">
-              <span>&copy; 2022 Brandonn Melchor </span>
-              <a className="text-white text-decoration-none ps-1" href={github} target="_blank" rel="noreferrer">
-                <i className="bi bi-github"></i>
-              </a>
-              <a className="text-white text-decoration-none ps-2" href={linkedin} target="_blank" rel="noreferrer">
-                <i className="bi bi-linkedin"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Box mt={"auto"} sx={{ backgroundColor: "primary.main", color: "white" }}>
+        <Container maxWidth="xl" fixed sx={{ padding: 1 }}>
+          <Stack direction="row" justifyContent="end" alignItems="center">
+            <Typography variant="body1" component="p" sx={{ fontSize: "16px" }}>
+              &copy; 2022 Brandonn Melchor
+              <Link color="inherit" href={github} target="_blank" rel="noreferrer" sx={{ marginLeft: 1, marginRight: 1 }}>
+                <i class="bi bi-github"></i>
+              </Link>
+              <Link color="inherit" href={linkedin} target="_blank" rel="noreferrer">
+                <i class="bi bi-linkedin"></i>
+              </Link>
+            </Typography>
+          </Stack>
+        </Container>
+      </Box>
     );
   }
 }

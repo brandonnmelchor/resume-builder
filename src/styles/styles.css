@@ -5,3 +5,10 @@
   font-family: "Roboto";
   /* border: 1px solid black; */
 }
+
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
