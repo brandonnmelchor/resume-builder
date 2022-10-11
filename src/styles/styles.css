@@ -90,6 +90,7 @@
   }
 
   .resume-header {
+    color: black;
     font-size: 16px;
   }
 
@@ -98,6 +99,7 @@
   }
 
   .resume-dates {
+    color: black;
     width: 150px;
   }
 
