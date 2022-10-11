@@ -6,7 +6,8 @@ import Footer from "./components/Footer";
 import { newResume, demoResume, educationEntry, experienceEntry, projectEntry, entryDetails, newEntryMode } from "./components/state";
 
 import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme({
@@ -198,12 +199,12 @@ export default class App extends React.Component {
       <Box id="app">
         <ThemeProvider theme={theme}>
           <Nav resume={resume} printRef={printRef} handleChange={handleChange} />
-          {/* <div className="container-lg px-4 py-5">
-          <div className="row justify-content-center align-items-start gap-4">
-            <Form resume={resume} entryMode={entryMode} handleChange={handleChange} />
-            <Resume resume={resume} handleChange={handleChange} />
-          </div>
-        </div> */}
+          <Container maxWidth="xl" fixed sx={{ padding: 5 }}>
+            <Grid container direction="row" justifyContent="center" alignItems="flex-start">
+              <Form resume={resume} entryMode={entryMode} handleChange={handleChange} />
+              <Resume resume={resume} handleChange={handleChange} />
+            </Grid>
+          </Container>
           <Footer />
         </ThemeProvider>
       </Box>

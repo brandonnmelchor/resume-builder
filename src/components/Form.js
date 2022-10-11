@@ -5,6 +5,8 @@ import SkillsForm from "./form_components/SkillsForm";
 import ExperienceForm from "./form_components/ExperienceForm";
 import ProjectsForm from "./form_components/ProjectsForm";
 
+import Grid from "@mui/material/Grid";
+
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -44,10 +46,10 @@ export default class Form extends React.Component {
     else formNav = <FormNav sectionNumber={sectionNumber} prevSection={this.prevSection} nextSection={this.nextSection} />;
 
     return (
-      <div className="col-12 col-xl-5 d-flex flex-column justify-content-center p-4">
+      <Grid item lg={5} className="col-12 col-xl-5 d-flex flex-column justify-content-center p-4">
         {currentSection}
         {formNav}
-      </div>
+      </Grid>
     );
   }
 }
