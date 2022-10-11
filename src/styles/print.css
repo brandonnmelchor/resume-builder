@@ -1,0 +1,41 @@
+@media print {
+  #resume {
+    padding: 0;
+    line-height: 1.35;
+    color: black;
+    aspect-ratio: 1 / 1;
+    border: none;
+  }
+
+  .resume-header {
+    font-size: 16px;
+  }
+
+  .resume-content {
+    font-size: 14px;
+  }
+
+  .resume-dates {
+    width: 150px;
+  }
+
+  .gray {
+    color: rgba(0, 0, 0, 0.75);
+  }
+
+  .divider {
+    margin-top: 1px !important;
+    margin-bottom: 5px !important;
+    border-color: rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .page-break {
+    break-before: auto;
+    break-inside: avoid;
+  }
+}
+
+@page {
+  size: "letter";
+  margin: 0.4in 0.3in;
+}

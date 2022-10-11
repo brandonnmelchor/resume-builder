@@ -1,0 +1,21 @@
+:root {
+  --dark: #30475e;
+  --grayA: #596b7e;
+  --grayB: #7a8897;
+  --grayC: #949fab;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto";
+  /* border: 1px solid black; */
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

@@ -1,0 +1,28 @@
+#form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--dark);
+  border: 1px solid var(--grayC);
+}
+
+.form-divider {
+  border-color: var(--grayC) !important;
+}
+
+.nav-button {
+  width: 110px;
+}
+
+.details-form {
+  border: none;
+  resize: none;
+}
+
+.resize-none {
+  resize: none;
+}
+
+.gray {
+  color: var(--grayA);
+}
