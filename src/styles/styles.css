@@ -59,7 +59,8 @@
 }
 
 .resume-dates {
-  width: 120px;
+  width: 125px;
+  color: var(--grayA);
 }
 
 .divider {

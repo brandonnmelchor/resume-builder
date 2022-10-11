@@ -1,19 +1,22 @@
 import React from "react";
 
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+
 export default class EducationResume extends React.Component {
   render() {
     const education = this.props.education;
 
     return (
-      <div className="w-100 mb-2 page-break">
-        <div className="resume-header fw-bold gray">Education</div>
-        <hr />
-        <div className="resume-content">
+      <Box className="page-break" mb={1}>
+        <Box className="resume-header">Education</Box>
+        <Divider className="divider" />
+        <Box className="resume-content">
           {education.map((entry) => (
             <EducationEntry key={entry.id} educationEntry={entry} />
           ))}
-        </div>
-      </div>
+        </Box>
+      </Box>
     );
   }
 }
@@ -26,14 +29,14 @@ class EducationEntry extends React.Component {
     endMonth = endMonth.length ? `- ${endMonth}` : "";
 
     return (
-      <div className="d-flex justify-content-between">
-        <div className="fw-bold">
+      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box sx={{ fontWeight: "bold" }}>
           {schoolName} {degree} {major}
-        </div>
-        <div className="resume-dates gray">
+        </Box>
+        <Box className="resume-dates">
           {startMonth} {startYear} {endMonth} {endYear}
-        </div>
-      </div>
+        </Box>
+      </Box>
     );
   }
 }
