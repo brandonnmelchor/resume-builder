@@ -8,15 +8,8 @@ import { newResume, demoResume, educationEntry, experienceEntry, projectEntry, e
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#30475e",
-    },
-  },
-});
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./styles/theme";
 
 export default class App extends React.Component {
   constructor(props) {
