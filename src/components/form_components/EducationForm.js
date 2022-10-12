@@ -53,15 +53,15 @@ class EntryCard extends React.Component {
     this.deleteEntry = this.deleteEntry.bind(this);
   }
 
-  editEntry(event) {
+  editEntry() {
     const editEntry = this.props.handleChange.editEntry;
-    const entryID = event.target.parentElement.attributes.entry.value;
+    const entryID = this.props.educationEntry.id;
     editEntry("education", entryID);
   }
 
-  deleteEntry(event) {
+  deleteEntry() {
     const deleteEntry = this.props.handleChange.deleteEntry;
-    const entryID = event.target.parentElement.attributes.entry.value;
+    const entryID = this.props.educationEntry.id;
     deleteEntry("education", entryID);
   }
 

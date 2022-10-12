@@ -53,15 +53,15 @@ class EntryCard extends React.Component {
     this.deleteEntry = this.deleteEntry.bind(this);
   }
 
-  editEntry(event) {
+  editEntry() {
     const editEntry = this.props.handleChange.editEntry;
-    const entryID = event.target.parentElement.attributes.entry.value;
+    const entryID = this.props.experienceEntry.id;
     editEntry("experience", entryID);
   }
 
-  deleteEntry(event) {
+  deleteEntry() {
     const deleteEntry = this.props.handleChange.deleteEntry;
-    const entryID = event.target.parentElement.attributes.entry.value;
+    const entryID = this.props.experienceEntry.id;
     deleteEntry("experience", entryID);
   }
 
@@ -256,10 +256,10 @@ class DetailsForm extends React.Component {
     handleDetails(event, "experience", entryID, detailsID);
   }
 
-  deleteDetails(event) {
+  deleteDetails() {
     const deleteDetails = this.props.handleChange.deleteDetails;
     const entryID = this.props.entryID;
-    const detailsID = event.target.parentElement.attributes.id.value;
+    const detailsID = this.props.detailsEntry.id;
     deleteDetails("experience", entryID, detailsID);
   }
 
