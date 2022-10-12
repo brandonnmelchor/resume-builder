@@ -234,7 +234,7 @@ class EntryForm extends React.Component {
           </Grid>
           <FormGroup>
             <FormControlLabel
-              control={<Checkbox id="currentSchool" onChange={this.setCurrentSchool} checked={currentSchool} />}
+              control={<Checkbox id="currentSchool" onChange={this.setCurrentSchool} checked={currentSchool} sx={{ color: "#bac1c8" }} />}
               label="I currently study here"
             />
           </FormGroup>
