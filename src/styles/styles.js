@@ -1,4 +1,10 @@
+import React from "react";
+import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 import { createTheme } from "@mui/material/styles";
 import { styled } from "@mui/material/styles";
 
@@ -27,4 +33,32 @@ const GrayTextField = styled(TextField)({
   },
 });
 
-export { theme, GrayTextField };
+class MonthSelect extends React.Component {
+  render() {
+    const { id, label, value, handleChange } = this.props;
+
+    return (
+      <Box>
+        <FormControl size="small" fullWidth>
+          <InputLabel id={label}>{label}</InputLabel>
+          <Select labelId={label} id={id} value={value} label={label} onChange={handleChange}>
+            <MenuItem value="Jan">January</MenuItem>
+            <MenuItem value="Feb">February</MenuItem>
+            <MenuItem value="Mar">March</MenuItem>
+            <MenuItem value="Apr">April</MenuItem>
+            <MenuItem value="May">May</MenuItem>
+            <MenuItem value="Jun">June</MenuItem>
+            <MenuItem value="Jul">July</MenuItem>
+            <MenuItem value="Aug">August</MenuItem>
+            <MenuItem value="Sep">September</MenuItem>
+            <MenuItem value="Oct">October</MenuItem>
+            <MenuItem value="Nov">November</MenuItem>
+            <MenuItem value="Dec">December</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
+    );
+  }
+}
+
+export { theme, GrayTextField, MonthSelect };
