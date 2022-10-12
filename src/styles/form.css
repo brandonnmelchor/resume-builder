@@ -6,6 +6,21 @@
   /* border: 1px solid var(--grayC); */
 }
 
+.card {
+  display: flex;
+  justify-content: space-between;
+  color: var(--dark) !important;
+  border-color: var(--grayC) !important;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--dark);
+}
+
 .form-divider {
   border-color: var(--grayC) !important;
 }

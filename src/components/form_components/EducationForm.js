@@ -1,5 +1,17 @@
 import React from "react";
-import { TextInput, YearInput, MonthSelectInput, CheckboxInput } from "./FormInputs";
+
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import { GrayTextField, MonthSelect } from "../../styles/styles";
 
 export default class EducationForm extends React.Component {
   render() {
@@ -13,21 +25,23 @@ export default class EducationForm extends React.Component {
       display = <EntryForm key={entry.id} educationEntry={entry} handleChange={handleChange} />;
     } else {
       display = (
-        <div className="d-flex flex-column gap-3">
+        <Stack spacing={4}>
           {education.map((entry) => (
             <EntryCard key={entry.id} educationEntry={entry} handleChange={handleChange} />
           ))}
           <AddEntry handleChange={handleChange} />
-        </div>
+        </Stack>
       );
     }
 
     return (
-      <div className="w-100 d-flex flex-column">
-        <div className="fs-4 fw-bold gray">Education</div>
-        <hr className="mb-4" />
+      <Stack>
+        <Typography variant="h5" className="gray" sx={{ fontWeight: 500 }} component="h2">
+          Education
+        </Typography>
+        <Divider className="form-divider" sx={{ mb: 5 }} />
         {display}
-      </div>
+      </Stack>
     );
   }
 }
@@ -57,25 +71,27 @@ class EntryCard extends React.Component {
     endMonth = endMonth.length ? `- ${endMonth}` : "";
 
     return (
-      <div className="card d-flex flex-row justify-content-between p-3">
-        <div className="user-select-none">
-          <div className="fw-bold">{schoolName}</div>
-          <div className="fw-bold gray">
+      <Paper variant="outlined" className="card" sx={{ p: 2 }}>
+        <Box sx={{ userSelect: "none" }}>
+          <Typography variant="h6" sx={{ fontWeight: 500 }} component="h3">
+            {schoolName}
+          </Typography>
+          <Typography variant="subtitle1" className="gray" sx={{ fontWeight: 500 }} component="p">
             {degree} {major}
-          </div>
-          <div className="mt-3">
+          </Typography>
+          <Typography variant="subtitle1" component="p" sx={{ mt: 2 }}>
             {startMonth} {startYear} {endMonth} {endYear}
-          </div>
-        </div>
-        <div className="btn-group" role="group">
-          <button type="button" className="btn gray px-1" entry={id} onClick={this.editEntry}>
+          </Typography>
+        </Box>
+        <ButtonGroup variant="text" orientation="vertical" className="button-group">
+          <Button color="inherit" entry={id} onClick={this.editEntry}>
             <i className="bi bi-pencil-square"></i>
-          </button>
-          <button type="button" className="btn gray px-1" entry={id} onClick={this.deleteEntry}>
+          </Button>
+          <Button color="inherit" entry={id} onClick={this.deleteEntry}>
             <i className="bi bi-trash"></i>
-          </button>
-        </div>
-      </div>
+          </Button>
+        </ButtonGroup>
+      </Paper>
     );
   }
 }
@@ -93,11 +109,14 @@ class AddEntry extends React.Component {
 
   render() {
     return (
-      <div className="user-select-none" onClick={this.addEntry} style={{ cursor: "pointer" }}>
-        <span className="d-flex align-items-center fw-bold gray">
-          <i className="bi bi-plus fs-3"></i> Add education
-        </span>
-      </div>
+      <Button variant="text" onClick={this.addEntry} sx={{ textTransform: "none" }}>
+        <Box className="gray" sx={{ fontSize: 30 }}>
+          <i className="bi bi-plus fs-3"></i>
+        </Box>
+        <Typography variant="subtitle1" className="gray" sx={{ fontWeight: 500 }} component="p">
+          Add education
+        </Typography>
+      </Button>
     );
   }
 }
@@ -132,42 +151,94 @@ class EntryForm extends React.Component {
     const { id, schoolName, degree, major, startMonth, startYear, endMonth, endYear } = this.props.educationEntry;
 
     return (
-      <div>
-        <form id={id}>
-          <div className="mb-4">
-            <TextInput label="School Name" type="text" id="schoolName" value={schoolName} handleChange={this.handleChange} length="40" />
-          </div>
-          <div className="row justify-content-center align-items-center mb-4">
-            <div className="col">
-              <TextInput label="Degree" type="text" id="degree" value={degree} handleChange={this.handleChange} length="25" />
-            </div>
-            <div className="col">
-              <TextInput label="Major" type="text" id="major" value={major} handleChange={this.handleChange} length="25" />
-            </div>
-          </div>
-          <div className="row justify-content-center align-items-center mb-4">
-            <div className="col">
-              <MonthSelectInput label="Start Month" id="startMonth" value={startMonth} handleChange={this.handleChange} disabled={false} />
-            </div>
-            <div className="col">
-              <YearInput label="Start Year" id="startYear" value={startYear} handleChange={this.handleChange} disabled={false} />
-            </div>
-          </div>
-          <div className="row justify-content-center align-items-center mb-2">
-            <div className="col">
-              <MonthSelectInput label="End Month" id="endMonth" value={endMonth} handleChange={this.handleChange} disabled={currentSchool} />
-            </div>
-            <div className="col">
-              <YearInput label="End Year" id="endYear" value={endYear} handleChange={this.handleChange} disabled={currentSchool} />
-            </div>
-          </div>
-          <div className="d-flex justify-content-between">
-            <div>
-              <CheckboxInput label="I currently study here" id="currentSchool" handleChange={this.setCurrentSchool} checked={currentSchool} />
-            </div>
-          </div>
-        </form>
-      </div>
+      <Box>
+        <Box id={id} component="form">
+          <Box sx={{ mb: 4 }}>
+            <GrayTextField
+              type="text"
+              variant="outlined"
+              size="small"
+              fullWidth
+              id="schoolName"
+              label="School Name"
+              value={schoolName}
+              onChange={this.handleChange}
+              inputProps={{ maxLength: 40 }}
+            />
+          </Box>
+          <Grid container direction="row" justifyContent="center" alignItems="center" spacing={3} sx={{ mb: 4 }}>
+            <Grid item xs={6}>
+              <GrayTextField
+                type="text"
+                variant="outlined"
+                size="small"
+                fullWidth
+                id="degree"
+                label="Degree"
+                value={degree}
+                onChange={this.handleChange}
+                inputProps={{ maxLength: 25 }}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <GrayTextField
+                type="text"
+                variant="outlined"
+                size="small"
+                fullWidth
+                id="major"
+                label="Major"
+                value={major}
+                onChange={this.handleChange}
+                inputProps={{ maxLength: 25 }}
+              />
+            </Grid>
+          </Grid>
+          <Grid container direction="row" justifyContent="center" alignItems="center" spacing={3} sx={{ mb: 4 }}>
+            <Grid item xs={6}>
+              <MonthSelect id="startMonth" label="Start Month" value={startMonth} handleChange={this.handleChange} />
+            </Grid>
+            <Grid item xs={6}>
+              <GrayTextField
+                type="number"
+                variant="outlined"
+                size="small"
+                fullWidth
+                id="startYear"
+                label="Start Year"
+                value={startYear}
+                onChange={this.handleChange}
+                inputProps={{ maxLength: 4 }}
+              />
+            </Grid>
+          </Grid>
+          <Grid container direction="row" justifyContent="center" alignItems="center" spacing={3}>
+            <Grid item xs={6}>
+              <MonthSelect id="endMonth" label="End Month" value={endMonth} handleChange={this.handleChange} disabled={currentSchool} />
+            </Grid>
+            <Grid item xs={6}>
+              <GrayTextField
+                type="number"
+                variant="outlined"
+                size="small"
+                fullWidth
+                id="endYear"
+                label="End Year"
+                value={endYear}
+                onChange={this.handleChange}
+                inputProps={{ maxLength: 4 }}
+                disabled={currentSchool}
+              />
+            </Grid>
+          </Grid>
+          <FormGroup>
+            <FormControlLabel
+              control={<Checkbox id="currentSchool" onChange={this.setCurrentSchool} checked={currentSchool} />}
+              label="I currently study here"
+            />
+          </FormGroup>
+        </Box>
+      </Box>
     );
   }
 }
