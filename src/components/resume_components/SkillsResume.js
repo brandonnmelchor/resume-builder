@@ -1,6 +1,7 @@
 import React from "react";
 
 import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 
 export default class SkillsResume extends React.Component {
@@ -15,22 +16,22 @@ export default class SkillsResume extends React.Component {
         <Divider className="resume-divider" />
         <Box className="resume-content">
           {languages.length > 0 && (
-            <Box>
-              <Box sx={{ display: "inline", fontWeight: "bold" }}>Languages:&emsp;&emsp;</Box>
-              <Box sx={{ display: "inline" }}>{languages}</Box>
-            </Box>
+            <Stack direction="row">
+              <Box sx={{ width: "13%", fontWeight: "bold" }}>Languages:</Box>
+              <Box sx={{ width: "87%" }}>{languages}</Box>
+            </Stack>
           )}
           {frameworks.length > 0 && (
-            <Box>
-              <Box sx={{ display: "inline", fontWeight: "bold" }}>Frameworks:&emsp;&ensp;</Box>
-              <Box sx={{ display: "inline" }}>{frameworks}</Box>
-            </Box>
+            <Stack direction="row">
+              <Box sx={{ width: "13%", fontWeight: "bold" }}>Frameworks:</Box>
+              <Box sx={{ width: "87%" }}>{frameworks}</Box>
+            </Stack>
           )}
           {technologies.length > 0 && (
-            <Box>
-              <Box sx={{ display: "inline", fontWeight: "bold" }}>Technologies:&emsp;</Box>
-              <Box sx={{ display: "inline" }}>{technologies}</Box>
-            </Box>
+            <Stack direction="row">
+              <Box sx={{ width: "13%", fontWeight: "bold" }}>Technologies:</Box>
+              <Box sx={{ width: "87%" }}>{technologies}</Box>
+            </Stack>
           )}
         </Box>
       </Box>
