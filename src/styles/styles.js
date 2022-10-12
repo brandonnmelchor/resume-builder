@@ -17,6 +17,9 @@ const GrayTextField = styled(TextField)({
   "& input": {
     color: "#30475e",
   },
+  "& textArea": {
+    color: "#30475e",
+  },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
       borderColor: "#bac1c8",
