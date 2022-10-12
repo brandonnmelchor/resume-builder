@@ -32,3 +32,10 @@
 .gray {
   color: var(--grayA);
 }
+
+@media (max-width: 1199px) {
+  #form {
+    margin-right: 0 !important;
+    margin-bottom: 50px !important;
+  }
+}

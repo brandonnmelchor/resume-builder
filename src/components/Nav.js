@@ -21,7 +21,7 @@ export default class Nav extends React.Component {
           <Container maxWidth="xl" fixed>
             <Toolbar sx={{ display: "flex", justifyContent: "space-between" }} disableGutters>
               <Button color="inherit" sx={{ textTransform: "none" }}>
-                <Box sx={{ fontSize: 45, marginRight: 1 }}>
+                <Box className="hide" sx={{ fontSize: 45, marginRight: 1 }}>
                   <i className="bi bi-file-code"></i>
                 </Box>
                 <Typography variant="h4" sx={{ fontWeight: 500 }} component="h1">
