@@ -149,6 +149,7 @@ class EntryForm extends React.Component {
   render() {
     const currentSchool = this.state.currentSchool;
     const { id, schoolName, degree, major, startMonth, startYear, endMonth, endYear } = this.props.educationEntry;
+    const handleChange = this.props.handleChange;
 
     return (
       <Box>
@@ -196,7 +197,7 @@ class EntryForm extends React.Component {
           </Grid>
           <Grid container direction="row" justifyContent="center" alignItems="center" spacing={3} sx={{ mb: 4 }}>
             <Grid item xs={6}>
-              <MonthSelect id="startMonth" label="Start Month" value={startMonth} handleChange={this.handleChange} />
+              <MonthSelect entry={id} id="startMonth" label="Start Month" value={startMonth} handleChange={handleChange} />
             </Grid>
             <Grid item xs={6}>
               <GrayTextField
@@ -214,7 +215,7 @@ class EntryForm extends React.Component {
           </Grid>
           <Grid container direction="row" justifyContent="center" alignItems="center" spacing={3}>
             <Grid item xs={6}>
-              <MonthSelect id="endMonth" label="End Month" value={endMonth} handleChange={this.handleChange} disabled={currentSchool} />
+              <MonthSelect entry={id} id="endMonth" label="End Month" value={endMonth} handleChange={handleChange} disabled={currentSchool} />
             </Grid>
             <Grid item xs={6}>
               <GrayTextField

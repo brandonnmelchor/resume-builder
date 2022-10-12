@@ -34,14 +34,27 @@ const GrayTextField = styled(TextField)({
 });
 
 class MonthSelect extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    const { entry, id } = this.props;
+    const value = event.target.value;
+    const handleEntry = this.props.handleChange.handleEntry;
+    const customEvent = { target: { id, value } };
+    handleEntry(customEvent, "education", entry);
+  }
+
   render() {
-    const { id, label, value, handleChange, disabled } = this.props;
+    const { id, label, value, disabled } = this.props;
 
     return (
       <Box>
         <FormControl size="small" fullWidth>
           <InputLabel id={label}>{label}</InputLabel>
-          <Select labelId={label} id={id} value={value} label={label} onChange={handleChange} disabled={disabled}>
+          <Select labelId={label} id={id} value={value} label={label} onChange={this.handleChange} disabled={disabled}>
             <MenuItem value="Present" sx={{ display: "none" }}>
               Present
             </MenuItem>
