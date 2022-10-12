@@ -5,6 +5,12 @@
   --grayC: #949fab;
 }
 
+@media (max-width: 899px) {
+  :root {
+    font-size: 14px !important;
+  }
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
