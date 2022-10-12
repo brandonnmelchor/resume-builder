@@ -1,5 +1,17 @@
 import React from "react";
-import { TextInput, YearInput, MonthSelectInput, CheckboxInput } from "./FormInputs";
+
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import { GrayTextField, MonthSelect } from "../../styles/custom";
 
 export default class ExperienceForm extends React.Component {
   render() {
@@ -13,21 +25,23 @@ export default class ExperienceForm extends React.Component {
       display = <EntryForm key={entry.id} experienceEntry={entry} handleChange={handleChange} />;
     } else {
       display = (
-        <div className="d-flex flex-column gap-3">
+        <Stack spacing={4}>
           {experience.map((entry) => (
             <EntryCard key={entry.id} experienceEntry={entry} handleChange={handleChange} />
           ))}
           <AddEntry handleChange={handleChange} />
-        </div>
+        </Stack>
       );
     }
 
     return (
-      <div className="w-100 d-flex flex-column">
-        <div className="fs-4 fw-bold gray">Experience</div>
-        <hr className="mb-4" />
+      <Stack>
+        <Typography variant="h5" className="gray" sx={{ fontWeight: 500 }} component="h2">
+          Experience
+        </Typography>
+        <Divider className="form-divider" sx={{ mb: 5 }} />
         {display}
-      </div>
+      </Stack>
     );
   }
 }
@@ -56,23 +70,27 @@ class EntryCard extends React.Component {
     endMonth = endMonth.length ? `- ${endMonth}` : "";
 
     return (
-      <div className="card d-flex flex-row justify-content-between p-3">
-        <div className="user-select-none">
-          <div className="fw-bold">{company}</div>
-          <div className="fw-bold gray">{title}</div>
-          <div className="mt-3">
+      <Paper variant="outlined" className="card" sx={{ p: 2 }}>
+        <Box sx={{ userSelect: "none" }}>
+          <Typography variant="h6" sx={{ fontWeight: 500 }} component="h3">
+            {company}
+          </Typography>
+          <Typography variant="subtitle1" className="gray" sx={{ fontWeight: 500 }} component="p">
+            {title}
+          </Typography>
+          <Typography variant="subtitle1" component="p" sx={{ mt: 2 }}>
             {startMonth} {startYear} {endMonth} {endYear}
-          </div>
-        </div>
-        <div className="btn-group" role="group">
-          <button type="button" className="btn gray px-1" entry={id} onClick={this.editEntry}>
+          </Typography>
+        </Box>
+        <ButtonGroup variant="text" orientation="vertical" className="button-group">
+          <Button color="inherit" entry={id} onClick={this.editEntry}>
             <i className="bi bi-pencil-square"></i>
-          </button>
-          <button type="button" className="btn gray px-1" entry={id} onClick={this.deleteEntry}>
+          </Button>
+          <Button color="inherit" entry={id} onClick={this.deleteEntry}>
             <i className="bi bi-trash"></i>
-          </button>
-        </div>
-      </div>
+          </Button>
+        </ButtonGroup>
+      </Paper>
     );
   }
 }
@@ -90,11 +108,14 @@ class AddEntry extends React.Component {
 
   render() {
     return (
-      <div className="user-select-none" onClick={this.addEntry} style={{ cursor: "pointer" }}>
-        <span className="d-flex align-items-center fw-bold gray">
-          <i className="bi bi-plus fs-3"></i> Add work experience
-        </span>
-      </div>
+      <Button variant="text" onClick={this.addEntry} sx={{ textTransform: "none" }}>
+        <Box className="gray" sx={{ fontSize: 30 }}>
+          <i className="bi bi-plus fs-3"></i>
+        </Box>
+        <Typography variant="subtitle1" className="gray" sx={{ fontWeight: 500 }} component="p">
+          Add work experience
+        </Typography>
+      </Button>
     );
   }
 }
@@ -130,46 +151,93 @@ class EntryForm extends React.Component {
     const handleChange = this.props.handleChange;
 
     return (
-      <div>
-        <form id={id}>
-          <div className="mb-4">
-            <TextInput label="Company Name" type="text" id="company" value={company} handleChange={this.handleChange} length="50" />
-          </div>
-          <div className="mb-4">
-            <TextInput label="Title" type="text" id="title" value={title} handleChange={this.handleChange} length="50" />
-          </div>
-          <div className="row justify-content-center align-items-center mb-4">
-            <div className="col">
-              <MonthSelectInput label="Start Month" id="startMonth" value={startMonth} handleChange={this.handleChange} disabled={false} />
-            </div>
-            <div className="col">
-              <YearInput label="Start Year" id="startYear" value={startYear} handleChange={this.handleChange} disabled={false} />
-            </div>
-          </div>
-          <div className="row justify-content-center align-items-center mb-2">
-            <div className="col">
-              <MonthSelectInput label="End Month" id="endMonth" value={endMonth} handleChange={this.handleChange} disabled={currentWork} />
-            </div>
-            <div className="col">
-              <YearInput label="End Year" id="endYear" value={endYear} handleChange={this.handleChange} disabled={currentWork} />
-            </div>
-          </div>
-          <div className="d-flex justify-content-between mb-4">
-            <div>
-              <CheckboxInput label="I currently work here" id="currentWork" handleChange={this.setCurrentWork} checked={currentWork} />
-            </div>
-          </div>
-          <div>
-            <label className="form-label fw-bold">Details</label>
-            <div className="d-flex flex-column gap-3">
-              {details.map((detailsEntry) => (
-                <DetailsForm key={detailsEntry.id} detailsEntry={detailsEntry} entryID={id} handleChange={handleChange} />
-              ))}
-              <AddDetails entryID={id} handleChange={handleChange} />
-            </div>
-          </div>
-        </form>
-      </div>
+      <Box>
+        <Box id={id} component="form">
+          <Box sx={{ mb: 4 }}>
+            <GrayTextField
+              type="text"
+              variant="outlined"
+              size="small"
+              fullWidth
+              id="company"
+              label="Company Name"
+              value={company}
+              onChange={this.handleChange}
+              inputProps={{ maxLength: 50 }}
+            />
+          </Box>
+          <Box sx={{ mb: 4 }}>
+            <GrayTextField
+              type="text"
+              variant="outlined"
+              size="small"
+              fullWidth
+              id="title"
+              label="Title"
+              value={title}
+              onChange={this.handleChange}
+              inputProps={{ maxLength: 50 }}
+            />
+          </Box>
+          <Grid container direction="row" justifyContent="center" alignItems="center" spacing={3} sx={{ mb: 4 }}>
+            <Grid item xs={6}>
+              <MonthSelect section="experience" entry={id} id="startMonth" label="Start Month" value={startMonth} handleChange={handleChange} />
+            </Grid>
+            <Grid item xs={6}>
+              <GrayTextField
+                type="number"
+                variant="outlined"
+                size="small"
+                fullWidth
+                id="startYear"
+                label="Start Year"
+                value={startYear}
+                onChange={this.handleChange}
+                inputProps={{ maxLength: 4 }}
+              />
+            </Grid>
+          </Grid>
+          <Grid container direction="row" justifyContent="center" alignItems="center" spacing={3}>
+            <Grid item xs={6}>
+              <MonthSelect
+                section="experience"
+                entry={id}
+                id="endMonth"
+                label="End Month"
+                value={endMonth}
+                handleChange={handleChange}
+                disabled={currentWork}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <GrayTextField
+                type="number"
+                variant="outlined"
+                size="small"
+                fullWidth
+                id="endYear"
+                label="End Year"
+                value={endYear}
+                onChange={this.handleChange}
+                inputProps={{ maxLength: 4 }}
+                disabled={currentWork}
+              />
+            </Grid>
+          </Grid>
+          <FormGroup sx={{ mb: 4 }}>
+            <FormControlLabel
+              control={<Checkbox id="currentWork" onChange={this.setCurrentWork} checked={currentWork} sx={{ color: "#bac1c8" }} />}
+              label="I currently work here"
+            />
+          </FormGroup>
+          <Stack spacing={4}>
+            {details.map((detailsEntry) => (
+              <DetailsForm key={detailsEntry.id} detailsEntry={detailsEntry} entryID={id} handleChange={handleChange} />
+            ))}
+            <AddDetails entryID={id} handleChange={handleChange} />
+          </Stack>
+        </Box>
+      </Box>
     );
   }
 }
@@ -199,16 +267,25 @@ class DetailsForm extends React.Component {
     const { id, text } = this.props.detailsEntry;
 
     return (
-      <div className="card flex-row justify-content-between">
-        <div className="col-11">
-          <textarea className="form-control details-form" id={id} value={text} onChange={this.handleChange} maxLength="110" rows="3" />
-        </div>
-        <div className="col-1 d-flex justify-content-center">
-          <button type="button" className="btn gray px-1" id={id} onClick={this.deleteDetails}>
-            <i className="bi bi-x-lg"></i>
-          </button>
-        </div>
-      </div>
+      <Stack direction="row" justifyContent="space-between">
+        <Box sx={{ width: "90%" }}>
+          <GrayTextField
+            type="text"
+            variant="outlined"
+            fullWidth
+            multiline
+            rows={3}
+            id={id}
+            label="Details"
+            value={text}
+            onChange={this.handleChange}
+            inputProps={{ maxLength: 110 }}
+          />
+        </Box>
+        <Button color="inherit" id={id} onClick={this.deleteDetails}>
+          <i className="bi bi-trash"></i>
+        </Button>
+      </Stack>
     );
   }
 }
@@ -227,11 +304,14 @@ class AddDetails extends React.Component {
 
   render() {
     return (
-      <div className="user-select-none" onClick={this.addDetails} style={{ cursor: "pointer" }}>
-        <span className="d-flex align-items-center fw-bold gray">
-          <i className="bi bi-plus fs-3"></i> Add experience details
-        </span>
-      </div>
+      <Button variant="text" onClick={this.addDetails} sx={{ textTransform: "none" }}>
+        <Box className="gray" sx={{ fontSize: 30 }}>
+          <i className="bi bi-plus fs-3"></i>
+        </Box>
+        <Typography variant="subtitle1" className="gray" sx={{ fontWeight: 500 }} component="p">
+          Add experience details
+        </Typography>
+      </Button>
     );
   }
 }
