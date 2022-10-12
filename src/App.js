@@ -45,7 +45,7 @@ export default class App extends React.Component {
   }
 
   resetDemo() {
-    this.setState({ resume: demoResume() });
+    this.setState({ resume: demoResume(), entryMode: newEntryMode() });
   }
 
   addEntry(sectionName) {
