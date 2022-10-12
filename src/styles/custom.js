@@ -55,9 +55,7 @@ class MonthSelect extends React.Component {
         <FormControl size="small" fullWidth>
           <InputLabel id={label}>{label}</InputLabel>
           <Select labelId={label} id={id} value={value} label={label} onChange={this.handleChange} disabled={disabled}>
-            <MenuItem value="Present" sx={{ display: "none" }}>
-              Present
-            </MenuItem>
+            <MenuItem value="Present" sx={{ display: "none" }}></MenuItem>
             <MenuItem value="Jan">January</MenuItem>
             <MenuItem value="Feb">February</MenuItem>
             <MenuItem value="Mar">March</MenuItem>
