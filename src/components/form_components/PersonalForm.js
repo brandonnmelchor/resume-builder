@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
-import { GrayTextField } from "../../styles/styles";
+import { GrayTextField } from "../../styles/custom";
 
 export default class PersonalForm extends React.Component {
   constructor(props) {

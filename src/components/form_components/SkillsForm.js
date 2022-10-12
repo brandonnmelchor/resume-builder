@@ -3,7 +3,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
-import { GrayTextField } from "../../styles/styles";
+import { GrayTextField } from "../../styles/custom";
 
 export default class SkillsForm extends React.Component {
   constructor(props) {

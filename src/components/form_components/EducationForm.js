@@ -11,7 +11,7 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import { GrayTextField, MonthSelect } from "../../styles/styles";
+import { GrayTextField, MonthSelect } from "../../styles/custom";
 
 export default class EducationForm extends React.Component {
   render() {
