@@ -78,7 +78,7 @@ export default class PersonalForm extends React.Component {
               label="Email"
               value={email}
               onChange={this.handleChange}
-              inputProps={{ maxLength: 40 }}
+              inputProps={{ maxLength: 50 }}
             />
           </Box>
           <Box sx={{ mb: 4 }}>
@@ -91,7 +91,7 @@ export default class PersonalForm extends React.Component {
               label="LinkedIn"
               value={linkedin}
               onChange={this.handleChange}
-              inputProps={{ maxLength: 40 }}
+              inputProps={{ maxLength: 50 }}
             />
           </Box>
           <Box>
@@ -104,7 +104,7 @@ export default class PersonalForm extends React.Component {
               label="GitHub"
               value={github}
               onChange={this.handleChange}
-              inputProps={{ maxLength: 40 }}
+              inputProps={{ maxLength: 50 }}
             />
           </Box>
         </Box>
