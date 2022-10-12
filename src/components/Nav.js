@@ -29,17 +29,17 @@ export default class Nav extends React.Component {
                 </Typography>
               </Button>
               <Stack direction="row" justifyContent="center" alignItems="center">
-                <Box mr={2}>
+                <Box className="shrink-margin" mr={2}>
                   <Button color="inherit" sx={{ fontSize: 18 }} onClick={clearResume}>
-                    <Box sx={{ fontSize: 30, marginRight: 1 }}>
+                    <Box className="hide" sx={{ fontSize: 30, marginRight: 1 }}>
                       <i className="bi bi-file-break"></i>
                     </Box>
                     Clear
                   </Button>
                 </Box>
-                <Box mr={2}>
+                <Box className="shrink-margin" mr={2}>
                   <Button color="inherit" sx={{ fontSize: 18 }} onClick={resetDemo}>
-                    <Box sx={{ fontSize: 30, marginRight: 1 }}>
+                    <Box className="hide" sx={{ fontSize: 30, marginRight: 1 }}>
                       <i className="bi bi-file-person"></i>
                     </Box>
                     Demo
@@ -50,7 +50,7 @@ export default class Nav extends React.Component {
                     <PrintContextConsumer>
                       {({ handlePrint }) => (
                         <Button color="inherit" sx={{ fontSize: 18 }} onClick={handlePrint}>
-                          <Box sx={{ fontSize: 30, marginRight: 1 }}>
+                          <Box className="hide" sx={{ fontSize: 30, marginRight: 1 }}>
                             <i className="bi bi-file-check"></i>
                           </Box>
                           Save
