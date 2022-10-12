@@ -29,15 +29,6 @@
   width: 110px;
 }
 
-.details-form {
-  border: none;
-  resize: none;
-}
-
-.resize-none {
-  resize: none;
-}
-
 .gray {
   color: var(--grayA);
 }
