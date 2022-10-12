@@ -40,11 +40,11 @@ class MonthSelect extends React.Component {
   }
 
   handleChange(event) {
-    const { entry, id } = this.props;
+    const { section, entry, id } = this.props;
     const value = event.target.value;
     const handleEntry = this.props.handleChange.handleEntry;
     const customEvent = { target: { id, value } };
-    handleEntry(customEvent, "education", entry);
+    handleEntry(customEvent, section, entry);
   }
 
   render() {

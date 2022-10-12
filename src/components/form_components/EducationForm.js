@@ -197,7 +197,7 @@ class EntryForm extends React.Component {
           </Grid>
           <Grid container direction="row" justifyContent="center" alignItems="center" spacing={3} sx={{ mb: 4 }}>
             <Grid item xs={6}>
-              <MonthSelect entry={id} id="startMonth" label="Start Month" value={startMonth} handleChange={handleChange} />
+              <MonthSelect section="education" entry={id} id="startMonth" label="Start Month" value={startMonth} handleChange={handleChange} />
             </Grid>
             <Grid item xs={6}>
               <GrayTextField
@@ -215,7 +215,15 @@ class EntryForm extends React.Component {
           </Grid>
           <Grid container direction="row" justifyContent="center" alignItems="center" spacing={3}>
             <Grid item xs={6}>
-              <MonthSelect entry={id} id="endMonth" label="End Month" value={endMonth} handleChange={handleChange} disabled={currentSchool} />
+              <MonthSelect
+                section="education"
+                entry={id}
+                id="endMonth"
+                label="End Month"
+                value={endMonth}
+                handleChange={handleChange}
+                disabled={currentSchool}
+              />
             </Grid>
             <Grid item xs={6}>
               <GrayTextField
