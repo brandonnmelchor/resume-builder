@@ -1,5 +1,9 @@
 import React from "react";
-import { TextAreaInput } from "./FormInputs";
+
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
+import { GrayTextField } from "../../styles/styles";
 
 export default class SkillsForm extends React.Component {
   constructor(props) {
@@ -16,21 +20,56 @@ export default class SkillsForm extends React.Component {
     const { languages, frameworks, technologies } = this.props.resume.skills;
 
     return (
-      <div className="w-100">
-        <div className="fs-4 fw-bold gray">Skills</div>
-        <hr className="mb-4" />
-        <form>
-          <div className="mb-4">
-            <TextAreaInput label="Languages" id="languages" value={languages} handleChange={this.handleChange} length="100" />
-          </div>
-          <div className="mb-4">
-            <TextAreaInput label="Frameworks" id="frameworks" value={frameworks} handleChange={this.handleChange} length="100" />
-          </div>
-          <div>
-            <TextAreaInput label="Technologies" id="technologies" value={technologies} handleChange={this.handleChange} length="100" />
-          </div>
-        </form>
-      </div>
+      <Box>
+        <Typography variant="h5" className="gray" sx={{ fontWeight: 500 }} component="h2">
+          Skills
+        </Typography>
+        <Divider className="form-divider" sx={{ mb: 5 }} />
+        <Box component="form">
+          <Box sx={{ mb: 4 }}>
+            <GrayTextField
+              type="text"
+              variant="outlined"
+              fullWidth
+              multiline
+              rows={3}
+              id="languages"
+              label="Languages"
+              value={languages}
+              onChange={this.handleChange}
+              inputProps={{ maxLength: 100 }}
+            />
+          </Box>
+          <Box sx={{ mb: 4 }}>
+            <GrayTextField
+              type="text"
+              variant="outlined"
+              fullWidth
+              multiline
+              rows={3}
+              id="frameworks"
+              label="Frameworks"
+              value={frameworks}
+              onChange={this.handleChange}
+              inputProps={{ maxLength: 100 }}
+            />
+          </Box>
+          <Box>
+            <GrayTextField
+              type="text"
+              variant="outlined"
+              fullWidth
+              multiline
+              rows={3}
+              id="technologies"
+              label="Technologies"
+              value={technologies}
+              onChange={this.handleChange}
+              inputProps={{ maxLength: 100 }}
+            />
+          </Box>
+        </Box>
+      </Box>
     );
   }
 }

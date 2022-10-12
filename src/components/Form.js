@@ -13,7 +13,7 @@ import Button from "@mui/material/Button";
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { sectionNumber: 3 };
+    this.state = { sectionNumber: 2 };
 
     this.prevSection = this.prevSection.bind(this);
     this.nextSection = this.nextSection.bind(this);
