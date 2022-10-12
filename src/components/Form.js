@@ -13,7 +13,7 @@ import Button from "@mui/material/Button";
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { sectionNumber: 1 };
+    this.state = { sectionNumber: 3 };
 
     this.prevSection = this.prevSection.bind(this);
     this.nextSection = this.nextSection.bind(this);
@@ -49,7 +49,7 @@ export default class Form extends React.Component {
     else formNav = <FormNav sectionNumber={sectionNumber} prevSection={this.prevSection} nextSection={this.nextSection} />;
 
     return (
-      <Grid item lg={5} sx={{ mr: 5 }} id="form" p={2}>
+      <Grid item lg={5} id="form" mr={5} p={2}>
         {currentSection}
         {formNav}
       </Grid>
