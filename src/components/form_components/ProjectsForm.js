@@ -160,6 +160,8 @@ class EntryForm extends React.Component {
               value={projectName}
               onChange={this.handleChange}
               inputProps={{ maxLength: 50 }}
+              required
+              InputLabelProps={{ required: false }}
             />
           </Box>
           <Box sx={{ mb: 4 }}>
@@ -173,6 +175,8 @@ class EntryForm extends React.Component {
               value={url}
               onChange={this.handleChange}
               inputProps={{ maxLength: 50 }}
+              required
+              InputLabelProps={{ required: false }}
             />
           </Box>
           <Box sx={{ mb: 4 }}>
@@ -186,6 +190,8 @@ class EntryForm extends React.Component {
               value={tech}
               onChange={this.handleChange}
               inputProps={{ maxLength: 50 }}
+              required
+              InputLabelProps={{ required: false }}
             />
           </Box>
           <Stack spacing={4}>
@@ -239,6 +245,8 @@ class DetailsForm extends React.Component {
             value={text}
             onChange={this.handleChange}
             inputProps={{ maxLength: 110 }}
+            required
+            InputLabelProps={{ required: false }}
           />
         </Box>
         <Button color="inherit" id={id} onClick={this.deleteDetails}>
