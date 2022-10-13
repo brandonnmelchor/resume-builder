@@ -20,6 +20,10 @@
   justify-content: center;
 }
 
+#small-screen {
+  display: none;
+}
+
 @media (max-width: 899px) {
   :root {
     font-size: 14px !important;
@@ -31,5 +35,20 @@
 
   .shrink-margin {
     margin-right: 0 !important;
+  }
+}
+
+@media (max-width: 599px) {
+  #app {
+    display: none;
+  }
+
+  #small-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 16px !important;
+    color: var(--dark);
   }
 }

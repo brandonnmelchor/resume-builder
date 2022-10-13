@@ -8,6 +8,7 @@ import { newResume, demoResume, educationEntry, experienceEntry, projectEntry, e
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./styles/custom";
 
@@ -189,17 +190,24 @@ export default class App extends React.Component {
     };
 
     return (
-      <Box id="app">
-        <ThemeProvider theme={theme}>
-          <Nav resume={resume} printRef={printRef} handleChange={handleChange} />
-          <Container maxWidth="xl" fixed sx={{ marginTop: 7, marginBottom: 7 }}>
-            <Grid container direction="row" justifyContent="center" alignItems="flex-start">
-              <Form resume={resume} entryMode={entryMode} handleChange={handleChange} />
-              <Resume resume={resume} handleChange={handleChange} />
-            </Grid>
-          </Container>
-          <Footer />
-        </ThemeProvider>
+      <Box>
+        <Box id="app">
+          <ThemeProvider theme={theme}>
+            <Nav resume={resume} printRef={printRef} handleChange={handleChange} />
+            <Container maxWidth="xl" fixed sx={{ marginTop: 7, marginBottom: 7 }}>
+              <Grid container direction="row" justifyContent="center" alignItems="flex-start">
+                <Form resume={resume} entryMode={entryMode} handleChange={handleChange} />
+                <Resume resume={resume} handleChange={handleChange} />
+              </Grid>
+            </Container>
+            <Footer />
+          </ThemeProvider>
+        </Box>
+        <Box id="small-screen" p={3}>
+          <Typography variant="h4" sx={{ fontWeight: 500 }} component="p">
+            The mobile view of this app isn't ready yet. Please view this app on a larger screen. Thank you!
+          </Typography>
+        </Box>
       </Box>
     );
   }
