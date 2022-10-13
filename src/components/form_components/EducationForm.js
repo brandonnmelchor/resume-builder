@@ -227,7 +227,7 @@ class EntryForm extends React.Component {
                 label="Start Year"
                 value={startYear}
                 onChange={this.handleChange}
-                inputProps={{ maxLength: 4 }}
+                inputProps={{ min: "1900", max: "2100" }}
                 required
                 InputLabelProps={{ required: false }}
               />
@@ -255,7 +255,7 @@ class EntryForm extends React.Component {
                 label="End Year"
                 value={endYear}
                 onChange={this.handleChange}
-                inputProps={{ maxLength: 4 }}
+                inputProps={{ min: "1900", max: "2100" }}
                 disabled={currentSchool}
                 required={!currentSchool}
                 InputLabelProps={{ required: false }}
