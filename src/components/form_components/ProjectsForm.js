@@ -1,4 +1,5 @@
 import React from "react";
+import { SectionNavB, EntryNav } from "./FormNav";
 
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
@@ -15,6 +16,7 @@ export default class ProjectsForm extends React.Component {
     const projects = this.props.resume.projects;
     const { entryMode, targetEntry } = this.props.entryMode;
     const handleChange = this.props.handleChange;
+    const sectionNav = this.props.sectionNav;
     let display;
 
     if (entryMode) {
@@ -22,12 +24,15 @@ export default class ProjectsForm extends React.Component {
       display = <EntryForm key={entry.id} projectEntry={entry} handleChange={handleChange} />;
     } else {
       display = (
-        <Stack spacing={4}>
-          {projects.map((entry) => (
-            <EntryCard key={entry.id} projectEntry={entry} handleChange={handleChange} />
-          ))}
-          <AddEntry handleChange={handleChange} />
-        </Stack>
+        <Box>
+          <Stack spacing={4}>
+            {projects.map((entry) => (
+              <EntryCard key={entry.id} projectEntry={entry} handleChange={handleChange} />
+            ))}
+            <AddEntry handleChange={handleChange} />
+          </Stack>
+          <SectionNavB sectionNav={sectionNav} />
+        </Box>
       );
     }
 
@@ -122,6 +127,7 @@ class EntryForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -130,13 +136,19 @@ class EntryForm extends React.Component {
     handleEntry(event, "projects", entryID);
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    const saveEntry = this.props.handleChange.saveEntry;
+    saveEntry();
+  }
+
   render() {
     const { id, projectName, url, tech, details } = this.props.projectEntry;
     const handleChange = this.props.handleChange;
 
     return (
       <Box>
-        <Box id={id} component="form">
+        <Box id={id} component="form" onSubmit={this.handleSubmit}>
           <Box sx={{ mb: 4 }}>
             <GrayTextField
               type="text"
@@ -182,6 +194,7 @@ class EntryForm extends React.Component {
             ))}
             <AddDetails entryID={id} handleChange={handleChange} />
           </Stack>
+          <EntryNav handleChange={handleChange} />
         </Box>
       </Box>
     );
