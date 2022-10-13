@@ -6,14 +6,11 @@ import ExperienceForm from "./form_components/ExperienceForm";
 import ProjectsForm from "./form_components/ProjectsForm";
 
 import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
-import Divider from "@mui/material/Divider";
-import Button from "@mui/material/Button";
 
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { sectionNumber: 1 };
+    this.state = { section: 1 };
 
     this.prevSection = this.prevSection.bind(this);
     this.nextSection = this.nextSection.bind(this);
@@ -21,106 +18,39 @@ export default class Form extends React.Component {
 
   prevSection() {
     this.setState((state) => {
-      return { sectionNumber: state.sectionNumber - 1 };
+      return { section: state.section - 1 };
     });
   }
 
   nextSection() {
     this.setState((state) => {
-      return { sectionNumber: state.sectionNumber + 1 };
+      return { section: state.section + 1 };
     });
   }
 
   render() {
-    const sectionNumber = this.state.sectionNumber;
+    const section = this.state.section;
+    const sectionNav = {
+      section: this.state.section,
+      prevSection: this.prevSection,
+      nextSection: this.nextSection,
+    };
+
     const resume = this.props.resume;
     const entryMode = this.props.entryMode;
     const handleChange = this.props.handleChange;
 
-    let currentSection;
-    if (sectionNumber === 1) currentSection = <PersonalForm resume={resume} handleChange={handleChange} />;
-    else if (sectionNumber === 2) currentSection = <EducationForm resume={resume} entryMode={entryMode} handleChange={handleChange} />;
-    else if (sectionNumber === 3) currentSection = <SkillsForm resume={resume} handleChange={handleChange} />;
-    else if (sectionNumber === 4) currentSection = <ExperienceForm resume={resume} entryMode={entryMode} handleChange={handleChange} />;
-    else if (sectionNumber === 5) currentSection = <ProjectsForm resume={resume} entryMode={entryMode} handleChange={handleChange} />;
-
-    let formNav;
-    if (entryMode.entryMode) formNav = <EntryNav handleChange={handleChange} />;
-    else formNav = <FormNav sectionNumber={sectionNumber} prevSection={this.prevSection} nextSection={this.nextSection} />;
+    let display;
+    if (section === 1) display = <PersonalForm resume={resume} handleChange={handleChange} sectionNav={sectionNav} />;
+    else if (section === 2) display = <EducationForm resume={resume} entryMode={entryMode} handleChange={handleChange} sectionNav={sectionNav} />;
+    else if (section === 3) display = <SkillsForm resume={resume} handleChange={handleChange} sectionNav={sectionNav} />;
+    else if (section === 4) display = <ExperienceForm resume={resume} entryMode={entryMode} handleChange={handleChange} sectionNav={sectionNav} />;
+    else if (section === 5) display = <ProjectsForm resume={resume} entryMode={entryMode} handleChange={handleChange} sectionNav={sectionNav} />;
 
     return (
       <Grid item xs={10} lg={5} id="form" mr={5} p={2}>
-        {currentSection}
-        {formNav}
+        {display}
       </Grid>
-    );
-  }
-}
-
-class EntryNav extends React.Component {
-  render() {
-    const { saveEntry, cancelEntry } = this.props.handleChange;
-
-    return (
-      <Stack mt={5}>
-        <Divider className="form-divider" sx={{ mb: 4 }} />
-        <Stack direction="row">
-          <Button
-            variant="outlined"
-            className="nav-button"
-            onClick={() => {
-              cancelEntry();
-            }}>
-            Cancel
-          </Button>
-          <Button
-            variant="contained"
-            disableElevation
-            className="nav-button"
-            onClick={() => {
-              saveEntry();
-            }}
-            sx={{ ml: "auto" }}>
-            Save
-          </Button>
-        </Stack>
-      </Stack>
-    );
-  }
-}
-
-class FormNav extends React.Component {
-  render() {
-    const { sectionNumber, prevSection, nextSection } = this.props;
-
-    return (
-      <Stack mt={5}>
-        <Divider className="form-divider" sx={{ mb: 4 }} />
-        <Stack direction="row">
-          {sectionNumber > 1 && (
-            <Button
-              variant="outlined"
-              className="nav-button"
-              onClick={() => {
-                prevSection();
-              }}>
-              Back
-            </Button>
-          )}
-          {sectionNumber < 5 && (
-            <Button
-              variant="contained"
-              disableElevation
-              className="nav-button"
-              onClick={() => {
-                nextSection();
-              }}
-              sx={{ ml: "auto" }}>
-              Continue
-            </Button>
-          )}
-        </Stack>
-      </Stack>
     );
   }
 }
