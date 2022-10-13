@@ -48,6 +48,8 @@ export default class PersonalForm extends React.Component {
                 value={firstName}
                 onChange={this.handleChange}
                 inputProps={{ maxLength: 25 }}
+                required
+                InputLabelProps={{ required: false }}
               />
             </Grid>
             <Grid item xs={6}>
@@ -61,6 +63,8 @@ export default class PersonalForm extends React.Component {
                 value={lastName}
                 onChange={this.handleChange}
                 inputProps={{ maxLength: 25 }}
+                required
+                InputLabelProps={{ required: false }}
               />
             </Grid>
           </Grid>
@@ -75,6 +79,8 @@ export default class PersonalForm extends React.Component {
               value={phone}
               onChange={this.handleChange}
               inputProps={{ maxLength: 25 }}
+              required
+              InputLabelProps={{ required: false }}
             />
           </Box>
           <Box sx={{ mb: 4 }}>
@@ -88,6 +94,8 @@ export default class PersonalForm extends React.Component {
               value={email}
               onChange={this.handleChange}
               inputProps={{ maxLength: 50 }}
+              required
+              InputLabelProps={{ required: false }}
             />
           </Box>
           <Box sx={{ mb: 4 }}>
