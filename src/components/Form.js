@@ -48,7 +48,7 @@ export default class Form extends React.Component {
     else if (section === 5) display = <ProjectsForm resume={resume} entryMode={entryMode} handleChange={handleChange} sectionNav={sectionNav} />;
 
     return (
-      <Grid item xs={10} lg={5} id="form" mr={5} p={2}>
+      <Grid item sm={10} lg={5} id="form" mr={5} p={2}>
         {display}
       </Grid>
     );
