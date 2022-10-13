@@ -176,6 +176,8 @@ class EntryForm extends React.Component {
               value={company}
               onChange={this.handleChange}
               inputProps={{ maxLength: 50 }}
+              required
+              InputLabelProps={{ required: false }}
             />
           </Box>
           <Box sx={{ mb: 4 }}>
@@ -189,6 +191,8 @@ class EntryForm extends React.Component {
               value={title}
               onChange={this.handleChange}
               inputProps={{ maxLength: 50 }}
+              required
+              InputLabelProps={{ required: false }}
             />
           </Box>
           <Grid container direction="row" justifyContent="center" alignItems="center" spacing={3} sx={{ mb: 4 }}>
@@ -205,7 +209,9 @@ class EntryForm extends React.Component {
                 label="Start Year"
                 value={startYear}
                 onChange={this.handleChange}
-                inputProps={{ maxLength: 4 }}
+                inputProps={{ min: "1900", max: "2100" }}
+                required
+                InputLabelProps={{ required: false }}
               />
             </Grid>
           </Grid>
@@ -231,8 +237,10 @@ class EntryForm extends React.Component {
                 label="End Year"
                 value={endYear}
                 onChange={this.handleChange}
-                inputProps={{ maxLength: 4 }}
+                inputProps={{ min: "1900", max: "2100" }}
                 disabled={currentWork}
+                required={!currentWork}
+                InputLabelProps={{ required: false }}
               />
             </Grid>
           </Grid>
@@ -293,6 +301,8 @@ class DetailsForm extends React.Component {
             value={text}
             onChange={this.handleChange}
             inputProps={{ maxLength: 110 }}
+            required
+            InputLabelProps={{ required: false }}
           />
         </Box>
         <Button color="inherit" id={id} onClick={this.deleteDetails}>
