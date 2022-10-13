@@ -10,7 +10,7 @@ import Grid from "@mui/material/Grid";
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { section: 1 };
+    this.state = { section: 3 };
 
     this.prevSection = this.prevSection.bind(this);
     this.nextSection = this.nextSection.bind(this);

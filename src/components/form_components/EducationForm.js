@@ -177,6 +177,8 @@ class EntryForm extends React.Component {
               value={schoolName}
               onChange={this.handleChange}
               inputProps={{ maxLength: 40 }}
+              required
+              InputLabelProps={{ required: false }}
             />
           </Box>
           <Grid container direction="row" justifyContent="center" alignItems="center" spacing={3} sx={{ mb: 4 }}>
@@ -191,6 +193,8 @@ class EntryForm extends React.Component {
                 value={degree}
                 onChange={this.handleChange}
                 inputProps={{ maxLength: 25 }}
+                required
+                InputLabelProps={{ required: false }}
               />
             </Grid>
             <Grid item xs={6}>
@@ -204,6 +208,8 @@ class EntryForm extends React.Component {
                 value={major}
                 onChange={this.handleChange}
                 inputProps={{ maxLength: 25 }}
+                required
+                InputLabelProps={{ required: false }}
               />
             </Grid>
           </Grid>
@@ -222,6 +228,8 @@ class EntryForm extends React.Component {
                 value={startYear}
                 onChange={this.handleChange}
                 inputProps={{ maxLength: 4 }}
+                required
+                InputLabelProps={{ required: false }}
               />
             </Grid>
           </Grid>
@@ -249,6 +257,8 @@ class EntryForm extends React.Component {
                 onChange={this.handleChange}
                 inputProps={{ maxLength: 4 }}
                 disabled={currentSchool}
+                required={!currentSchool}
+                InputLabelProps={{ required: false }}
               />
             </Grid>
           </Grid>
