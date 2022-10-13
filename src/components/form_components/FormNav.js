@@ -6,13 +6,13 @@ import Button from "@mui/material/Button";
 
 export class SectionNav extends React.Component {
   render() {
-    const { sectionNumber, prevSection, nextSection } = this.props;
+    const { section, prevSection } = this.props;
 
     return (
       <Stack mt={5}>
         <Divider className="form-divider" sx={{ mb: 4 }} />
         <Stack direction="row">
-          {sectionNumber > 1 && (
+          {section > 1 && (
             <Button
               variant="outlined"
               className="nav-button"
@@ -22,15 +22,8 @@ export class SectionNav extends React.Component {
               Back
             </Button>
           )}
-          {sectionNumber < 5 && (
-            <Button
-              variant="contained"
-              disableElevation
-              className="nav-button"
-              onClick={() => {
-                nextSection();
-              }}
-              sx={{ ml: "auto" }}>
+          {section < 5 && (
+            <Button type="submit" variant="contained" disableElevation className="nav-button" sx={{ ml: "auto" }}>
               Continue
             </Button>
           )}

@@ -1,4 +1,5 @@
 import React from "react";
+import { SectionNav } from "./FormNav";
 
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -19,6 +20,7 @@ export default class PersonalForm extends React.Component {
 
   render() {
     const { firstName, lastName, phone, email, linkedin, github } = this.props.resume.personal;
+    const { section, prevSection, nextSection } = this.props.sectionNav;
 
     return (
       <Box>
@@ -26,7 +28,7 @@ export default class PersonalForm extends React.Component {
           Personal
         </Typography>
         <Divider className="form-divider" sx={{ mb: 5 }} />
-        <Box component="form">
+        <Box component="form" onSubmit={nextSection}>
           <Grid container direction="row" justifyContent="center" alignItems="center" spacing={3} sx={{ mb: 4 }}>
             <Grid item xs={6}>
               <GrayTextField
@@ -83,7 +85,7 @@ export default class PersonalForm extends React.Component {
           </Box>
           <Box sx={{ mb: 4 }}>
             <GrayTextField
-              type="url"
+              type="text"
               variant="outlined"
               size="small"
               fullWidth
@@ -96,7 +98,7 @@ export default class PersonalForm extends React.Component {
           </Box>
           <Box>
             <GrayTextField
-              type="url"
+              type="text"
               variant="outlined"
               size="small"
               fullWidth
@@ -107,6 +109,7 @@ export default class PersonalForm extends React.Component {
               inputProps={{ maxLength: 50 }}
             />
           </Box>
+          <SectionNav section={section} prevSection={prevSection} />
         </Box>
       </Box>
     );
