@@ -20,7 +20,8 @@ export default class PersonalForm extends React.Component {
 
   render() {
     const { firstName, lastName, phone, email, linkedin, github } = this.props.resume.personal;
-    const { section, prevSection, nextSection } = this.props.sectionNav;
+    const sectionNav = this.props.sectionNav;
+    const nextSection = sectionNav.nextSection;
 
     return (
       <Box>
@@ -109,7 +110,7 @@ export default class PersonalForm extends React.Component {
               inputProps={{ maxLength: 50 }}
             />
           </Box>
-          <SectionNavA section={section} prevSection={prevSection} />
+          <SectionNavA sectionNav={sectionNav} />
         </Box>
       </Box>
     );

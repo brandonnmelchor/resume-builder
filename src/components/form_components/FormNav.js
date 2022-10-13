@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 
 export class SectionNavA extends React.Component {
   render() {
-    const { section, prevSection } = this.props;
+    const { section, prevSection } = this.props.sectionNav;
 
     return (
       <Stack mt={5}>
@@ -35,7 +35,7 @@ export class SectionNavA extends React.Component {
 
 export class SectionNavB extends React.Component {
   render() {
-    const { section, prevSection, nextSection } = this.props;
+    const { section, prevSection, nextSection } = this.props.sectionNav;
 
     return (
       <Stack mt={5}>
