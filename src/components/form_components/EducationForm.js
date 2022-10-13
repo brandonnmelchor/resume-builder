@@ -1,4 +1,5 @@
 import React from "react";
+import { SectionNavB, EntryNav } from "./FormNav";
 
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -18,6 +19,7 @@ export default class EducationForm extends React.Component {
     const education = this.props.resume.education;
     const { entryMode, targetEntry } = this.props.entryMode;
     const handleChange = this.props.handleChange;
+    const sectionNav = this.props.sectionNav;
     let display;
 
     if (entryMode) {
@@ -25,12 +27,15 @@ export default class EducationForm extends React.Component {
       display = <EntryForm key={entry.id} educationEntry={entry} handleChange={handleChange} />;
     } else {
       display = (
-        <Stack spacing={4}>
-          {education.map((entry) => (
-            <EntryCard key={entry.id} educationEntry={entry} handleChange={handleChange} />
-          ))}
-          <AddEntry handleChange={handleChange} />
-        </Stack>
+        <Box>
+          <Stack spacing={4}>
+            {education.map((entry) => (
+              <EntryCard key={entry.id} educationEntry={entry} handleChange={handleChange} />
+            ))}
+            <AddEntry handleChange={handleChange} />
+          </Stack>
+          <SectionNavB sectionNav={sectionNav} />
+        </Box>
       );
     }
 
@@ -127,6 +132,7 @@ class EntryForm extends React.Component {
     this.state = { currentSchool: this.props.educationEntry.endMonth === "Present" ? true : false };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.setCurrentSchool = this.setCurrentSchool.bind(this);
   }
 
@@ -134,6 +140,12 @@ class EntryForm extends React.Component {
     const handleEntry = this.props.handleChange.handleEntry;
     const entryID = event.target.form.id;
     handleEntry(event, "education", entryID);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const saveEntry = this.props.handleChange.saveEntry;
+    saveEntry();
   }
 
   setCurrentSchool(event) {
@@ -153,7 +165,7 @@ class EntryForm extends React.Component {
 
     return (
       <Box>
-        <Box id={id} component="form">
+        <Box id={id} component="form" onSubmit={this.handleSubmit}>
           <Box sx={{ mb: 4 }}>
             <GrayTextField
               type="text"
@@ -246,6 +258,7 @@ class EntryForm extends React.Component {
               label="I currently study here"
             />
           </FormGroup>
+          <EntryNav handleChange={handleChange} />
         </Box>
       </Box>
     );

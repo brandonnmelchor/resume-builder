@@ -71,7 +71,7 @@ export class SectionNavB extends React.Component {
 
 export class EntryNav extends React.Component {
   render() {
-    const { saveEntry, cancelEntry } = this.props.handleChange;
+    const cancelEntry = this.props.handleChange.cancelEntry;
 
     return (
       <Stack mt={5}>
@@ -85,14 +85,7 @@ export class EntryNav extends React.Component {
             }}>
             Cancel
           </Button>
-          <Button
-            variant="contained"
-            disableElevation
-            className="nav-button"
-            onClick={() => {
-              saveEntry();
-            }}
-            sx={{ ml: "auto" }}>
+          <Button type="submit" variant="contained" disableElevation className="nav-button" sx={{ ml: "auto" }}>
             Save
           </Button>
         </Stack>
