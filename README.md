@@ -1,7 +1,7 @@
 # Resume Builder
 
-Tech: JavaScript, CSS/SASS, HTML, ReactJS, Material UI
+_JavaScript, CSS/SASS, HTML, ReactJS, Material UI_
 
-Live: https://brandonnmelchor.github.io/resume-builder/
+https://brandonnmelchor.github.io/resume-builder/
 
 ![](./src/assets/screenshot_101322.png)
