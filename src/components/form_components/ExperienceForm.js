@@ -1,4 +1,5 @@
 import React from "react";
+import { SectionNavB, EntryNav } from "./FormNav";
 
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -18,6 +19,7 @@ export default class ExperienceForm extends React.Component {
     const experience = this.props.resume.experience;
     const { entryMode, targetEntry } = this.props.entryMode;
     const handleChange = this.props.handleChange;
+    const sectionNav = this.props.sectionNav;
     let display;
 
     if (entryMode) {
@@ -25,12 +27,15 @@ export default class ExperienceForm extends React.Component {
       display = <EntryForm key={entry.id} experienceEntry={entry} handleChange={handleChange} />;
     } else {
       display = (
-        <Stack spacing={4}>
-          {experience.map((entry) => (
-            <EntryCard key={entry.id} experienceEntry={entry} handleChange={handleChange} />
-          ))}
-          <AddEntry handleChange={handleChange} />
-        </Stack>
+        <Box>
+          <Stack spacing={4}>
+            {experience.map((entry) => (
+              <EntryCard key={entry.id} experienceEntry={entry} handleChange={handleChange} />
+            ))}
+            <AddEntry handleChange={handleChange} />
+          </Stack>
+          <SectionNavB sectionNav={sectionNav} />
+        </Box>
       );
     }
 
@@ -126,6 +131,7 @@ class EntryForm extends React.Component {
     this.state = { currentWork: this.props.experienceEntry.endMonth === "Present" ? true : false };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.setCurrentWork = this.setCurrentWork.bind(this);
   }
 
@@ -133,6 +139,12 @@ class EntryForm extends React.Component {
     const handleEntry = this.props.handleChange.handleEntry;
     const entryID = event.target.form.id;
     handleEntry(event, "experience", entryID);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const saveEntry = this.props.handleChange.saveEntry;
+    saveEntry();
   }
 
   setCurrentWork(event) {
@@ -152,7 +164,7 @@ class EntryForm extends React.Component {
 
     return (
       <Box>
-        <Box id={id} component="form">
+        <Box id={id} component="form" onSubmit={this.handleSubmit}>
           <Box sx={{ mb: 4 }}>
             <GrayTextField
               type="text"
@@ -236,6 +248,7 @@ class EntryForm extends React.Component {
             ))}
             <AddDetails entryID={id} handleChange={handleChange} />
           </Stack>
+          <EntryNav handleChange={handleChange} />
         </Box>
       </Box>
     );
