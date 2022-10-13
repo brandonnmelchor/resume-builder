@@ -1,5 +1,5 @@
 import React from "react";
-import { SectionNav } from "./FormNav";
+import { SectionNavA } from "./FormNav";
 
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -109,7 +109,7 @@ export default class PersonalForm extends React.Component {
               inputProps={{ maxLength: 50 }}
             />
           </Box>
-          <SectionNav section={section} prevSection={prevSection} />
+          <SectionNavA section={section} prevSection={prevSection} />
         </Box>
       </Box>
     );
