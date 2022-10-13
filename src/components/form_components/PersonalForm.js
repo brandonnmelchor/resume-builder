@@ -11,6 +11,7 @@ export default class PersonalForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -18,10 +19,15 @@ export default class PersonalForm extends React.Component {
     handleInput(event, "personal");
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    const nextSection = this.props.sectionNav.nextSection;
+    nextSection();
+  }
+
   render() {
     const { firstName, lastName, phone, email, linkedin, github } = this.props.resume.personal;
     const sectionNav = this.props.sectionNav;
-    const nextSection = sectionNav.nextSection;
 
     return (
       <Box>
@@ -29,7 +35,7 @@ export default class PersonalForm extends React.Component {
           Personal
         </Typography>
         <Divider className="form-divider" sx={{ mb: 5 }} />
-        <Box component="form" onSubmit={nextSection}>
+        <Box component="form" onSubmit={this.handleSubmit}>
           <Grid container direction="row" justifyContent="center" alignItems="center" spacing={3} sx={{ mb: 4 }}>
             <Grid item xs={6}>
               <GrayTextField
