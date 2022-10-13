@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 
-export class SectionNav extends React.Component {
+export class SectionNavA extends React.Component {
   render() {
     const { section, prevSection } = this.props;
 
@@ -24,6 +24,42 @@ export class SectionNav extends React.Component {
           )}
           {section < 5 && (
             <Button type="submit" variant="contained" disableElevation className="nav-button" sx={{ ml: "auto" }}>
+              Continue
+            </Button>
+          )}
+        </Stack>
+      </Stack>
+    );
+  }
+}
+
+export class SectionNavB extends React.Component {
+  render() {
+    const { section, prevSection, nextSection } = this.props;
+
+    return (
+      <Stack mt={5}>
+        <Divider className="form-divider" sx={{ mb: 4 }} />
+        <Stack direction="row">
+          {section > 1 && (
+            <Button
+              variant="outlined"
+              className="nav-button"
+              onClick={() => {
+                prevSection();
+              }}>
+              Back
+            </Button>
+          )}
+          {section < 5 && (
+            <Button
+              variant="contained"
+              disableElevation
+              className="nav-button"
+              onClick={() => {
+                nextSection();
+              }}
+              sx={{ ml: "auto" }}>
               Continue
             </Button>
           )}
