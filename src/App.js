@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "./components/Nav";
 import Form from "./components/Form";
 import Resume from "./components/Resume";
@@ -12,203 +12,192 @@ import Typography from "@mui/material/Typography";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./styles/custom";
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      resume: demoResume(),
-      entryMode: newEntryMode(),
-      printRef: "",
-    };
+export default function App() {
+  const [resume, setResume] = useState(() => demoResume());
+  const [entryMode, setEntryMode] = useState(() => newEntryMode());
+  const [printRef, setPrintRef] = useState(() => null);
 
-    this.clearResume = this.clearResume.bind(this);
-    this.resetDemo = this.resetDemo.bind(this);
+  const clearResume = () => {
+    setResume(newResume());
+    setEntryMode(newEntryMode());
+  };
 
-    this.addEntry = this.addEntry.bind(this);
-    this.editEntry = this.editEntry.bind(this);
-    this.deleteEntry = this.deleteEntry.bind(this);
-    this.saveEntry = this.saveEntry.bind(this);
-    this.cancelEntry = this.cancelEntry.bind(this);
+  const resetDemo = () => {
+    setResume(demoResume());
+    setEntryMode(newEntryMode());
+  };
 
-    this.addDetails = this.addDetails.bind(this);
-    this.deleteDetails = this.deleteDetails.bind(this);
-
-    this.handleInput = this.handleInput.bind(this);
-    this.handleEntry = this.handleEntry.bind(this);
-    this.handleDetails = this.handleDetails.bind(this);
-
-    this.setPresentDate = this.setPresentDate.bind(this);
-    this.setPrintRef = this.setPrintRef.bind(this);
-  }
-
-  clearResume() {
-    this.setState({ resume: newResume(), entryMode: newEntryMode() });
-  }
-
-  resetDemo() {
-    this.setState({ resume: demoResume(), entryMode: newEntryMode() });
-  }
-
-  addEntry(sectionName) {
-    const { resume, entryMode } = this.state;
-    const section = resume[sectionName];
-    entryMode.prevSectionName = sectionName;
-    entryMode.prevSectionState = structuredClone(section);
+  const addEntry = (sectionName) => {
+    const updatedEntryMode = structuredClone(entryMode);
+    const section = structuredClone(resume[sectionName]);
+    updatedEntryMode.prevSectionName = sectionName;
+    updatedEntryMode.prevSectionState = section;
 
     if (sectionName === "education") section.push(educationEntry());
     else if (sectionName === "experience") section.push(experienceEntry());
     else if (sectionName === "projects") section.push(projectEntry());
 
-    const entry = section[section.length - 1].id;
-    entryMode.entryMode = true;
-    entryMode.targetEntry = entry;
+    const entryID = section[section.length - 1].id;
+    updatedEntryMode.entryMode = true;
+    updatedEntryMode.targetEntry = entryID;
 
-    this.setState({ resume: resume, entryMode: entryMode });
-  }
+    setResume((resume) => {
+      return { ...resume, [sectionName]: section };
+    });
 
-  editEntry(sectionName, entryID) {
-    const { resume, entryMode } = this.state;
-    const section = resume[sectionName];
+    setEntryMode(updatedEntryMode);
+  };
 
-    entryMode.prevSectionName = sectionName;
-    entryMode.prevSectionState = structuredClone(section);
-    entryMode.entryMode = true;
-    entryMode.targetEntry = entryID;
+  const editEntry = (sectionName, entryID) => {
+    const updatedEntryMode = structuredClone(entryMode);
+    const section = structuredClone(resume[sectionName]);
 
-    this.setState({ entryMode: entryMode });
-  }
+    updatedEntryMode.prevSectionName = sectionName;
+    updatedEntryMode.prevSectionState = section;
+    updatedEntryMode.entryMode = true;
+    updatedEntryMode.targetEntry = entryID;
 
-  deleteEntry(sectionName, entryID) {
-    const resume = this.state.resume;
-    const section = resume[sectionName].filter((entry) => entry.id !== entryID);
-    resume[sectionName] = section;
+    setEntryMode(updatedEntryMode);
+  };
 
-    this.setState({ resume: resume });
-  }
+  const deleteEntry = (sectionName, entryID) => {
+    const section = structuredClone(resume[sectionName]).filter((entry) => entry.id !== entryID);
 
-  saveEntry() {
-    this.setState({ entryMode: newEntryMode() });
-  }
+    setResume((resume) => {
+      return { ...resume, [sectionName]: section };
+    });
+  };
 
-  cancelEntry() {
-    const { resume, entryMode } = this.state;
+  const saveEntry = () => {
+    setEntryMode(newEntryMode());
+  };
+
+  const cancelEntry = () => {
     const { prevSectionName, prevSectionState } = entryMode;
-    resume[prevSectionName] = prevSectionState;
 
-    this.setState({ resume: resume, entryMode: newEntryMode() });
-  }
+    setResume((resume) => {
+      return { ...resume, [prevSectionName]: prevSectionState };
+    });
 
-  addDetails(sectionName, entryID) {
-    const resume = this.state.resume;
-    const section = resume[sectionName];
+    setEntryMode(newEntryMode());
+  };
+
+  const addDetails = (sectionName, entryID) => {
+    const section = structuredClone(resume[sectionName]);
     const entry = section.filter((entry) => entry.id === entryID)[0];
     entry.details.push(entryDetails());
 
-    this.setState({ resume: resume });
-  }
+    setResume((resume) => {
+      return { ...resume, [sectionName]: section };
+    });
+  };
 
-  deleteDetails(sectionName, entryID, detailsID) {
-    const resume = this.state.resume;
-    const section = resume[sectionName];
+  const deleteDetails = (sectionName, entryID, detailsID) => {
+    const section = structuredClone(resume[sectionName]);
     const entry = section.filter((entry) => entry.id === entryID)[0];
     const details = entry.details.filter((entry) => entry.id !== detailsID);
     entry.details = details;
 
-    this.setState({ resume: resume });
-  }
+    setResume((resume) => {
+      return { ...resume, [sectionName]: section };
+    });
+  };
 
-  handleInput(event, sectionName) {
+  const handleInput = (event, sectionName) => {
     const target = event.target;
     const name = target.id;
     const value = target.value;
 
-    const resume = this.state.resume;
-    resume[sectionName][name] = value;
+    setResume((resume) => {
+      return {
+        ...resume,
+        [sectionName]: {
+          ...resume[sectionName],
+          [name]: value,
+        },
+      };
+    });
+  };
 
-    this.setState({ resume: resume });
-  }
-
-  handleEntry(event, sectionName, entryID) {
+  const handleEntry = (event, sectionName, entryID) => {
     const target = event.target;
     const name = target.id;
     const value = target.value;
 
-    const resume = this.state.resume;
-    const section = resume[sectionName];
+    const section = structuredClone(resume[sectionName]);
     const entry = section.filter((entry) => entry.id === entryID)[0];
     entry[name] = value;
 
-    this.setState({ resume: resume });
-  }
+    setResume((resume) => {
+      return { ...resume, [sectionName]: section };
+    });
+  };
 
-  handleDetails(event, sectionName, entryID, detailsID) {
+  const handleDetails = (event, sectionName, entryID, detailsID) => {
     const target = event.target;
     const value = target.value;
 
-    const resume = this.state.resume;
-    const section = resume[sectionName];
+    const section = structuredClone(resume[sectionName]);
     const entry = section.filter((entry) => entry.id === entryID)[0];
     const detailsEntry = entry.details.filter((detailsEntry) => detailsEntry.id === detailsID)[0];
     detailsEntry.text = value;
 
-    this.setState({ resume: resume });
-  }
+    setResume((resume) => {
+      return { ...resume, [sectionName]: section };
+    });
+  };
 
-  setPresentDate(sectionName, entryID) {
-    const resume = this.state.resume;
-    const section = resume[sectionName];
+  const setPresentDate = (sectionName, entryID) => {
+    const section = structuredClone(resume[sectionName]);
     const entry = section.filter((entry) => entry.id === entryID)[0];
     entry.endMonth = "Present";
     entry.endYear = "";
 
-    this.setState({ resume: resume });
-  }
+    setResume((resume) => {
+      return { ...resume, [sectionName]: section };
+    });
+  };
 
-  setPrintRef(component) {
-    this.setState({ printRef: component });
-  }
+  const updatePrintRef = (component) => {
+    setPrintRef(component);
+  };
 
-  render() {
-    const resume = this.state.resume;
-    const entryMode = this.state.entryMode;
-    const printRef = this.state.printRef;
-    const handleChange = {
-      clearResume: this.clearResume,
-      resetDemo: this.resetDemo,
-      addEntry: this.addEntry,
-      editEntry: this.editEntry,
-      deleteEntry: this.deleteEntry,
-      saveEntry: this.saveEntry,
-      cancelEntry: this.cancelEntry,
-      addDetails: this.addDetails,
-      deleteDetails: this.deleteDetails,
-      handleInput: this.handleInput,
-      handleEntry: this.handleEntry,
-      handleDetails: this.handleDetails,
-      setPresentDate: this.setPresentDate,
-      setPrintRef: this.setPrintRef,
-    };
+  const handleChange = {
+    clearResume,
+    resetDemo,
+    addEntry,
+    editEntry,
+    deleteEntry,
+    saveEntry,
+    cancelEntry,
+    addDetails,
+    deleteDetails,
+    handleInput,
+    handleEntry,
+    handleDetails,
+    setPresentDate,
+    updatePrintRef,
+  };
 
-    return (
-      <Box>
-        <Box id="app">
-          <ThemeProvider theme={theme}>
-            <Nav resume={resume} printRef={printRef} handleChange={handleChange} />
-            <Container maxWidth="xl" fixed sx={{ marginTop: 7, marginBottom: 7 }}>
-              <Grid container direction="row" justifyContent="center" alignItems="flex-start">
-                <Form resume={resume} entryMode={entryMode} handleChange={handleChange} />
-                <Resume resume={resume} handleChange={handleChange} />
-              </Grid>
-            </Container>
-            <Footer />
-          </ThemeProvider>
-        </Box>
-        <Box id="small-screen" p={3}>
-          <Typography variant="h4" sx={{ fontWeight: 500 }} component="p">
-            The mobile view of this app isn't ready yet. Please view this app on a larger screen. Thank you!
-          </Typography>
-        </Box>
+  return (
+    <Box>
+      <Box id="app">
+        <ThemeProvider theme={theme}>
+          <Nav resume={resume} printRef={printRef} handleChange={handleChange} />
+          <Container maxWidth="xl" fixed sx={{ marginTop: 7, marginBottom: 7 }}>
+            <Grid container direction="row" justifyContent="center" alignItems="flex-start">
+              <Form resume={resume} entryMode={entryMode} handleChange={handleChange} />
+              <Resume resume={resume} handleChange={handleChange} />
+            </Grid>
+          </Container>
+          <Footer />
+        </ThemeProvider>
       </Box>
-    );
-  }
+      <Box id="small-screen" p={3}>
+        <Typography variant="h4" sx={{ fontWeight: 500 }} component="p">
+          The mobile view of this app isn't ready yet. Please view this app on a larger screen. Thank you!
+        </Typography>
+      </Box>
+    </Box>
+  );
 }
