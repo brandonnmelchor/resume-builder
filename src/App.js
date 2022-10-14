@@ -32,7 +32,7 @@ export default function App() {
       const updatedEntryMode = structuredClone(entryMode);
       const section = structuredClone(resume[sectionName]);
       updatedEntryMode.prevSectionName = sectionName;
-      updatedEntryMode.prevSectionState = section;
+      updatedEntryMode.prevSectionState = structuredClone(section);
 
       if (sectionName === "education") section.push(educationEntry());
       else if (sectionName === "experience") section.push(experienceEntry());
