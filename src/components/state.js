@@ -253,7 +253,7 @@ export const entryDetails = () => {
 
 export const newEntryMode = () => {
   return {
-    newEntryMode: false,
+    entryMode: false,
     targetEntry: "",
     prevSectionName: "",
     prevSectionState: {},
