@@ -24,7 +24,7 @@ export default function Nav(props) {
         <Container maxWidth="xl" fixed>
           <Toolbar sx={{ display: "flex", justifyContent: "space-between" }} disableGutters>
             <Button color="inherit" sx={{ textTransform: "none" }}>
-              <Box className="hide" sx={{ fontSize: 45, marginRight: 1 }}>
+              <Box sx={{ display: { xs: "none", md: "block" }, fontSize: 45, marginRight: 1 }}>
                 <i className="bi bi-file-code"></i>
               </Box>
               <Typography variant="h4" sx={{ fontWeight: 500 }} component="h1">
@@ -34,7 +34,7 @@ export default function Nav(props) {
             <Stack direction="row" justifyContent="center" alignItems="center">
               <Box className="shrink-margin" mr={2}>
                 <Button color="inherit" sx={{ fontSize: 18 }} onClick={clearResume}>
-                  <Box className="hide" sx={{ fontSize: 30, marginRight: 1 }}>
+                  <Box sx={{ display: { xs: "none", md: "block" }, fontSize: 30, marginRight: 1 }}>
                     <i className="bi bi-file-break"></i>
                   </Box>
                   Clear
@@ -42,7 +42,7 @@ export default function Nav(props) {
               </Box>
               <Box className="shrink-margin" mr={2}>
                 <Button color="inherit" sx={{ fontSize: 18 }} onClick={resetDemo}>
-                  <Box className="hide" sx={{ fontSize: 30, marginRight: 1 }}>
+                  <Box sx={{ display: { xs: "none", md: "block" }, fontSize: 30, marginRight: 1 }}>
                     <i className="bi bi-file-person"></i>
                   </Box>
                   Demo
@@ -50,7 +50,7 @@ export default function Nav(props) {
               </Box>
               <Box>
                 <Button color="inherit" sx={{ fontSize: 18 }} onClick={handlePrint}>
-                  <Box className="hide" sx={{ fontSize: 30, marginRight: 1 }}>
+                  <Box sx={{ display: { xs: "none", md: "block" }, fontSize: 30, marginRight: 1 }}>
                     <i className="bi bi-file-check"></i>
                   </Box>
                   Save
