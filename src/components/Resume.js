@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import PersonalResume from "./resume_components/PersonalResume";
 import EducationResume from "./resume_components/EducationResume";
 import SkillsResume from "./resume_components/SkillsResume";
@@ -11,14 +11,15 @@ import Paper from "@mui/material/Paper";
 
 export default function Resume(props) {
   const { personal, education, skills, experience, projects } = props.resume;
+  const printRef = useRef();
 
   useEffect(() => {
     const updatePrintRef = props.handleChange.updatePrintRef;
-    updatePrintRef(this);
+    updatePrintRef(printRef);
   }, []);
 
   return (
-    <Grid item sm={10} lg={6}>
+    <Grid ref={printRef} item sm={10} lg={6}>
       <Paper id="resume" variant="outlined">
         <PersonalResume personal={personal} />
         <EducationResume education={education} />
