@@ -33,46 +33,39 @@ const GrayTextField = styled(TextField)({
   },
 });
 
-class MonthSelect extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
+export function MonthSelect(props) {
+  const { id, label, value, disabled } = props;
 
-  handleChange(event) {
-    const { section, entry, id } = this.props;
+  const handleChange = (event) => {
+    const { section, entry, id } = props;
     const value = event.target.value;
-    const handleEntry = this.props.handleChange.handleEntry;
+    const handleEntry = props.handleChange.handleEntry;
     const customEvent = { target: { id, value } };
     handleEntry(customEvent, section, entry);
-  }
+  };
 
-  render() {
-    const { id, label, value, disabled } = this.props;
-
-    return (
-      <Box>
-        <FormControl size="small" fullWidth>
-          <InputLabel id={label}>{label}</InputLabel>
-          <Select labelId={label} id={id} value={value} label={label} onChange={this.handleChange} disabled={disabled}>
-            <MenuItem value="Present" sx={{ display: "none" }}></MenuItem>
-            <MenuItem value="Jan">January</MenuItem>
-            <MenuItem value="Feb">February</MenuItem>
-            <MenuItem value="Mar">March</MenuItem>
-            <MenuItem value="Apr">April</MenuItem>
-            <MenuItem value="May">May</MenuItem>
-            <MenuItem value="Jun">June</MenuItem>
-            <MenuItem value="Jul">July</MenuItem>
-            <MenuItem value="Aug">August</MenuItem>
-            <MenuItem value="Sep">September</MenuItem>
-            <MenuItem value="Oct">October</MenuItem>
-            <MenuItem value="Nov">November</MenuItem>
-            <MenuItem value="Dec">December</MenuItem>
-          </Select>
-        </FormControl>
-      </Box>
-    );
-  }
+  return (
+    <Box>
+      <FormControl size="small" fullWidth>
+        <InputLabel id={label}>{label}</InputLabel>
+        <Select labelId={label} id={id} value={value} label={label} onChange={handleChange} disabled={disabled}>
+          <MenuItem value="Present" sx={{ display: "none" }}></MenuItem>
+          <MenuItem value="Jan">January</MenuItem>
+          <MenuItem value="Feb">February</MenuItem>
+          <MenuItem value="Mar">March</MenuItem>
+          <MenuItem value="Apr">April</MenuItem>
+          <MenuItem value="May">May</MenuItem>
+          <MenuItem value="Jun">June</MenuItem>
+          <MenuItem value="Jul">July</MenuItem>
+          <MenuItem value="Aug">August</MenuItem>
+          <MenuItem value="Sep">September</MenuItem>
+          <MenuItem value="Oct">October</MenuItem>
+          <MenuItem value="Nov">November</MenuItem>
+          <MenuItem value="Dec">December</MenuItem>
+        </Select>
+      </FormControl>
+    </Box>
+  );
 }
 
-export { theme, GrayTextField, MonthSelect };
+export { theme, GrayTextField };
