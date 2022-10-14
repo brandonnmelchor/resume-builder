@@ -4,6 +4,7 @@ import Form from "./components/Form";
 import Resume from "./components/Resume";
 import Footer from "./components/Footer";
 import { newResume, demoResume, educationEntry, experienceEntry, projectEntry, entryDetails, newEntryMode } from "./components/state";
+import { useWindowSize } from "./components/customHooks";
 
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -16,6 +17,7 @@ export default function App() {
   const [resume, setResume] = useState(() => demoResume());
   const [entryMode, setEntryMode] = useState(() => newEntryMode());
   const [printRef, setPrintRef] = useState(() => null);
+  const windowSize = useWindowSize();
 
   const handleChange = {
     clearResume() {
@@ -166,23 +168,27 @@ export default function App() {
 
   return (
     <Box>
-      <Box id="app">
-        <ThemeProvider theme={theme}>
-          <Nav resume={resume} printRef={printRef} handleChange={handleChange} />
-          <Container maxWidth="xl" fixed sx={{ marginTop: 7, marginBottom: 7 }}>
-            <Grid container direction="row" justifyContent="center" alignItems="flex-start">
-              <Form resume={resume} entryMode={entryMode} handleChange={handleChange} />
-              <Resume resume={resume} handleChange={handleChange} />
-            </Grid>
-          </Container>
-          <Footer />
-        </ThemeProvider>
-      </Box>
-      <Box id="small-screen" p={3}>
-        <Typography variant="h4" sx={{ fontWeight: 500 }} component="p">
-          The mobile view of this app isn't ready yet. Please view this app on a larger screen. Thank you!
-        </Typography>
-      </Box>
+      {windowSize >= 600 && (
+        <Box id="app">
+          <ThemeProvider theme={theme}>
+            <Nav resume={resume} printRef={printRef} handleChange={handleChange} />
+            <Container maxWidth="xl" fixed sx={{ marginTop: 7, marginBottom: 7 }}>
+              <Grid container direction="row" justifyContent="center" alignItems="flex-start">
+                <Form resume={resume} entryMode={entryMode} handleChange={handleChange} />
+                <Resume resume={resume} handleChange={handleChange} />
+              </Grid>
+            </Container>
+            <Footer />
+          </ThemeProvider>
+        </Box>
+      )}
+      {windowSize < 600 && (
+        <Box id="small-screen" p={3}>
+          <Typography variant="h4" sx={{ fontWeight: 500 }} component="p">
+            The mobile view of this app isn't ready yet. Please view this app on a larger screen. Thank you!
+          </Typography>
+        </Box>
+      )}
     </Box>
   );
 }
