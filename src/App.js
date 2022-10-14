@@ -17,166 +17,151 @@ export default function App() {
   const [entryMode, setEntryMode] = useState(() => newEntryMode());
   const [printRef, setPrintRef] = useState(() => null);
 
-  const clearResume = () => {
-    setResume(newResume());
-    setEntryMode(newEntryMode());
-  };
-
-  const resetDemo = () => {
-    setResume(demoResume());
-    setEntryMode(newEntryMode());
-  };
-
-  const addEntry = (sectionName) => {
-    const updatedEntryMode = structuredClone(entryMode);
-    const section = structuredClone(resume[sectionName]);
-    updatedEntryMode.prevSectionName = sectionName;
-    updatedEntryMode.prevSectionState = section;
-
-    if (sectionName === "education") section.push(educationEntry());
-    else if (sectionName === "experience") section.push(experienceEntry());
-    else if (sectionName === "projects") section.push(projectEntry());
-
-    const entryID = section[section.length - 1].id;
-    updatedEntryMode.entryMode = true;
-    updatedEntryMode.targetEntry = entryID;
-
-    setResume((resume) => {
-      return { ...resume, [sectionName]: section };
-    });
-
-    setEntryMode(updatedEntryMode);
-  };
-
-  const editEntry = (sectionName, entryID) => {
-    const updatedEntryMode = structuredClone(entryMode);
-    const section = structuredClone(resume[sectionName]);
-
-    updatedEntryMode.prevSectionName = sectionName;
-    updatedEntryMode.prevSectionState = section;
-    updatedEntryMode.entryMode = true;
-    updatedEntryMode.targetEntry = entryID;
-
-    setEntryMode(updatedEntryMode);
-  };
-
-  const deleteEntry = (sectionName, entryID) => {
-    const section = structuredClone(resume[sectionName]).filter((entry) => entry.id !== entryID);
-
-    setResume((resume) => {
-      return { ...resume, [sectionName]: section };
-    });
-  };
-
-  const saveEntry = () => {
-    setEntryMode(newEntryMode());
-  };
-
-  const cancelEntry = () => {
-    const { prevSectionName, prevSectionState } = entryMode;
-
-    setResume((resume) => {
-      return { ...resume, [prevSectionName]: prevSectionState };
-    });
-
-    setEntryMode(newEntryMode());
-  };
-
-  const addDetails = (sectionName, entryID) => {
-    const section = structuredClone(resume[sectionName]);
-    const entry = section.filter((entry) => entry.id === entryID)[0];
-    entry.details.push(entryDetails());
-
-    setResume((resume) => {
-      return { ...resume, [sectionName]: section };
-    });
-  };
-
-  const deleteDetails = (sectionName, entryID, detailsID) => {
-    const section = structuredClone(resume[sectionName]);
-    const entry = section.filter((entry) => entry.id === entryID)[0];
-    const details = entry.details.filter((entry) => entry.id !== detailsID);
-    entry.details = details;
-
-    setResume((resume) => {
-      return { ...resume, [sectionName]: section };
-    });
-  };
-
-  const handleInput = (event, sectionName) => {
-    const target = event.target;
-    const name = target.id;
-    const value = target.value;
-
-    setResume((resume) => {
-      return {
-        ...resume,
-        [sectionName]: {
-          ...resume[sectionName],
-          [name]: value,
-        },
-      };
-    });
-  };
-
-  const handleEntry = (event, sectionName, entryID) => {
-    const target = event.target;
-    const name = target.id;
-    const value = target.value;
-
-    const section = structuredClone(resume[sectionName]);
-    const entry = section.filter((entry) => entry.id === entryID)[0];
-    entry[name] = value;
-
-    setResume((resume) => {
-      return { ...resume, [sectionName]: section };
-    });
-  };
-
-  const handleDetails = (event, sectionName, entryID, detailsID) => {
-    const target = event.target;
-    const value = target.value;
-
-    const section = structuredClone(resume[sectionName]);
-    const entry = section.filter((entry) => entry.id === entryID)[0];
-    const detailsEntry = entry.details.filter((detailsEntry) => detailsEntry.id === detailsID)[0];
-    detailsEntry.text = value;
-
-    setResume((resume) => {
-      return { ...resume, [sectionName]: section };
-    });
-  };
-
-  const setPresentDate = (sectionName, entryID) => {
-    const section = structuredClone(resume[sectionName]);
-    const entry = section.filter((entry) => entry.id === entryID)[0];
-    entry.endMonth = "Present";
-    entry.endYear = "";
-
-    setResume((resume) => {
-      return { ...resume, [sectionName]: section };
-    });
-  };
-
-  const updatePrintRef = (component) => {
-    setPrintRef(component);
-  };
-
   const handleChange = {
-    clearResume,
-    resetDemo,
-    addEntry,
-    editEntry,
-    deleteEntry,
-    saveEntry,
-    cancelEntry,
-    addDetails,
-    deleteDetails,
-    handleInput,
-    handleEntry,
-    handleDetails,
-    setPresentDate,
-    updatePrintRef,
+    clearResume() {
+      setResume(newResume());
+      setEntryMode(newEntryMode());
+    },
+
+    resetDemo() {
+      setResume(demoResume());
+      setEntryMode(newEntryMode());
+    },
+
+    addEntry(sectionName) {
+      const updatedEntryMode = structuredClone(entryMode);
+      const section = structuredClone(resume[sectionName]);
+      updatedEntryMode.prevSectionName = sectionName;
+      updatedEntryMode.prevSectionState = section;
+
+      if (sectionName === "education") section.push(educationEntry());
+      else if (sectionName === "experience") section.push(experienceEntry());
+      else if (sectionName === "projects") section.push(projectEntry());
+
+      const entryID = section[section.length - 1].id;
+      updatedEntryMode.entryMode = true;
+      updatedEntryMode.targetEntry = entryID;
+
+      setResume((resume) => {
+        return { ...resume, [sectionName]: section };
+      });
+
+      setEntryMode(updatedEntryMode);
+    },
+
+    editEntry(sectionName, entryID) {
+      const updatedEntryMode = structuredClone(entryMode);
+      const section = structuredClone(resume[sectionName]);
+
+      updatedEntryMode.prevSectionName = sectionName;
+      updatedEntryMode.prevSectionState = section;
+      updatedEntryMode.entryMode = true;
+      updatedEntryMode.targetEntry = entryID;
+
+      setEntryMode(updatedEntryMode);
+    },
+
+    deleteEntry(sectionName, entryID) {
+      const section = structuredClone(resume[sectionName]).filter((entry) => entry.id !== entryID);
+
+      setResume((resume) => {
+        return { ...resume, [sectionName]: section };
+      });
+    },
+
+    saveEntry() {
+      setEntryMode(newEntryMode());
+    },
+
+    cancelEntry() {
+      const { prevSectionName, prevSectionState } = entryMode;
+
+      setResume((resume) => {
+        return { ...resume, [prevSectionName]: prevSectionState };
+      });
+
+      setEntryMode(newEntryMode());
+    },
+
+    addDetails(sectionName, entryID) {
+      const section = structuredClone(resume[sectionName]);
+      const entry = section.filter((entry) => entry.id === entryID)[0];
+      entry.details.push(entryDetails());
+
+      setResume((resume) => {
+        return { ...resume, [sectionName]: section };
+      });
+    },
+
+    deleteDetails(sectionName, entryID, detailsID) {
+      const section = structuredClone(resume[sectionName]);
+      const entry = section.filter((entry) => entry.id === entryID)[0];
+      const details = entry.details.filter((entry) => entry.id !== detailsID);
+      entry.details = details;
+
+      setResume((resume) => {
+        return { ...resume, [sectionName]: section };
+      });
+    },
+
+    handleInput(event, sectionName) {
+      const target = event.target;
+      const name = target.id;
+      const value = target.value;
+
+      setResume((resume) => {
+        return {
+          ...resume,
+          [sectionName]: {
+            ...resume[sectionName],
+            [name]: value,
+          },
+        };
+      });
+    },
+
+    handleEntry(event, sectionName, entryID) {
+      const target = event.target;
+      const name = target.id;
+      const value = target.value;
+
+      const section = structuredClone(resume[sectionName]);
+      const entry = section.filter((entry) => entry.id === entryID)[0];
+      entry[name] = value;
+
+      setResume((resume) => {
+        return { ...resume, [sectionName]: section };
+      });
+    },
+
+    handleDetails(event, sectionName, entryID, detailsID) {
+      const target = event.target;
+      const value = target.value;
+
+      const section = structuredClone(resume[sectionName]);
+      const entry = section.filter((entry) => entry.id === entryID)[0];
+      const detailsEntry = entry.details.filter((detailsEntry) => detailsEntry.id === detailsID)[0];
+      detailsEntry.text = value;
+
+      setResume((resume) => {
+        return { ...resume, [sectionName]: section };
+      });
+    },
+
+    setPresentDate(sectionName, entryID) {
+      const section = structuredClone(resume[sectionName]);
+      const entry = section.filter((entry) => entry.id === entryID)[0];
+      entry.endMonth = "Present";
+      entry.endYear = "";
+
+      setResume((resume) => {
+        return { ...resume, [sectionName]: section };
+      });
+    },
+
+    updatePrintRef(component) {
+      setPrintRef(component);
+    },
   };
 
   return (
