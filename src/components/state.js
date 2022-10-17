@@ -152,7 +152,7 @@ export const demoResume = () => {
         details: [
           {
             id: uniqid(),
-            text: "Developed a resume builder app that enables users to create their own resumes and download them as a PDF",
+            text: "Developed a resume builder app that enables users to create their own resumes and save them as a PDF",
           },
           {
             id: uniqid(),
@@ -161,6 +161,10 @@ export const demoResume = () => {
           {
             id: uniqid(),
             text: "Lifted state and implemented inverse data flow to synchronize resume components that share the same data",
+          },
+          {
+            id: uniqid(),
+            text: "Implemented custom hooks to share common functionality between components and improve code readability",
           },
         ],
       },
