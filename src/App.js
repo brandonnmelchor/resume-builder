@@ -184,8 +184,9 @@ export default function App() {
       )}
       {windowSize < 600 && (
         <Box id="small-screen" p={3}>
-          <Typography variant="h4" sx={{ fontWeight: 500 }} component="p">
-            The mobile view of this app isn't ready yet. Please view this app on a larger screen. Thank you!
+          <Typography variant="h4" sx={{ fontSize: 14, fontWeight: 400 }} component="p">
+            The mobile view of CS Resume Builder is not ready yet.
+            {<br />}Please view this app on a larger screen. Thank you.
           </Typography>
         </Box>
       )}
