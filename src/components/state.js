@@ -66,7 +66,7 @@ export const demoResume = () => {
     skills: {
       languages: "JavaScript/NodeJS, CSS/SASS, HTML, Bash",
       frameworks: "ExpressJS, ReactJS, Material UI, Bootstrap",
-      technologies: "NextJS, Firebase, Google Cloud Platform, Webpack, Parcel, Git, Google Search",
+      technologies: "Firebase, Google Cloud Platform, Webpack, Parcel, Git, Google Search",
     },
     experience: [
       {
