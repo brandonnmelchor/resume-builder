@@ -64,11 +64,34 @@ export const demoResume = () => {
       },
     ],
     skills: {
-      languages: "JavaScript/NodeJS, CSS/SASS, HTML, Bash",
-      frameworks: "ExpressJS, ReactJS, Material UI, Bootstrap",
-      technologies: "Firebase, Google Cloud Platform, Webpack, Parcel, Git, Google Search",
+      languages: "JavaScript/NodeJS, CSS/SASS, HTML, MQL, Bash",
+      frameworks: "ExpressJS, Mongoose, ReactJS/NextJS, Material UI, Bootstrap",
+      technologies: "AWS, Heroku, Firebase, MongoDB, Google Cloud Platform, Webpack, Parcel, Git, Google Search",
     },
     experience: [
+      {
+        id: uniqid(),
+        company: "Real Items",
+        title: "Software Engineer Intern",
+        startMonth: "Oct",
+        startYear: "2022",
+        endMonth: "Present",
+        endYear: "",
+        details: [
+          {
+            id: uniqid(),
+            text: "Refactored web apps using ReactJS to improve responsiveness and user experience, increasing traffic by 10%",
+          },
+          {
+            id: uniqid(),
+            text: "Implemented and refactored REST APIs using Express and MongoDB to serve data to various web apps",
+          },
+          {
+            id: uniqid(),
+            text: "Identified and resolved bugs with code review, decreasing the number of customer reports by 10%",
+          },
+        ],
+      },
       {
         id: uniqid(),
         company: "Oracle",
@@ -146,13 +169,33 @@ export const demoResume = () => {
     projects: [
       {
         id: uniqid(),
-        projectName: "Resume Builder",
-        url: "https://brandonnmelchor.github.io/resume-builder/",
-        tech: "JavaScript, CSS/SASS, HTML, ReactJS, Material UI",
+        projectName: "Real Studio",
+        url: "https://brandonnmelchor.github.io/real-studio/",
+        tech: "ReactJS, Material UI, Express, MongoDB, Heroku",
         details: [
           {
             id: uniqid(),
-            text: "Developed a resume builder app that enables users to create their own resumes and save them as a PDF",
+            text: "Designed a full-stack app that enables users to mint songs on the Ethereum blockchain using Real Items API",
+          },
+          {
+            id: uniqid(),
+            text: "Implemented authentication using MetaMask to associate a unique ID to user accounts for login validation",
+          },
+          {
+            id: uniqid(),
+            text: "Developed backend functionality to handle requests, process data, and serve responses using REST APIs",
+          },
+        ],
+      },
+      {
+        id: uniqid(),
+        projectName: "Resume Builder",
+        url: "https://brandonnmelchor.github.io/resume-builder/",
+        tech: "ReactJS, Material UI",
+        details: [
+          {
+            id: uniqid(),
+            text: "Created a resume builder app that enables users to create their own resumes and save them as a PDF",
           },
           {
             id: uniqid(),
@@ -172,39 +215,15 @@ export const demoResume = () => {
         id: uniqid(),
         projectName: "Forecast",
         url: "https://brandonnmelchor.github.io/forecast/",
-        tech: "JavaScript, CSS/SASS, HTML, ReactJS, Bootstrap",
-        details: [
-          {
-            id: uniqid(),
-            text: "Developed a responsive weather app using data from OpenWeather API to provide users a live forecast",
-          },
-          {
-            id: uniqid(),
-            text: "Leveraged geolocation and location search data from Google Places/Maps API to ensure forecast accuracy",
-          },
-          {
-            id: uniqid(),
-            text: "Implemented functions to continuously update page elements based on location and weather data",
-          },
-        ],
-      },
-      {
-        id: uniqid(),
-        projectName: "Read Me",
-        url: "https://brandonnmelchor.github.io/read-me/",
         tech: "JavaScript, CSS/SASS, HTML, Bootstrap",
         details: [
           {
             id: uniqid(),
-            text: "Designed a responsive library app that enables users to track their reading list and update their progress",
+            text: "Developed a weather app using data from OpenWeather API to provide users a live forecast",
           },
           {
             id: uniqid(),
-            text: "Leveraged Web Storage API to store user data and create a seamless experience between each visit",
-          },
-          {
-            id: uniqid(),
-            text: "Utilized functions to dynamically create cards for each book, adding event listeners and attributes",
+            text: "Leveraged geolocation and location search data from Google Places/Maps API to ensure forecast accuracy",
           },
         ],
       },
