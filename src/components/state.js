@@ -146,25 +146,6 @@ export const demoResume = () => {
           },
         ],
       },
-      {
-        id: uniqid(),
-        company: "DHR Health",
-        title: "Clinical Solutions Specialist",
-        startMonth: "Sep",
-        startYear: "2018",
-        endMonth: "May",
-        endYear: "2021",
-        details: [
-          {
-            id: uniqid(),
-            text: "Automated clinical processes for 90% of all inpatient and ambulatory clinic locations using Cerner native tools",
-          },
-          {
-            id: uniqid(),
-            text: "Coordinated the implementation of Covid-19 protocols, optimizing treatment times for 95% of all incoming patients",
-          },
-        ],
-      },
     ],
     projects: [
       {
